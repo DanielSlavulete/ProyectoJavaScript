@@ -4,6 +4,7 @@ class Mando extends Periferico{
         this.inalambrico = inalambrico;
         this.analogico = analogico;
         this.vibracion = vibracion;
+        this.bateriaHoras = bateriaHoras
         this.recargable = recargable;
         this.compatibilidad = compatibilidad;
         }

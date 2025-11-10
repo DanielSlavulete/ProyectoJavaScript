@@ -6,7 +6,7 @@ class Teclado extends Periferico{
         this.idioma = idioma;
         this.tamano = tamano;
         this.inalambrico = inalambrico;
-        this.rgb = rbg;
+        this.rgb = rgb;
         this.reposamunecas = reposamunecas;
         }
     }
