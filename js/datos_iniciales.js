@@ -20,7 +20,7 @@ export const productos = [
     // PROCESADORES
     new Producto(
         1,
-        "AMD Ryzen 7 7800X3D",
+        "Procesador AMD Ryzen 7 7800X3D",
         "Procesador de alto rendimiento para gaming con tecnología 3D V-Cache.",
         "ryzen7800x3d.jpg",
         439.99,
@@ -29,7 +29,7 @@ export const productos = [
     ),
     new Producto(
         2,
-        "Intel Core i7-13700K",
+        "Procesador Intel Core i7-13700K",
         "Potente CPU híbrida para tareas exigentes y juegos de última generación.",
         "i7_13700k.jpg",
         419.99,
@@ -38,7 +38,7 @@ export const productos = [
     ),
     new Producto(
         3,
-        "AMD Ryzen 5 5600",
+        "Procesador AMD Ryzen 5 5600",
         "Procesador de 6 núcleos ideal para gaming y productividad diaria.",
         "ryzen5600.jpg",
         179.99,
@@ -49,7 +49,7 @@ export const productos = [
     // TARJETAS GRÁFICAS
     new Producto(
         4,
-        "NVIDIA GeForce RTX 4070 Ti",
+        "Tarjeta Gráfica ASUS ROG Strix GeForce RTX 4070 Ti OC 12GB GDDR6X DLSS3 ",
         "Tarjeta gráfica de última generación con DLSS 3 y trazado de rayos.",
         "rtx4070ti.jpg",
         829.99,
@@ -58,7 +58,7 @@ export const productos = [
     ),
     new Producto(
         5,
-        "AMD Radeon RX 7900 XT",
+        "Tarjeta Gráfica Sapphire Pulse AMD Radeon RX 7900 XT 20GB GDDR6",
         "GPU de alto rendimiento para resoluciones 4K y tareas de IA.",
         "rx7900xt.jpg",
         899.99,
@@ -67,7 +67,7 @@ export const productos = [
     ),
     new Producto(
         6,
-        "NVIDIA GeForce RTX 4060",
+        "Tarjeta Gráfica ASUS TUF Gaming GeForce RTX 4060 Ti OC Edition 8GB GDDR6 DLSS3",
         "Tarjeta gráfica eficiente y moderna ideal para 1080p y 1440p.",
         "rtx4060.jpg",
         349.99,
@@ -78,7 +78,7 @@ export const productos = [
     // PLACAS BASE
     new Producto(
         7,
-        "ASUS ROG STRIX B650E-F",
+        "Placa Base ASUS ROG STRIX B650E-F",
         "Placa base para procesadores AMD Ryzen 7000 con soporte PCIe 5.0.",
         "asus_b650e_f.jpg",
         259.99,
@@ -87,7 +87,7 @@ export const productos = [
     ),
     new Producto(
         8,
-        "MSI MAG Z790 TOMAHAWK WIFI",
+        "Placa Base MSI MAG Z790 TOMAHAWK MAX WIFI",
         "Placa base Intel con soporte DDR5 y conectividad avanzada.",
         "msi_z790_tomahawk.jpg",
         299.99,
@@ -96,7 +96,7 @@ export const productos = [
     ),
     new Producto(
         9,
-        "Gigabyte B550 AORUS ELITE V2",
+        "Placa Base Gigabyte B550 AORUS ELITE V2",
         "Excelente placa base para equipos AMD de gama media.",
         "b550_aorus_elite.jpg",
         139.99,
@@ -107,7 +107,7 @@ export const productos = [
     // MEMORIAS RAM
     new Producto(
         10,
-        "Corsair Vengeance RGB 32GB DDR5",
+        "Memoria RAM Corsair Vengeance RGB 32GB 2x16GB DDR5 6000MHz CL36",
         "Memoria RAM de alto rendimiento con iluminación RGB.",
         "corsair_ddr5.jpg",
         169.99,
@@ -116,7 +116,7 @@ export const productos = [
     ),
     new Producto(
         11,
-        "Kingston Fury Beast 16GB DDR4",
+        "Memoria RAM Kingston FURY Beast RGB DDR4 3200MHz 16GB 2x8GB CL16",
         "RAM confiable y rápida para equipos de gama media.",
         "kingston_fury.jpg",
         54.99,
@@ -125,7 +125,7 @@ export const productos = [
     ),
     new Producto(
         12,
-        "G.Skill Trident Z5 RGB 64GB DDR5",
+        "Memoria RAM G.Skill Trident Z5 RGB 64GB DDR5",
         "Kit de RAM de alto rendimiento ideal para creadores y jugadores exigentes.",
         "trident_z5.jpg",
         319.99,
@@ -136,7 +136,7 @@ export const productos = [
     // DISCOS DUROS / SSD
     new Producto(
         13,
-        "Samsung 990 PRO 1TB NVMe",
+        "Disco Duro Samsung 990 PRO 1TB NVMe",
         "SSD ultrarrápido para gaming y productividad extrema.",
         "samsung_990pro.jpg",
         149.99,
@@ -145,7 +145,7 @@ export const productos = [
     ),
     new Producto(
         14,
-        "Crucial MX500 1TB",
+        "Disco Duro Crucial MX500 1TB",
         "SSD SATA confiable y de gran capacidad.",
         "crucial_mx500.jpg",
         69.99,
@@ -154,7 +154,7 @@ export const productos = [
     ),
     new Producto(
         15,
-        "Seagate Barracuda 2TB",
+        "Disco Duro Seagate Barracuda 2TB",
         "Disco duro mecánico de alto rendimiento para almacenamiento masivo.",
         "seagate_barracuda.jpg",
         59.99,
@@ -165,7 +165,7 @@ export const productos = [
     // ⌨TECLADOS
     new Producto(
         16,
-        "Logitech G915 TKL",
+        "Teclado Logitech G915 TKL",
         "Teclado mecánico inalámbrico con switches de perfil bajo.",
         "logitech_g915.jpg",
         219.99,
@@ -174,7 +174,7 @@ export const productos = [
     ),
     new Producto(
         17,
-        "Corsair K70 RGB MK.2",
+        "Teclado Corsair K70 RGB MK.2",
         "Teclado mecánico profesional con switches Cherry MX Red.",
         "corsair_k70.jpg",
         149.99,
@@ -183,7 +183,7 @@ export const productos = [
     ),
     new Producto(
         18,
-        "Razer Cynosa V2",
+        "Teclado Razer Cynosa V2",
         "Teclado gaming de membrana con iluminación personalizable.",
         "razer_cynosa_v2.jpg",
         69.99,
@@ -194,7 +194,7 @@ export const productos = [
     // RATONES
     new Producto(
         19,
-        "Logitech G502 HERO",
+        "Ratón Logitech G502 HERO",
         "Ratón ergonómico con sensor HERO 25K y 11 botones programables.",
         "logitech_g502.jpg",
         69.99,
@@ -203,7 +203,7 @@ export const productos = [
     ),
     new Producto(
         20,
-        "Razer DeathAdder V3 Pro",
+        "Ratón Razer DeathAdder V3 Pro",
         "Ratón inalámbrico ultraligero para eSports.",
         "razer_deathadder_v3pro.jpg",
         159.99,
@@ -212,7 +212,7 @@ export const productos = [
     ),
     new Producto(
         21,
-        "SteelSeries Rival 5",
+        "Ratón SteelSeries Rival 5",
         "Ratón versátil con 9 botones y sensor TrueMove Air.",
         "steelseries_rival5.jpg",
         69.99,
@@ -223,7 +223,7 @@ export const productos = [
     // AURICULARES
     new Producto(
         22,
-        "HyperX Cloud II",
+        "Auriculares HyperX Cloud II",
         "Auriculares con sonido envolvente 7.1 y gran comodidad.",
         "hyperx_cloud2.jpg",
         99.99,
@@ -232,7 +232,7 @@ export const productos = [
     ),
     new Producto(
         23,
-        "Razer BlackShark V2 Pro",
+        "Auriculares Razer BlackShark V2 Pro",
         "Auriculares inalámbricos con sonido THX y micrófono extraíble.",
         "razer_blackshark_v2pro.jpg",
         199.99,
@@ -241,7 +241,7 @@ export const productos = [
     ),
     new Producto(
         24,
-        "Logitech G435 Lightspeed",
+        "Auriculares Logitech G435 Lightspeed",
         "Auriculares ligeros y sostenibles con conectividad dual.",
         "logitech_g435.jpg",
         79.99,
