@@ -4,9 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/estilos.css" />
+  <script type="module" src="../js/main.js" defer></script>
 </head>
 <body>
     <!--Página principal o portada de la tienda. Puede mostrar una presentación general,
      banners o productos destacados. Carga el menú común y enlaza al resto de páginas.-->
+     <!-- 🔹 Encabezado principal -->
+  <header class="header">
+    <div class="logo">
+      <img src="../img/logo.png" alt="Logo Tienda" />
+      <h1>Tienda de Componentes</h1>
+    </div>
+
+    <!-- 🔹 Barra de búsqueda -->
+    <div class="buscador">
+      <input type="text" id="input-busqueda" placeholder="Buscar productos..." />
+      <button id="btn-buscar">🔍</button>
+    </div>
+
+    <!-- 🔹 Enlaces de usuario -->
+    <div class="usuario">
+      <a href="./login.html">Iniciar sesión</a> |
+      <a href="./registro.html">Registrarse</a> |
+      <a href="./carrito.html" id="carrito-link">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
+    </div>
+  </header>
+
+  <!-- 🔹 Menú de navegación (Web Component o HTML normal) -->
+  <nav id="menu-principal"></nav>
+
+  <!-- 🔹 Banner principal -->
+  <section class="banner">
+    <img src="../img/banner-ofertas.jpg" alt="Ofertas de la semana" />
+  </section>
+
+  <!-- 🔹 Sección de productos destacados -->
+  <main class="contenedor">
+    <h2>Productos destacados</h2>
+    <div id="contenedor-productos" class="grid-productos">
+      <!-- Aquí se insertan dinámicamente los productos desde main.js -->
+    </div>
+  </main>
+
+  <!-- 🔹 Ofertas o secciones adicionales -->
+  <section class="ofertas">
+    <h2>Ofertas del día 💥</h2>
+    <div class="ofertas-grid">
+      <!-- Puedes cargar productos con descuento, banners, etc. -->
+    </div>
+  </section>
+
+  <!-- 🔹 Footer -->
+  <footer class="footer">
+    <div class="info-footer">
+      <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
+      <a href="./contacto.html">Contacto</a> |
+      <a href="./acerca.html">Sobre nosotros</a>
+    </div>
+  </footer>
 </body>
 </html>
