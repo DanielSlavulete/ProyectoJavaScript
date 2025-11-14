@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const contenedor = document.getElementById("contenedor-productos");
   productos.forEach(p => {
     const card = document.createElement("div");
+    card.classList.add("producto-card");
     card.innerHTML = `
       <img src="../img/${p.imagen}" alt="${p.nombre}" class="producto-img">
       <strong>${p.nombre}</strong><br>
