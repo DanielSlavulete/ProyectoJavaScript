@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     
-    <div>
+    <div class="divJefe">
         <div class="contenedorImagen"><img src="" alt=""/></div>
         <h1>INICIAR SESION</h1>
-        <div class="divFormulario">
-            <form action="">
+        <div class="">
+            <form action="" class="divFormulario">
                 <input type="text" id="correoInciarSesion" placeholder="Correo Electronico" required> <br>
                 <input type="password" id="contrasenaIniciarSesion" placeholder="Contraseña" required><br>
                 <a href="./recuperarContrasena.html">¿Has olvidado tu contraseña?</a><br>
                 <button onclick="iniciarSesion()" id="botonIniciarSesion">INICIAR SESION</button><br>
-                <p>---------------------------------------------------------------------</p><br>
                 <button onclick="registrarse()" id="botonRegistrarse">REGISTRARSE</button>
             </form>
         </div>

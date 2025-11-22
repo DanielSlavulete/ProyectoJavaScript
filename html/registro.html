@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="../css/registro.css">
 </head>
 <body>
     
-    <div>
+    <div class="divJefe">
         <div class="contenedorImagen"><img src="" alt=""></div>
         <h1>CREAR CUENTA</h1>
-        <div class="divFormulario">
-            <form action="">
+        <div class="">
+            <form action="" class="divFormulario">
                 <input type="text" id="nombreCrearCuenta" placeholder="Nombre" required><br>
                 <input type="text" id="correoCrearCuenta" placeholder="Correo Electronico" required><br>
                 <input type="password" id="contrasenaCrearCuenta" placeholder="Contraseña" required><br>
                 <input type="password" id="repetirContrasena" placeholder="Repetir contraseña" required><br>
+                <div id="radio">
                 <input type="radio" id="radioAceptarPolitica">He leido y acepto la politica de privacidad<br>
+                </div>    
                 <button onclick="crearCuenta()">CREAR CUENTA</button><br>
             </form>
         </div>
