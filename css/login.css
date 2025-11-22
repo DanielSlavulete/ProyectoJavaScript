@@ -27,7 +27,7 @@ input {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 input.ng-invalid.ng-touched {
@@ -44,7 +44,7 @@ button {
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 button:disabled {
@@ -59,4 +59,8 @@ button:disabled {
 
 a {
     margin-bottom: 1rem;
+}
+#mensajeLogin, #mensajeRegistro {
+    margin-top: 10px;
+    font-size: 0.9rem;
 }

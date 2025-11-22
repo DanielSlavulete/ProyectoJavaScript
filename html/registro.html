@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="../css/registro.css">
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    
+<body data-solo-invitados="true"> 
     <div class="divJefe">
         <div class="contenedorImagen"><img src="" alt=""></div>
         <h1>CREAR CUENTA</h1>
         <div class="">
-            <form action="" class="divFormulario">
+            <form action="" id="formRegistro" class="divFormulario" novalidate>
                 <input type="text" id="nombreCrearCuenta" placeholder="Nombre" required><br>
                 <input type="text" id="correoCrearCuenta" placeholder="Correo Electronico" required><br>
                 <input type="password" id="contrasenaCrearCuenta" placeholder="Contraseña" required><br>
@@ -20,11 +21,12 @@
                 <div id="radio">
                 <input type="radio" id="radioAceptarPolitica">He leido y acepto la politica de privacidad<br>
                 </div>    
-                <button onclick="crearCuenta()">CREAR CUENTA</button><br>
+                <button type="submit" id="botonCrearCuenta">CREAR CUENTA</button><br>
+                <p id="mensajeRegistro"></p>
             </form>
         </div>
-        
     </div>
-
+    <script src="../js/registro.js" defer></script>
+    <script src="../js/auth.js"defer></script>
 </body>
 </html>

@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title>Recuperar Contraseña</title>
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <div>
-        <div class="contenedorImagen"><img src="" alt="IMAGEN"></div>
-        <h1>RECUPERAR CONTRASEÑA</h1>
-        <div class="divFormulario">
-            <form action="">
-                <input type="text" id="correoRecuperarContrasena" placeholder="Correo Electronico" required><br>
-                <button onclick="recuperarContrasena()" id="botonRecuperarContrasena">Recuperar contraseña</button><br>
-                <a onclick="recuperarContrasena()" >volver a enviar el correo</a>
+    <div class="divJefe">
+        <div class="contenedorImagen">
+            <img src="" alt="" />
+        </div>
+            <h1>RECUPERAR CONTRASEÑA</h1>
+        <div>
+            <form id="formRecuperar" class="divFormulario" novalidate>
+                <input type="text" id="correoRecuperarContrasena" placeholder="Correo electrónico"/><br />
+                <button type="submit" id="botonRecuperarContrasena">
+                    ENVIAR ENLACE
+                </button><br />
+                <a href="#" id="reenviarCorreo">Volver a enviar el correo</a>
+                <p id="mensajeRecuperar"></p>
             </form>
         </div>
-        
     </div>
-
+    <script src="../js/recuperar.js" defer></script>
 </body>
 </html>
