@@ -1,7 +1,4 @@
 import { productos, clientes } from "./datos_iniciales.js";
-import { Producto } from "./producto.js";
-import { Cliente } from "./cliente.js";
-
 
 //esto es solo una prueba
 window.addEventListener("DOMContentLoaded", () => {
