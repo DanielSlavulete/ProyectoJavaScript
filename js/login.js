@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Redirigir después de 1 segundo
         setTimeout(() => {
             window.location.href = "./index.html";
-        }, 1000);
+        }, 500);
     });
 
     // Botón "Registrarse" que lleva a la página de registro
