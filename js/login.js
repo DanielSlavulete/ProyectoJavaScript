@@ -1,3 +1,5 @@
+import { setCookie } from "./cookies.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const formLogin = document.getElementById("formLogin");
     const inputEmail = document.getElementById("correoIniciarSesion");
@@ -41,7 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // 🟢 Guardamos el usuario logueado en sessionStorage
         sessionStorage.setItem("usuarioLogueado", JSON.stringify(usuario));
 
-        // Aquí comprobamos el usuario en localStorage.
+        // Aquí guardamos una cookie con el último usuario.
+        setCookie("ultimoUsuario", usuario.nombre, 7);
+
+
         // Mostramos que es correcto.
         mostrarOk("Inicio de sesión correcto ✅");
         // Redirigir después de 1 segundo
@@ -52,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Botón "Registrarse" que lleva a la página de registro
     botonRegistrarse.addEventListener("click", () => {
-        window.location.href = "./registro.html";
+        window.location.href = "../html/registro.html";
     });
 
     function mostrarError(texto) {

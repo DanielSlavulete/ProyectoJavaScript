@@ -25,7 +25,8 @@ export const productos = [
         "ryzen7800x3d.jpg",
         439.99,
         "Procesador",
-        { nucleos: 8, hilos: 16, frecuencia_base: "4.2 GHz", frecuencia_turbo: "5.0 GHz", cache: "96 MB", socket: "AM5", tdp: "120W" }
+        { nucleos: 8, hilos: 16, frecuencia_base: "4.2 GHz", frecuencia_turbo: "5.0 GHz", cache: "96 MB", socket: "AM5", tdp: "120W" },
+        0
     ),
     new Producto(
         2,
@@ -34,7 +35,8 @@ export const productos = [
         "i7_13700k.jpg",
         419.99,
         "Procesador",
-        { nucleos: 16, hilos: 24, frecuencia_base: "3.4 GHz", frecuencia_turbo: "5.4 GHz", cache: "30 MB", socket: "LGA1700", tdp: "125W" }
+        { nucleos: 16, hilos: 24, frecuencia_base: "3.4 GHz", frecuencia_turbo: "5.4 GHz", cache: "30 MB", socket: "LGA1700", tdp: "125W" },
+        15
     ),
     new Producto(
         3,
@@ -43,7 +45,8 @@ export const productos = [
         "ryzen5600.jpg",
         179.99,
         "Procesador",
-        { nucleos: 6, hilos: 12, frecuencia_base: "3.5 GHz", frecuencia_turbo: "4.4 GHz", cache: "35 MB", socket: "AM4", tdp: "65W" }
+        { nucleos: 6, hilos: 12, frecuencia_base: "3.5 GHz", frecuencia_turbo: "4.4 GHz", cache: "35 MB", socket: "AM4", tdp: "65W" },
+        0
     ),
 
     // TARJETAS GRÁFICAS
@@ -54,7 +57,8 @@ export const productos = [
         "rtx4070ti.jpg",
         829.99,
         "Gráfica",
-        { vram: "12 GB GDDR6X", bus: "192-bit", frecuencia: "2.6 GHz", conectores: "1x HDMI, 3x DisplayPort", consumo: "285W" }
+        { vram: "12 GB GDDR6X", bus: "192-bit", frecuencia: "2.6 GHz", conectores: "1x HDMI, 3x DisplayPort", consumo: "285W" },
+        0
     ),
     new Producto(
         5,
@@ -63,7 +67,8 @@ export const productos = [
         "rx7900xt.jpg",
         899.99,
         "Gráfica",
-        { vram: "20 GB GDDR6", bus: "320-bit", frecuencia: "2.5 GHz", conectores: "2x HDMI, 2x DisplayPort", consumo: "300W" }
+        { vram: "20 GB GDDR6", bus: "320-bit", frecuencia: "2.5 GHz", conectores: "2x HDMI, 2x DisplayPort", consumo: "300W" },
+        5
     ),
     new Producto(
         6,
@@ -72,7 +77,8 @@ export const productos = [
         "rtx4060.jpg",
         349.99,
         "Gráfica",
-        { vram: "8 GB GDDR6", bus: "128-bit", frecuencia: "2.5 GHz", conectores: "1x HDMI, 3x DisplayPort", consumo: "160W" }
+        { vram: "8 GB GDDR6", bus: "128-bit", frecuencia: "2.5 GHz", conectores: "1x HDMI, 3x DisplayPort", consumo: "160W" },
+        20
     ),
 
     // PLACAS BASE
@@ -83,7 +89,8 @@ export const productos = [
         "asus_b650e_f.jpg",
         259.99,
         "Placa Base",
-        { socket: "AM5", chipset: "B650E", memoria: "DDR5 hasta 128 GB", puertos: "PCIe 5.0, USB-C, WiFi 6E", formato: "ATX" }
+        { socket: "AM5", chipset: "B650E", memoria: "DDR5 hasta 128 GB", puertos: "PCIe 5.0, USB-C, WiFi 6E", formato: "ATX" },
+        45
     ),
     new Producto(
         8,
@@ -92,7 +99,8 @@ export const productos = [
         "msi_z790_tomahawk.jpg",
         299.99,
         "Placa Base",
-        { socket: "LGA1700", chipset: "Z790", memoria: "DDR5 hasta 192 GB", puertos: "PCIe 5.0, 2.5G LAN, WiFi 6E", formato: "ATX" }
+        { socket: "LGA1700", chipset: "Z790", memoria: "DDR5 hasta 192 GB", puertos: "PCIe 5.0, 2.5G LAN, WiFi 6E", formato: "ATX" },
+        0
     ),
     new Producto(
         9,
@@ -101,7 +109,8 @@ export const productos = [
         "b550_aorus_elite.jpg",
         139.99,
         "Placa Base",
-        { socket: "AM4", chipset: "B550", memoria: "DDR4 hasta 128 GB", puertos: "PCIe 4.0, M.2, HDMI", formato: "ATX" }
+        { socket: "AM4", chipset: "B550", memoria: "DDR4 hasta 128 GB", puertos: "PCIe 4.0, M.2, HDMI", formato: "ATX" },
+        0
     ),
 
     // MEMORIAS RAM
@@ -112,7 +121,8 @@ export const productos = [
         "corsair_ddr5.jpg",
         169.99,
         "Memoria RAM",
-        { capacidad: "32 GB (2x16GB)", velocidad: "6000 MHz", tipo: "DDR5", latencia: "CL36", voltaje: "1.35V" }
+        { capacidad: "32 GB (2x16GB)", velocidad: "6000 MHz", tipo: "DDR5", latencia: "CL36", voltaje: "1.35V" },
+        15
     ),
     new Producto(
         11,
@@ -121,7 +131,8 @@ export const productos = [
         "kingston_fury.jpg",
         54.99,
         "Memoria RAM",
-        { capacidad: "16 GB (2x8GB)", velocidad: "3200 MHz", tipo: "DDR4", latencia: "CL16", voltaje: "1.35V" }
+        { capacidad: "16 GB (2x8GB)", velocidad: "3200 MHz", tipo: "DDR4", latencia: "CL16", voltaje: "1.35V" },
+        18
     ),
     new Producto(
         12,
@@ -130,7 +141,8 @@ export const productos = [
         "trident_z5.jpg",
         319.99,
         "Memoria RAM",
-        { capacidad: "64 GB (2x32GB)", velocidad: "6400 MHz", tipo: "DDR5", latencia: "CL32", voltaje: "1.4V" }
+        { capacidad: "64 GB (2x32GB)", velocidad: "6400 MHz", tipo: "DDR5", latencia: "CL32", voltaje: "1.4V" },
+        0
     ),
 
     // DISCOS DUROS / SSD
@@ -141,7 +153,8 @@ export const productos = [
         "samsung_990pro.jpg",
         149.99,
         "Disco Duro",
-        { tipo: "SSD NVMe", capacidad: "1 TB", velocidad_lectura: "7450 MB/s", velocidad_escritura: "6900 MB/s", interfaz: "PCIe 4.0" }
+        { tipo: "SSD NVMe", capacidad: "1 TB", velocidad_lectura: "7450 MB/s", velocidad_escritura: "6900 MB/s", interfaz: "PCIe 4.0" },
+        0
     ),
     new Producto(
         14,
@@ -150,7 +163,8 @@ export const productos = [
         "crucial_mx500.jpg",
         69.99,
         "Disco Duro",
-        { tipo: "SSD SATA", capacidad: "1 TB", velocidad_lectura: "560 MB/s", velocidad_escritura: "510 MB/s", interfaz: "SATA III" }
+        { tipo: "SSD SATA", capacidad: "1 TB", velocidad_lectura: "560 MB/s", velocidad_escritura: "510 MB/s", interfaz: "SATA III" },
+        10
     ),
     new Producto(
         15,
@@ -159,7 +173,8 @@ export const productos = [
         "seagate_barracuda.jpg",
         59.99,
         "Disco Duro",
-        { tipo: "HDD", capacidad: "2 TB", velocidad: "7200 rpm", cache: "256 MB", interfaz: "SATA III" }
+        { tipo: "HDD", capacidad: "2 TB", velocidad: "7200 rpm", cache: "256 MB", interfaz: "SATA III" },
+        0
     ),
 
     // ⌨TECLADOS
@@ -170,7 +185,8 @@ export const productos = [
         "logitech_g915.jpg",
         219.99,
         "Teclado",
-        { tipo: "Mecánico", conectividad: "Bluetooth / Lightspeed", retroiluminacion: "RGB", switches: "GL Tactile", formato: "TKL" }
+        { tipo: "Mecánico", conectividad: "Bluetooth / Lightspeed", retroiluminacion: "RGB", switches: "GL Tactile", formato: "TKL" },
+        45
     ),
     new Producto(
         17,
@@ -179,7 +195,8 @@ export const productos = [
         "corsair_k70.jpg",
         149.99,
         "Teclado",
-        { tipo: "Mecánico", conectividad: "USB", retroiluminacion: "RGB", switches: "Cherry MX Red", formato: "Full-size" }
+        { tipo: "Mecánico", conectividad: "USB", retroiluminacion: "RGB", switches: "Cherry MX Red", formato: "Full-size" },
+        0
     ),
     new Producto(
         18,
@@ -188,7 +205,8 @@ export const productos = [
         "razer_cynosa_v2.jpg",
         69.99,
         "Teclado",
-        { tipo: "Membrana", conectividad: "USB", retroiluminacion: "RGB", macros: "Programables", formato: "Full-size" }
+        { tipo: "Membrana", conectividad: "USB", retroiluminacion: "RGB", macros: "Programables", formato: "Full-size" },
+        0
     ),
 
     // RATONES
@@ -199,7 +217,8 @@ export const productos = [
         "logitech_g502.jpg",
         69.99,
         "Ratón",
-        { tipo: "Óptico", dpi: "25,600", conectividad: "Cable USB", botones: 11, peso_ajustable: true }
+        { tipo: "Óptico", dpi: "25,600", conectividad: "Cable USB", botones: 11, peso_ajustable: true },
+        15
     ),
     new Producto(
         20,
@@ -208,7 +227,8 @@ export const productos = [
         "razer_deathadder_v3pro.jpg",
         159.99,
         "Ratón",
-        { tipo: "Óptico", dpi: "30,000", conectividad: "Inalámbrico", peso: "63 g", bateria: "90h" }
+        { tipo: "Óptico", dpi: "30,000", conectividad: "Inalámbrico", peso: "63 g", bateria: "90h" },
+        33
     ),
     new Producto(
         21,
@@ -217,7 +237,8 @@ export const productos = [
         "steelseries_rival5.jpg",
         69.99,
         "Ratón",
-        { tipo: "Óptico", dpi: "18,000", conectividad: "Cable USB", botones: 9, retroiluminacion: "RGB" }
+        { tipo: "Óptico", dpi: "18,000", conectividad: "Cable USB", botones: 9, retroiluminacion: "RGB" },
+        0
     ),
 
     // AURICULARES
@@ -228,7 +249,8 @@ export const productos = [
         "hyperx_cloud2.jpg",
         99.99,
         "Auriculares",
-        { tipo: "Circumaural", microfono: "Desmontable", conectividad: "Jack 3.5mm / USB", sonido: "7.1 virtual", peso: "320g" }
+        { tipo: "Circumaural", microfono: "Desmontable", conectividad: "Jack 3.5mm / USB", sonido: "7.1 virtual", peso: "320g" },
+        0
     ),
     new Producto(
         23,
@@ -237,7 +259,8 @@ export const productos = [
         "razer_blackshark_v2pro.jpg",
         199.99,
         "Auriculares",
-        { tipo: "Inalámbrico", microfono: "Extraíble", sonido: "THX Spatial Audio", autonomia: "24h", conectividad: "2.4GHz USB" }
+        { tipo: "Inalámbrico", microfono: "Extraíble", sonido: "THX Spatial Audio", autonomia: "24h", conectividad: "2.4GHz USB" },
+        25
     ),
     new Producto(
         24,
@@ -246,6 +269,7 @@ export const productos = [
         "logitech_g435.jpg",
         79.99,
         "Auriculares",
-        { tipo: "Inalámbrico / Bluetooth", peso: "165g", autonomia: "18h", microfono: "Integrado", sonido: "Estéreo" }
+        { tipo: "Inalámbrico / Bluetooth", peso: "165g", autonomia: "18h", microfono: "Integrado", sonido: "Estéreo" },
+        0
     )
 ];
