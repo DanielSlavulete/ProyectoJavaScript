@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: "Orbitron", sans-serif;
     background-color: #fff;
     color: #333;
 }
@@ -74,4 +74,14 @@ body {
     height: 150px;
     object-fit: contain;
 }
+body, input, button, select, textarea, a {
+    font-family: 'Orbitron', sans-serif;
+}
 
+::placeholder {
+    font-family: 'Orbitron', sans-serif;
+}
+#reenviarCorreo {
+    display: inline-block;
+    margin-top: 25px;
+}
