@@ -56,8 +56,31 @@ body {
     text-align: center;
 }
 
-.producto-card h3 {
-    color: #ff6600;
+.producto-resumen {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.producto-nombre {
+  font-size: 1rem;
+  color: black;
+  margin-bottom: 4px;
+}
+
+.producto-precio {
+  font-weight: bold;
+  color: #193eb8;
+}
+
+.producto-precio-original {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.producto-precio-descuento {
+  font-weight: bold;
+  color: #008000;
+  font-size: 1rem;
 }
 
 /* Footer */
@@ -85,3 +108,44 @@ body, input, button, select, textarea, a {
     display: inline-block;
     margin-top: 25px;
 }
+
+.mensaje-bienvenida {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30px);
+  background-color: #7a93e4;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  z-index: 9999;
+  animation: slideBounceIn 0.9s cubic-bezier(0.22, 1.28, 0.36, 1) forwards;
+}
+
+/* Entrada con rebote */
+@keyframes slideBounceIn {
+  0% { opacity: 0; transform: translate(-50%, -40px); }
+  60% { opacity: 1; transform: translate(-50%, 5px); }
+  80% { transform: translate(-50%, -2px); }
+  100% { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Salida suave controlada por JS */
+.mensaje-bienvenida.ocultar {
+  animation: fadeOut 1s ease forwards;
+}
+
+/* Desvanecimiento con desplazamiento */
+@keyframes fadeOut {
+  from { opacity: 1; transform: translate(-50%, 0); }
+  to { opacity: 0; transform: translate(-50%, -20px); }
+}
+
+
+
+
+

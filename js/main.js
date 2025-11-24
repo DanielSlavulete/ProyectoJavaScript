@@ -1,16 +1,35 @@
 import { productos, clientes } from "./datos_iniciales.js";
+import { getCookie } from "./cookies.js";
+
 
 //esto es solo una prueba
 window.addEventListener("DOMContentLoaded", () => {
 
+  const ultimo = getCookie("ultimoUsuario");
+  if (ultimo) {
+    const mensajeBienvenida = document.createElement("p");
+    mensajeBienvenida.textContent = `👋 Bienvenido de nuevo, ${ultimo}!`;
+    mensajeBienvenida.classList.add("mensaje-bienvenida");
+
+    // 🔹 Insertar justo después del header
+    const header = document.querySelector("header");
+    header.insertAdjacentElement("afterend", mensajeBienvenida);
+
+    // 🔹 Mostrar con transición suave y desaparecer después de 4s
+    setTimeout(() => {
+      mensajeBienvenida.classList.add("ocultar");
+      setTimeout(() => mensajeBienvenida.remove(), 1000); // se elimina del DOM
+    }, 4000);
+  }
+
   const contenedor = document.getElementById("contenedor-productos");
+  
   productos.forEach(p => {
     const card = document.createElement("div");
     card.classList.add("producto-card");
     card.innerHTML = `
       <img src="../img/${p.imagen}" alt="${p.nombre}" class="producto-img">
-      <strong>${p.nombre}</strong><br>
-      ${p.precio} €
+      ${p.mostrarResumen()}
     `;
     contenedor.appendChild(card);
   });
