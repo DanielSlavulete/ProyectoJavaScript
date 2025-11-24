@@ -1,4 +1,4 @@
-import { Cliente } from "./cliente"
+
 
 function bienvenida(cliente){
     let titulo = document.createElement("h2");
