@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Producto</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="module" src="../js/producto-detalle.js" defer></script>
+</head>
+<body>
+  <!-- 🔹 Encabezado principal -->
+  <header class="header">
+    <a href="./index.html" class="logo">
+      <img src="../img/logo.png" alt="Logo Tienda" />
+      <h1>MGS COMPONENTS</h1>
+    </a>
+
+    <div class="buscador">
+      <input type="text" id="input-busqueda" placeholder="Buscar productos..." />
+      <button id="btn-buscar">🔍</button>
+    </div>
+
+    <div class="usuario">
+      <a href="./login.html">Iniciar sesión</a> |
+      <a href="./registro.html">Registrarse</a> |
+      <a href="./carrito.html" id="carrito-link">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
+    </div>
+  </header>
+
+  <!-- 🔹 Contenido principal -->
+  <main class="detalle-container">
+    <!-- Aquí se cargará dinámicamente el producto -->
+  </main>
+
+  <!-- 🔹 Footer -->
+  <footer class="footer">
+    <div class="info-footer">
+      <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
+      <a href="./contacto.html">Contacto</a> |
+      <a href="./acerca.html">Sobre nosotros</a>
+    </div>
+  </footer>
+</body>
+</html>

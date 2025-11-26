@@ -7,4 +7,13 @@ export class Cliente{
         this.metodoPago = metodoPago
     }
 
+    mostrarInfo() {
+        return `
+            Nombre: ${this.nombre}<br>
+            Email: ${this.email}<br>
+            Teléfono: ${this.telefono}<br>
+            Método de pago: ${this.metodoPago}
+        `;
+    }
+
 }

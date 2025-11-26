@@ -19,6 +19,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
+    color: white;
 }
 
 .buscador input {
@@ -39,6 +41,8 @@ body {
     text-decoration: none;
     margin: 0 5px;
 }
+
+
 
 /* Productos */
 .grid-productos {
@@ -81,6 +85,10 @@ body {
   font-weight: bold;
   color: #008000;
   font-size: 1rem;
+}
+
+.enlace-producto {
+  text-decoration: none;
 }
 
 /* Footer */
@@ -145,6 +153,101 @@ body, input, button, select, textarea, a {
   to { opacity: 0; transform: translate(-50%, -20px); }
 }
 
+.detalle-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.detalle-producto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 30px;
+}
+
+.detalle-imagen img {
+  width: 380px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.detalle-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.detalle-info h2 {
+  color: #193eb8;
+  margin-bottom: 10px;
+}
+
+.detalle-categoria {
+  color: #666;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.detalle-descripcion {
+  margin: 15px 0;
+  color: #333;
+  line-height: 1.4;
+}
+
+.detalle-precio {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #193eb8;
+  margin: 15px 0;
+}
+
+.precio-original {
+  color: #999;
+  margin-right: 10px;
+}
+
+.precio-final {
+  color: #008000;
+}
+
+.descuento {
+  color: #008000;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.detalle-especificaciones {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.detalle-especificaciones li {
+  background: #f5f5f5;
+  margin: 5px 0;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.btn-carrito, .btn-volver {
+  background-color: #193eb8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px;
+  margin-top: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-carrito:hover, .btn-volver:hover {
+  background-color: #365bf4;
+}
 
 
 
