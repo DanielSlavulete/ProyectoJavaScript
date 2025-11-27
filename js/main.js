@@ -28,8 +28,10 @@ window.addEventListener("DOMContentLoaded", () => {
     const card = document.createElement("div");
     card.classList.add("producto-card");
     card.innerHTML = `
-      <img src="../img/${p.imagen}" alt="${p.nombre}" class="producto-img">
-      ${p.mostrarResumen()}
+      <a href="./producto-detalle.html?id=${p.id}" class="enlace-producto">
+        <img src="../img/${p.imagen}" alt="${p.nombre}" class="producto-img">
+        ${p.mostrarResumen()}
+      </a>
     `;
     contenedor.appendChild(card);
   });
