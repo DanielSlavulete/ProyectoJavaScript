@@ -1,5 +1,7 @@
 // menu.js
 
+import { deleteCookie } from "./cookies.js";
+
 class MainHeader extends HTMLElement {
     constructor() {
         super();
@@ -193,6 +195,7 @@ class MainHeader extends HTMLElement {
         this.shadowRoot.querySelector("#cerrar-sesion").onclick = (e) => {
             e.preventDefault();
             sessionStorage.removeItem("usuarioLogueado");
+            deleteCookie("ultimoUsuario");
             window.location.reload();
         };
     }

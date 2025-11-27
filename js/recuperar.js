@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mostrarOk("Hemos enviado un enlace de recuperación a tu correo (simulado).");
         }
 
-        // Borra el mensaje pasado un tiempo (setTimeout cumple requisito del profe)
+        // Borra el mensaje pasado un tiempo
         setTimeout(() => {
             limpiarMensaje();
         }, 4000);
