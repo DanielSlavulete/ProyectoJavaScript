@@ -1,78 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="../css/estilos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Página de perfil del usuario logueado. Permite ver y editar
-      datos personales o ver su historial de compras.-->
-      <script src="../js/auth.js" defer></script>
-    <title>Document</title>
-    <script src="../js/perfil.js"></script>
-    <style>
-        .contenedorPrincipal{
-            border: 2px solid black;
-            background-color: salmon;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi perfil</title>
 
-        .contenedorDatos{
-            margin: 10px;
-            border: 1px solid black;
-            background-color: lightblue;
-            display: flex;
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
 
-        }
-
-        .contenedorOpciones{
-            border: 1px solid black;
-            margin: 10px;
-            background-color: lightyellow;
-
-        }
-        ul{
-          list-style: none;
-        }
-        li:hover{
-            text-decoration: underline;
-            cursor: grab;
-        }
-        img{
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-        .contenedorImagen{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: gray;
-            width: 10%;
-            height: 100%;
-            border: 2px solid black;
-        }
-        .contenido{
-            background-color: lightgreen;
-            border: 2px solid black;
-            
-        }
-    </style>
+  <!-- Componente del menú -->
+  <script type="module" src="../js/menu.js"></script>
+  <!-- Lógica de perfil -->
+  <script type="module" src="../js/perfil.js" defer></script>
 </head>
-<body data-privada="true">
-    <div class="contenedorPrincipal" id="contenedorPrincipal">
-        <div class="contenedorDatos" id="contenedorDatos">
-            <figure class="contenedorImagen"><img src="https://github.com/DanielSlavulete.png" alt="imagenEjemplo"></figure>
-            <div class="contenido" id="contenido"></div>
-        </div>
-        <div class="contenedorOpciones">
-            <ul>
-                <li>Mis datos</li>
-                <li>Pedidos</li>
-                <li>Devoluciones</li>
-                <li>Metodos de pago</li>
-            </ul>
-        </div>
+<body>
+  <!-- 🔹 Encabezado principal (componente) -->
+  <main-header></main-header>
+
+  <!-- 🔹 Contenido principal -->
+  <main class="contenedor perfil-contenedor">
+    <h2>Mi perfil</h2>
+
+    <section class="perfil-card">
+      <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
+      <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+
+      <p><strong>Rol:</strong> <span id="perfil-rol"></span></p>
+
+      <div class="perfil-acciones">
+        <button id="btn-ir-carrito">🛒 Ir al carrito</button>
+        <button id="btn-cerrar-sesion">Cerrar sesión</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- 🔹 Footer -->
+  <footer class="footer">
+    <div class="info-footer">
+      <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
+      <a href="./contacto.html">Contacto</a> |
+      <a href="./acerca.html">Sobre nosotros</a>
     </div>
+  </footer>
 </body>
 </html>
