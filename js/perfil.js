@@ -1,3 +1,6 @@
+import { Cliente } from "./cliente.js";
+import { deleteCookie } from "./cookies.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   // Recuperamos usuario logueado
   const usuarioJSON = sessionStorage.getItem("usuarioLogueado");
@@ -10,25 +13,30 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Referencias a elementos del DOM
-  const spanNombre = document.getElementById("perfil-nombre");
-  const spanEmail = document.getElementById("perfil-email");
-  const spanFechaRegistro = document.getElementById("perfil-fecha-registro");
-  const spanRol = document.getElementById("perfil-rol");
+  // Crear instancia del cliente
+  const cliente = new Cliente(
+    usuario.id,
+    usuario.nombre,
+    usuario.email,
+    usuario.telefono,
+    usuario.password
+  );
 
-  const btnIrCarrito = document.getElementById("btn-ir-carrito");
-  const btnCerrarSesion = document.getElementById("btn-cerrar-sesion");
+  // Imprimir la información en los spans existentes
+  const infoHTML = cliente.mostrarInfo();
 
-  // Rellenar datos del usuario
-  // Ajusta los campos a los que tengas en el objeto `usuario` de tu registro
-  spanNombre.textContent = usuario.nombre || "(Sin nombre)";
-  spanEmail.textContent = usuario.email || "(Sin email)";
+  // Creamos un contenedor temporal para leer los valores
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = infoHTML;
 
-
-  // Rol opcional (por si luego haces admin/usuario)
-  spanRol.textContent = usuario.rol || "Cliente";
+  // Asignamos valores al DOM actual (manteniendo tu estructura)
+  document.getElementById("perfil-nombre").textContent = cliente.nombre;
+  document.getElementById("perfil-email").textContent = cliente.email;
+  document.getElementById("perfil-telefono").textContent = cliente.telefono;
 
   // Botón ir al carrito
+  const btnIrCarrito = document.getElementById("btn-ir-carrito");
+  const btnCerrarSesion = document.getElementById("btn-cerrar-sesion");
   btnIrCarrito.addEventListener("click", () => {
     window.location.href = "./carrito.html";
   });
@@ -37,8 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   btnCerrarSesion.addEventListener("click", () => {
     if (confirm("¿Seguro que quieres cerrar sesión?")) {
       sessionStorage.removeItem("usuarioLogueado");
-      // Podrías también limpiar cookies si quieres, pero tu cookie `ultimoUsuario`
-      // la estás usando solo como "recuerdo", así que la puedes dejar.
+      deleteCookie("ultimoUsuario");
       window.location.href = "./index.html";
     }
   });

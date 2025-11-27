@@ -14,19 +14,20 @@
         <h1>CREAR CUENTA</h1>
         <div class="">
             <form action="" id="formRegistro" class="divFormulario" novalidate>
-                <input type="text" id="nombreCrearCuenta" placeholder="Nombre" required><br>
-                <input type="text" id="correoCrearCuenta" placeholder="Correo Electronico" required><br>
+                <input type="text" id="nombreCrearCuenta" placeholder="Nombre completo" required><br>
+                <input type="text" id="correoCrearCuenta" placeholder="Correo electrónico" required><br>
+                <input type="text" id="telefonoCrearCuenta" placeholder="Teléfono (Ej: +34 612345678)" required><br>
                 <input type="password" id="contrasenaCrearCuenta" placeholder="Contraseña" required><br>
                 <input type="password" id="repetirContrasena" placeholder="Repetir contraseña" required><br>
                 <div id="radio">
-                <input type="radio" id="radioAceptarPolitica">He leido y acepto la politica de privacidad<br>
+                    <input type="radio" id="radioAceptarPolitica">He leído y acepto la política de privacidad<br>
                 </div>    
                 <button type="submit" id="botonCrearCuenta">CREAR CUENTA</button><br>
                 <p id="mensajeRegistro"></p>
             </form>
         </div>
     </div>
-    <script src="../js/registro.js" defer></script>
-    <script src="../js/auth.js"defer></script>
+    <script type="module" src="../js/registro.js" defer></script>
+    <script src="../js/auth.js" defer></script>
 </body>
 </html>

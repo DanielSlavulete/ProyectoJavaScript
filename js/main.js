@@ -59,7 +59,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
   // ============================================================
-  // 3️⃣ CARRUSEL (solo si existe) – imágenes desde array
+  // CARRUSEL (solo si existe) – imágenes desde array
   // ============================================================
   const track = document.querySelector(".carousel-track");
   const nextBtn = document.querySelector(".next");
