@@ -251,4 +251,42 @@ body, input, button, select, textarea, a {
 
 
 
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
 
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  width: 100%;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.7);
+}

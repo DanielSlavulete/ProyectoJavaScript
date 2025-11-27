@@ -42,5 +42,33 @@ window.addEventListener("DOMContentLoaded", () => {
     card1.innerHTML = `<strong>${p.nombre}</strong> - ${p.email} `;
     contenedor1.appendChild(card1);
   });
+
+  //CARRUSEL
+  const track = document.querySelector(".carousel-track");
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
+
+  let index = 0;
+
+  function actualizarCarrusel() {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    index = (index + 1) % slides.length; 
+    actualizarCarrusel();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    index = (index - 1 + slides.length) % slides.length;
+    actualizarCarrusel();
+  });
+
+  // Opcional: auto-play cada 4 segundos
+  setInterval(() => {
+    index = (index + 1) % slides.length;
+    actualizarCarrusel();
+  }, 4000);
   
 });

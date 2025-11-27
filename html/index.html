@@ -7,38 +7,26 @@
     <link rel="stylesheet" href="../css/estilos.css" />
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
   <script type="module" src="../js/main.js" defer></script>
+  <script type="module" src="../js/menu.js"></script>
 </head>
 <body>
     <!--Página principal o portada de la tienda. Puede mostrar una presentación general,
      banners o productos destacados. Carga el menú común y enlaza al resto de páginas.-->
      <!-- 🔹 Encabezado principal -->
-  <header class="header">
-    <a href="./index.html" class="logo">
-      <img src="../img/logo.png" alt="Logo Tienda" />
-      <h1>MGS COMPONENTS</h1>
-    </a>
+   <main-header></main-header>
 
-    <!-- 🔹 Barra de búsqueda -->
-    <div class="buscador">
-      <input type="text" id="input-busqueda" placeholder="Buscar productos..." />
-      <button id="btn-buscar">🔍</button>
-    </div>
+<div class="carousel">
+  <button class="carousel-btn prev">❮</button>
 
-    <!-- 🔹 Enlaces de usuario -->
-    <div class="usuario">
-      <a href="./login.html">Iniciar sesión</a> |
-      <a href="./registro.html">Registrarse</a> |
-      <a href="./carrito.html" id="carrito-link">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
-    </div>
-  </header>
+  <div class="carousel-track">
+    <img src="../img/banner1.jpg" class="slide active">
+    <img src="../img/banner2.jpg" class="slide">
+    <img src="../img/banner3.jpg" class="slide">
+  </div>
 
-  <!-- 🔹 Menú de navegación (Web Component o HTML normal) -->
-  <nav id="menu-principal"></nav>
+  <button class="carousel-btn next">❯</button>
+</div>
 
-  <!-- 🔹 Banner principal -->
-  <section class="banner">
-    <img src="../img/banner-ofertas.jpg" alt="Ofertas de la semana" />
-  </section>
 
   <!-- 🔹 Sección de productos destacados -->
   <main class="contenedor">
