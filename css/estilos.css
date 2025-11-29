@@ -45,12 +45,49 @@ body {
 
 
 /* Productos */
-.grid-productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 20px;
+.productos-destacados {
+  display: flex;
+  justify-content: center;
 }
+
+.grid-productos {
+  display: grid;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1400px;   /* opcional, para que no quede muy comprimido */
+  margin: 0 auto;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* Tablets grandes o pantallas medianas */
+@media (max-width: 1200px) {
+  .grid-productos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablets pequeñas */
+@media (max-width: 900px) {
+  .grid-productos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 700px) {
+  .grid-productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 500px) {
+  .grid-productos {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
 
 .producto-card {
     background: white;
@@ -307,4 +344,70 @@ body, input, button, select, textarea, a {
 
 .carousel .carousel-btn.next {
   right: 10px;
+}
+
+.carrito-main {
+  max-width: 1000px;
+  margin: 120px auto 40px auto; /* deja sitio para el header fijo */
+  padding: 20px;
+}
+
+.carrito-contenido {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.carrito-lista {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.carrito-item {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.carrito-item .carrito-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.carrito-resumen {
+  flex: 1;
+  background-color: #1b1f3b;
+  color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.carrito-vacio {
+  padding: 20px;
+  text-align: center;
+}
+
+.btn-primario,
+.btn-eliminar {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-eliminar {
+  background-color: #c0392b;
+  color: white;
+}
+.page-wrapper {
+  min-height: 100vh;        /* altura mínima toda la pantalla */
+  display: flex;            /* flexbox */
+  flex-direction: column;   /* de arriba hacia abajo */
+}
+
+.page-wrapper main {
+  flex: 1;                  /* ocupa todo el espacio sobrante */
 }

@@ -12,6 +12,7 @@ class MainHeader extends HTMLElement {
         this.render();
         this.inicializarBuscador();
         this.actualizarUsuario();
+        this.initCarrito();
     }
 
     render() {
@@ -25,7 +26,7 @@ class MainHeader extends HTMLElement {
                 align-items: center;
                 justify-content: space-between;
                 gap: 20px;
-                font-family: Arial, sans-serif;
+                font-family: Orbitron, Arial, sans-serif;
             }
 
             .logo {
@@ -170,25 +171,54 @@ class MainHeader extends HTMLElement {
         });
     }
 
+    initCarrito() {
+        const span = this.shadowRoot.querySelector("#carrito-contador");
+        if (!span) return;
+
+        const actualizar = () => {
+            let carrito = [];
+            try {
+                const datos = localStorage.getItem("carrito");
+                carrito = datos ? JSON.parse(datos) : [];
+            } catch {
+                carrito = [];
+            }
+
+            // Sumamos todas las cantidades
+            const totalUnidades = carrito.reduce(
+                (acc, item) => acc + (item.cantidad || 1),
+                0
+            );
+
+            span.textContent = totalUnidades;
+        };
+
+        // Primera carga
+        actualizar();
+
+        // Escuchar cambios del carrito (evento lanzado en storage.js)
+        window.addEventListener("carrito-cambiado", actualizar);
+    }
+
     actualizarUsuario() {
         const zonaUsuario = this.shadowRoot.querySelector("#zona-usuario");
         const usuario = JSON.parse(sessionStorage.getItem("usuarioLogueado"));
 
-        // 🔴 NO logueado
+        // NO logueado
         if (!usuario) {
             zonaUsuario.innerHTML = `
                 <a href="./login.html">Iniciar sesión</a> |
                 <a href="./registro.html">Registrarse</a> |
-                <a href="./carrito.html">🛒 Carrito (0)</a>
+                <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
             `;
             return;
         }
 
-        // 🟢 SÍ logueado
+        // SÍ logueado
         zonaUsuario.innerHTML = `
             <span>👋 Hola, ${usuario.nombre}</span> |
             <a href="./perfil.html">Mi perfil</a> |
-            <a href="./carrito.html">🛒 Carrito (${usuario.carrito?.length || 0})</a> |
+            <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a> |
             <a href="#" id="cerrar-sesion">Cerrar sesión</a>
         `;
 

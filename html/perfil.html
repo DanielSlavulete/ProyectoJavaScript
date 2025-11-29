@@ -14,33 +14,34 @@
   <script type="module" src="../js/perfil.js" defer></script>
 </head>
 <body>
-  <!-- 🔹 Encabezado principal (componente) -->
+  <!-- Encabezado principal (componente) -->
   <main-header></main-header>
+  <div class="page-wrapper">
+    <!-- Contenido principal -->
+    <main class="contenedor perfil-contenedor">
+      <h2>Mi perfil</h2>
 
-  <!-- 🔹 Contenido principal -->
-  <main class="contenedor perfil-contenedor">
-    <h2>Mi perfil</h2>
+      <section class="perfil-card">
+        <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
+        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
 
-    <section class="perfil-card">
-      <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
-      <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <p><strong>Telefono:</strong> <span id="perfil-telefono"></span></p>
 
-      <p><strong>Telefono:</strong> <span id="perfil-telefono"></span></p>
+        <div class="perfil-acciones">
+          <button id="btn-ir-carrito">🛒 Ir al carrito</button>
+          <button id="btn-cerrar-sesion">Cerrar sesión</button>
+        </div>
+      </section>
+    </main>
 
-      <div class="perfil-acciones">
-        <button id="btn-ir-carrito">🛒 Ir al carrito</button>
-        <button id="btn-cerrar-sesion">Cerrar sesión</button>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="info-footer">
+        <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
+        <a href="./contacto.html">Contacto</a> |
+        <a href="./acerca.html">Sobre nosotros</a>
       </div>
-    </section>
-  </main>
-
-  <!-- 🔹 Footer -->
-  <footer class="footer">
-    <div class="info-footer">
-      <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
-      <a href="./contacto.html">Contacto</a> |
-      <a href="./acerca.html">Sobre nosotros</a>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </body>
 </html>
