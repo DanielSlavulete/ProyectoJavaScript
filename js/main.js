@@ -1,4 +1,4 @@
-import { productos, clientes } from "./datos_iniciales.js";
+import { productos } from "./datos_iniciales.js";
 import { getCookie } from "./cookies.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -43,21 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
       contenedor.appendChild(card);
     });
   }
-
   
-  // PINTAR CLIENTES 
-
-  const contenedor1 = document.getElementById("contenedor-clientes");
-
-  if (contenedor1) {
-    clientes.forEach(c => {
-      const card1 = document.createElement("div");
-      card1.innerHTML = `<strong>${c.nombre}</strong> - ${c.email}`;
-      contenedor1.appendChild(card1);
-    });
-  }
-
-
   // ============================================================
   // CARRUSEL (solo si existe) – imágenes desde array
   // ============================================================
@@ -67,7 +53,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (track && nextBtn && prevBtn) {
 
-    // 🔹 Nombres de archivos dentro de /img
+    // Nombres de archivos dentro de /img
     const imagenesCarrusel = [
       "../img/ryzen7800x3d.jpg",
       "../img/rtx4070ti.jpg",

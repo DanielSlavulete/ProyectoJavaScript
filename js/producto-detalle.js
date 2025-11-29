@@ -1,9 +1,10 @@
 import { productos } from "./datos_iniciales.js";
+import { agregarAlCarrito } from "./storage.js";
 
 // URLSerachParams lee los parametros de la URL
 document.addEventListener("DOMContentLoaded", () => {
   const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
+  const id = parseInt(params.get("id"), 10);
 
    // Busca el producto con ese id dentro del array de productos
   const producto = productos.find(p => p.id === id);
@@ -47,9 +48,33 @@ document.addEventListener("DOMContentLoaded", () => {
         </ul>
             
         <button class="btn-carrito">🛒 Añadir al carrito</button>
-        <button class="btn-volver" onclick="window.history.back()">⬅ Volver</button>
+        <button class="btn-volver">⬅ Volver</button>
       </div>
     </section>
   `;
+  // .map recorre el array y separa los datos en clave valor
+
+  // Botón "Volver"
+  const btnVolver = contenedor.querySelector(".btn-volver");
+  if (btnVolver) {
+    btnVolver.addEventListener("click", () => window.history.back());
+  }
+  // window.history.back() lleva al usuario a la pagina que visito justo antes 
+
+  // Botón "Añadir al carrito"
+  const btnCarrito = contenedor.querySelector(".btn-carrito");
+  if (btnCarrito) {
+    btnCarrito.addEventListener("click", () => {
+      // Guardar el producto en el carrito
+      agregarAlCarrito({
+        id: producto.id,
+        nombre: producto.nombre,
+        descripcion: producto.descripcion,
+        imagen: producto.imagen,
+        precio: precioFinal,
+        cantidad: 1,
+      });
+      alert("Producto añadido al carrito ✅");
+    });
+  }
 });
-// .map recorre el array y separa los datos enn clave valor
