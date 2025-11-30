@@ -1,22 +1,24 @@
-// menu.js
-
 import { deleteCookie } from "./cookies.js";
 
+// Componente Web para el encabezado principal(logo, buscador y zona de usuario).
 class MainHeader extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: "open" }); //Encapsula estilos y estructura.
+    }
+    // Con el modo open, podemos acceder a su contenido desde fuera
+    // Podemos hacer por ejemplo: document.querySelecto("main-header").shadowRoot
+
+    connectedCallback() {     // Metodo para ejecutar automaticamente cuando <main-header> se añade al DOM
+        this.render();                  // Renderiza el HTML del header
+        this.inicializarBuscador();     // Activa el buscador
+        this.actualizarUsuario();       // Muestra el estado del usuario
+        this.initCarrito();             // Inicializa el contador del carrito
     }
 
-    connectedCallback() {
-        this.render();
-        this.inicializarBuscador();
-        this.actualizarUsuario();
-        this.initCarrito();
-    }
-
-    render() {
-        this.shadowRoot.innerHTML = `
+    // Estructura y estilos del header
+    render() { // Es importante usar shadowRoot para aislar el comportamiento y que ciertos estilos no afecten a toda la pagina
+        this.shadowRoot.innerHTML = ` 
         <style>
             .header {
                 background: #0048aa;
@@ -119,17 +121,20 @@ class MainHeader extends HTMLElement {
         const btnBuscar = this.shadowRoot.querySelector("#btn-buscar");
         const contenedorResultados = this.shadowRoot.querySelector("#resultados-busqueda");
 
+        // Carga los productos del módulo de datos
         let productos = [];
         try {
-            const modulo = await import("./datos_iniciales.js");
+            const modulo = await import("./datos_iniciales.js"); // Con await carga el JS y espera hasta que esté listo para usarlo
             productos = modulo.productos;
         } catch (e) {
             console.error("Error al cargar productos:", e);
             return;
         }
 
+        // Limpia los resultados si se borra el texto de busqueda o se escribe algo nuevo
         const limpiar = () => contenedorResultados.innerHTML = "";
 
+        // Muestra la lista de productos encontrados
         const mostrarResultados = (lista) => {
             limpiar();
             if (lista.length === 0) {
@@ -137,6 +142,7 @@ class MainHeader extends HTMLElement {
                 return;
             }
 
+            // Crea un div clickable por cada producto
             lista.forEach(p => {
                 const item = document.createElement("div");
                 item.classList.add("resultado-item");
@@ -148,29 +154,41 @@ class MainHeader extends HTMLElement {
             });
         };
 
+        // Filtro en tiempo real mientras se escribe
         input.addEventListener("input", () => {
             const texto = input.value.toLowerCase().trim();
             if (!texto) return limpiar();
 
             const filtrados = productos.filter(p =>
                 p.nombre.toLowerCase().includes(texto) ||
-                p.descripcion.toLowerCase().includes(texto)
+                p.descripcion.toLowerCase().includes(texto) ||
+                p.esDeCategoria(texto)
             );
 
             mostrarResultados(filtrados);
         });
 
+        // Botón de buscar (toma el primer resultado si hay)
         btnBuscar.addEventListener("click", () => {
-            if (input.value.trim() !== "") {
-                const texto = input.value.toLowerCase().trim();
-                const filtrados = productos.filter(p => p.nombre.toLowerCase().includes(texto));
-                if (filtrados.length > 0) {
-                    window.location.href = `./producto-detalle.html?id=${filtrados[0].id}`;
-                }
+            const texto = input.value.toLowerCase().trim();
+            if (!texto) return;
+
+            const filtrados = productos.filter(p =>
+                p.nombre.toLowerCase().includes(texto) ||
+                p.descripcion.toLowerCase().includes(texto) ||
+                p.esDeCategoria(texto)
+            );
+
+            if (filtrados.length > 0) {
+                window.location.href = `./producto-detalle.html?id=${filtrados[0].id}`;
+            } else {
+                alert("No se encontraron productos que coincidan con tu búsqueda.");
             }
         });
+
     }
 
+    // Muestra la cantidad total de productos en el carrito
     initCarrito() {
         const span = this.shadowRoot.querySelector("#carrito-contador");
         if (!span) return;
@@ -185,21 +203,22 @@ class MainHeader extends HTMLElement {
             }
 
             // Sumamos todas las cantidades
-            const totalUnidades = carrito.reduce(
+            const totalUnidades = carrito.reduce( // reduce recorre el array carrito y va sumando y acumulando
                 (acc, item) => acc + (item.cantidad || 1),
-                0
+                0 // el acumuulador se incia en 0
             );
 
             span.textContent = totalUnidades;
         };
 
-        // Primera carga
+        // Primera carga, inicializa el contador al cargar
         actualizar();
 
         // Escuchar cambios del carrito (evento lanzado en storage.js)
         window.addEventListener("carrito-cambiado", actualizar);
     }
 
+    // Actualiza los enlaces del usuario según su estado
     actualizarUsuario() {
         const zonaUsuario = this.shadowRoot.querySelector("#zona-usuario");
         const usuario = JSON.parse(sessionStorage.getItem("usuarioLogueado"));
@@ -222,6 +241,7 @@ class MainHeader extends HTMLElement {
             <a href="#" id="cerrar-sesion">Cerrar sesión</a>
         `;
 
+        // Acción de cerrar sesión
         this.shadowRoot.querySelector("#cerrar-sesion").onclick = (e) => {
             e.preventDefault();
             sessionStorage.removeItem("usuarioLogueado");
@@ -231,4 +251,5 @@ class MainHeader extends HTMLElement {
     }
 }
 
+// Se registra el componente web <main-header>
 customElements.define("main-header", MainHeader);

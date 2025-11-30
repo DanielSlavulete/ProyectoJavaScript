@@ -41,7 +41,7 @@ export const productos = [
         "Tarjeta gráfica de última generación con DLSS 3 y trazado de rayos.",
         "rtx4070ti.jpg",
         829.99,
-        "Gráfica",
+        "Grafica",
         { vram: "12 GB GDDR6X", bus: "192-bit", frecuencia: "2.6 GHz", conectores: "1x HDMI, 3x DisplayPort", consumo: "285W" },
         0
     ),
@@ -51,7 +51,7 @@ export const productos = [
         "GPU de alto rendimiento para resoluciones 4K y tareas de IA.",
         "rx7900xt.jpg",
         899.99,
-        "Gráfica",
+        "Grafica",
         { vram: "20 GB GDDR6", bus: "320-bit", frecuencia: "2.5 GHz", conectores: "2x HDMI, 2x DisplayPort", consumo: "300W" },
         5
     ),
@@ -61,7 +61,7 @@ export const productos = [
         "Tarjeta gráfica eficiente y moderna ideal para 1080p y 1440p.",
         "rtx4060.jpg",
         349.99,
-        "Gráfica",
+        "Grafica",
         { vram: "8 GB GDDR6", bus: "128-bit", frecuencia: "2.5 GHz", conectores: "1x HDMI, 3x DisplayPort", consumo: "160W" },
         20
     ),
@@ -201,7 +201,7 @@ export const productos = [
         "Ratón ergonómico con sensor HERO 25K y 11 botones programables.",
         "logitech_g502.jpg",
         69.99,
-        "Ratón",
+        "Raton",
         { tipo: "Óptico", dpi: "25,600", conectividad: "Cable USB", botones: 11, peso_ajustable: true },
         15
     ),
@@ -211,7 +211,7 @@ export const productos = [
         "Ratón inalámbrico ultraligero para eSports.",
         "razer_deathadder_v3pro.jpg",
         159.99,
-        "Ratón",
+        "Raton",
         { tipo: "Óptico", dpi: "30,000", conectividad: "Inalámbrico", peso: "63 g", bateria: "90h" },
         33
     ),
@@ -221,7 +221,7 @@ export const productos = [
         "Ratón versátil con 9 botones y sensor TrueMove Air.",
         "steelseries_rival5.jpg",
         69.99,
-        "Ratón",
+        "Raton",
         { tipo: "Óptico", dpi: "18,000", conectividad: "Cable USB", botones: 9, retroiluminacion: "RGB" },
         0
     ),

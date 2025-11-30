@@ -38,4 +38,10 @@
         const descuento = this.precio * (porcentaje / 100);
         return this.precio - descuento;
     }
+
+    // Metodo para filtrar en la barra de búsqueda por tipo de producto también.
+    esDeCategoria(categoriaBuscada) {
+        return this.tipo.toLowerCase() === categoriaBuscada.toLowerCase();
+    }
+
 }
