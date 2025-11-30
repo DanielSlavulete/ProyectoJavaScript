@@ -1,5 +1,3 @@
-// js/auth.js
-
 function getUsuarioLogueado() {
     const usuarioJSON = sessionStorage.getItem("usuarioLogueado");
     if (!usuarioJSON) return null;

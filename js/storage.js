@@ -30,5 +30,6 @@ export function agregarAlCarrito(producto) {
     guardarCarrito(carrito);
 
     // Avisar al header para actualizar el numerito
+    // Acciona el evento para que desde el menu lo sepa y lo actualice
     window.dispatchEvent(new CustomEvent("carrito-cambiado"));
 }
