@@ -4,9 +4,30 @@
   padding: 20px;
 }
 
+/* Títulos con estética futurista */
+.acerca h1,
+.acerca h2,
+.miembro h3 {
+  font-family: 'Orbitron', Arial, sans-serif;
+}
+
+.acerca h1 {
+  margin-bottom: 24px;
+}
+
+.acerca-equipo h2 {
+  margin-bottom: 20px;
+}
+
+/* Texto principal más cómodo para leer */
+.acerca-info p,
+.miembro p {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
 .acerca-info p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.05rem;
+  line-height: 1.7;
   margin-bottom: 20px;
 }
 
@@ -15,21 +36,55 @@
 }
 
 .equipo-grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  flex-wrap: wrap;
 }
 
 .miembro {
   background: #f8f8f8;
+  color: #1a1a1a;
   padding: 20px;
   border-radius: 12px;
-  flex: 1;
-  min-width: 250px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
 }
 
 .miembro h3 {
   margin-bottom: 10px;
   color: #0048aa;
+}
+
+.miembro p {
+  line-height: 1.6;
+}
+
+/* Accesibilidad: foco visible al navegar con TAB */
+a:focus-visible {
+  outline: 3px solid #ffcc00;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Texto solo para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 600px) {
+  .acerca {
+    margin: 20px auto;
+    padding: 16px;
+  }
+
+  .acerca-info p {
+    font-size: 1rem;
+  }
 }

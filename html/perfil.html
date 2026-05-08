@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi perfil</title>
 
   <link rel="stylesheet" href="../css/estilos.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/perfil.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
-  <!-- Componente del menú -->
   <script type="module" src="../js/menu.js"></script>
-  <!-- Lógica de perfil -->
   <script type="module" src="../js/perfil.js" defer></script>
 </head>
+
 <body>
-  <!-- Encabezado principal (componente) -->
   <main-header></main-header>
+
   <div class="page-wrapper">
-    <!-- Contenido principal -->
-    <main class="contenedor perfil-contenedor">
-      <h2>Mi perfil</h2>
+    <main class="contenedor perfil-contenedor" aria-labelledby="titulo-perfil">
+      <section class="perfil-card" aria-labelledby="titulo-perfil">
+        <div class="perfil-header">
+          <div class="perfil-avatar" aria-hidden="true">👤</div>
+          <div>
+            <h1 id="titulo-perfil">Mi perfil</h1>
+            <p class="perfil-subtitulo">Consulta tus datos de usuario y accede rápidamente a tu carrito.</p>
+          </div>
+        </div>
 
-      <section class="perfil-card">
-        <p><strong>Nombre:</strong> <span id="perfil-nombre"></span></p>
-        <p><strong>Email:</strong> <span id="perfil-email"></span></p>
+        <div class="perfil-datos" aria-label="Datos del usuario">
+          <p>
+            <strong>Nombre:</strong>
+            <span id="perfil-nombre"></span>
+          </p>
 
-        <p><strong>Telefono:</strong> <span id="perfil-telefono"></span></p>
+          <p>
+            <strong>Email:</strong>
+            <span id="perfil-email"></span>
+          </p>
+
+          <p>
+            <strong>Teléfono:</strong>
+            <span id="perfil-telefono"></span>
+          </p>
+        </div>
 
         <div class="perfil-acciones">
-          <button id="btn-ir-carrito">🛒 Ir al carrito</button>
-          <button id="btn-cerrar-sesion">Cerrar sesión</button>
+          <button id="btn-ir-carrito" type="button">Ir al carrito</button>
+          <button id="btn-cerrar-sesion" type="button" class="btn-secundario">Cerrar sesión</button>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" aria-label="Pie de página">
       <div class="info-footer">
         <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
-        <a href="./contacto.html">Contacto</a> |
-        <a href="./acerca.html">Sobre nosotros</a>
+
+        <nav aria-label="Enlaces del pie de página">
+          <a href="./contacto.html">Contacto</a>
+          <span aria-hidden="true">|</span>
+          <a href="./acerca.html">Sobre nosotros</a>
+        </nav>
       </div>
     </footer>
   </div>
 </body>
+
 </html>

@@ -1,5 +1,5 @@
  export class Producto{
-    constructor(id,nombre,descripcion,imagen,precio,tipo,especificaciones={},descuento){
+    constructor(id,nombre,descripcion,imagen,precio,tipo,especificaciones={},descuento, url){
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -8,6 +8,8 @@
         this.tipo = tipo;
         this.especificaciones = especificaciones;
         this.descuento = descuento;
+        //propiedad para videos
+        this.url = url;
     }
 
     mostrarResumen() {

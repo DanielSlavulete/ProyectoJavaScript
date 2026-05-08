@@ -20,6 +20,7 @@ class MainHeader extends HTMLElement {
     render() { // Es importante usar shadowRoot para aislar el comportamiento y que ciertos estilos no afecten a toda la pagina
         this.shadowRoot.innerHTML = ` 
         <style>
+            
             .header {
                 background: #0048aa;
                 color: white;
@@ -37,10 +38,27 @@ class MainHeader extends HTMLElement {
                 gap: 10px;
                 text-decoration: none;
                 color: inherit;
+                flex-shrink: 0;
+            }
+
+            .logo-img-box {
+                width: 90px;
+                height: 55px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .logo img {
-                height: 40px;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .logo h1 {
+                margin: 0;
+                font-size: 1.6rem;
+                white-space: nowrap;
             }
 
             .buscador {
@@ -49,58 +67,144 @@ class MainHeader extends HTMLElement {
                 max-width: 450px;
                 display: flex;
                 align-items: center;
-                gap: 5px;
+                gap: 6px;
             }
 
             #input-busqueda {
                 width: 100%;
-                padding: 6px 10px;
-                border-radius: 4px;
+                padding: 8px 10px;
+                border-radius: 6px;
                 border: none;
+                font-family: Inter, Arial, sans-serif;
             }
 
             #btn-buscar {
-                padding: 6px 10px;
+                padding: 8px 12px;
                 border: none;
                 background: white;
                 color: black;
                 cursor: pointer;
-                border-radius: 4px;
+                border-radius: 6px;
+            }
+
+            #btn-buscar:hover {
+                background: #e8e8e8;
+            }
+
+            .usuario {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                white-space: nowrap;
+                font-size: 0.9rem;
+            }
+
+            .usuario > span {
+                background: rgba(255, 255, 255, 0.14);
+                padding: 7px 10px;
+                border-radius: 8px;
+            }
+
+            #carrito-contador {
+                background: none;
+                padding: 0;
+                border-radius: 0;
             }
 
             .usuario a {
                 color: white;
                 text-decoration: none;
+                background: rgba(255, 255, 255, 0.12);
+                padding: 7px 10px;
+                border-radius: 8px;
+                transition: background 0.2s ease, transform 0.2s ease;
+            }
+
+            .usuario a:hover {
+                background: rgba(255, 255, 255, 0.25);
+                transform: translateY(-1px);
+            }
+
+            .logo:focus-visible,
+            .usuario a:focus-visible,
+            #input-busqueda:focus-visible,
+            #btn-buscar:focus-visible {
+                outline: 3px solid #ffcc00;
+                outline-offset: 4px;
             }
 
             .resultados-busqueda {
                 position: absolute;
-                top: 38px;
+                top: 42px;
                 left: 0;
                 right: 0;
                 background: white;
                 color: black;
                 border: 1px solid #ccc;
-                border-radius: 4px;
+                border-radius: 6px;
                 max-height: 250px;
                 overflow-y: auto;
                 z-index: 100;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+                font-family: Inter, Arial, sans-serif;
             }
 
             .resultado-item {
-                padding: 8px;
+                padding: 10px;
                 cursor: pointer;
             }
 
             .resultado-item:hover {
                 background: #f0f0f0;
             }
+
+            @media (max-width: 900px) {
+                .header {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    text-align: center;
+                }
+
+                .buscador {
+                    order: 3;
+                    flex-basis: 100%;
+                    max-width: 100%;
+                }
+
+                .usuario {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+
+            @media (max-width: 500px) {
+                .header {
+                    padding: 12px 16px;
+                }
+
+                .logo h1 {
+                    font-size: 1.2rem;
+                }
+
+                .usuario {
+                    gap: 6px;
+                }
+
+                .usuario a,
+                .usuario span {
+                    font-size: 0.8rem;
+                    padding: 6px 8px;
+                }
+            }
+
         </style>
 
         <header class="header">
             <a href="./index.html" class="logo">
-              <img src="../img/Logo.png" alt="Logo Tienda">
-              <h1>MGS COMPONENTS</h1>
+                <span class="logo-img-box">
+                    <img src="../img/Logo.png" alt="Logo de MGS Components">
+                </span>
+                <h1>MGS COMPONENTS</h1>
             </a>
 
             <div class="buscador">

@@ -11,7 +11,8 @@ export const productos = [
         439.99,
         "Procesador",
         { nucleos: 8, hilos: 16, frecuencia_base: "4.2 GHz", frecuencia_turbo: "5.0 GHz", cache: "96 MB", socket: "AM5", tdp: "120W" },
-        0
+        0,
+        "https://www.youtube.com/embed/flBDY241b_E?si=INNfnLyEEuFmuydP"
     ),
     new Producto(
         2,
@@ -21,7 +22,8 @@ export const productos = [
         419.99,
         "Procesador",
         { nucleos: 16, hilos: 24, frecuencia_base: "3.4 GHz", frecuencia_turbo: "5.4 GHz", cache: "30 MB", socket: "LGA1700", tdp: "125W" },
-        15
+        15,
+        "https://www.youtube.com/embed/6Tm9_i4LiQo?si=pBvAp4XEYcoL8wzb"
     ),
     new Producto(
         3,
@@ -31,19 +33,21 @@ export const productos = [
         179.99,
         "Procesador",
         { nucleos: 6, hilos: 12, frecuencia_base: "3.5 GHz", frecuencia_turbo: "4.4 GHz", cache: "35 MB", socket: "AM4", tdp: "65W" },
-        0
+        0,
+        "https://www.youtube.com/embed/wkH_FbB8_58?si=MtvD2QINK6Q_xMPj"
     ),
 
     // TARJETAS GRÁFICAS
     new Producto(
         4,
-        "Tarjeta Gráfica ASUS ROG Strix GeForce RTX 4070 Ti OC 12GB GDDR6X DLSS3 ",
+        "Tarjeta Gráfica ASUS ROG Strix GeForce RTX 4070 Ti OC 12GB GDDR6X DLSS3",
         "Tarjeta gráfica de última generación con DLSS 3 y trazado de rayos.",
         "rtx4070ti.jpg",
         829.99,
         "Grafica",
         { vram: "12 GB GDDR6X", bus: "192-bit", frecuencia: "2.6 GHz", conectores: "1x HDMI, 3x DisplayPort", consumo: "285W" },
-        0
+        0,
+        "https://www.youtube.com/embed/4AS7Ojry4-U?si=hJBh9sGlukZGAW59"
     ),
     new Producto(
         5,
@@ -53,7 +57,8 @@ export const productos = [
         899.99,
         "Grafica",
         { vram: "20 GB GDDR6", bus: "320-bit", frecuencia: "2.5 GHz", conectores: "2x HDMI, 2x DisplayPort", consumo: "300W" },
-        5
+        5,
+        "https://www.youtube.com/embed/UZtyBFHtiDA?si=4rjsc3PCO4DYEfcX"
     ),
     new Producto(
         6,
@@ -63,7 +68,8 @@ export const productos = [
         349.99,
         "Grafica",
         { vram: "8 GB GDDR6", bus: "128-bit", frecuencia: "2.5 GHz", conectores: "1x HDMI, 3x DisplayPort", consumo: "160W" },
-        20
+        20,
+        "https://www.youtube.com/embed/1b3b0qJ_KHI?si=Yck_XjtDOEKIhkU4"
     ),
 
     // PLACAS BASE
@@ -75,7 +81,8 @@ export const productos = [
         259.99,
         "Placa Base",
         { socket: "AM5", chipset: "B650E", memoria: "DDR5 hasta 128 GB", puertos: "PCIe 5.0, USB-C, WiFi 6E", formato: "ATX" },
-        45
+        45,
+        "https://www.youtube.com/embed/E-xTjuDqsr4?si=6VWwTTz_Sl5y1ihd"
     ),
     new Producto(
         8,
@@ -85,7 +92,8 @@ export const productos = [
         299.99,
         "Placa Base",
         { socket: "LGA1700", chipset: "Z790", memoria: "DDR5 hasta 192 GB", puertos: "PCIe 5.0, 2.5G LAN, WiFi 6E", formato: "ATX" },
-        0
+        0,
+        "https://www.youtube.com/embed/WQsNIGpJ2Us?si=dwvGKLDVv1VITnyP"
     ),
     new Producto(
         9,
@@ -95,7 +103,8 @@ export const productos = [
         139.99,
         "Placa Base",
         { socket: "AM4", chipset: "B550", memoria: "DDR4 hasta 128 GB", puertos: "PCIe 4.0, M.2, HDMI", formato: "ATX" },
-        0
+        0,
+        "https://www.youtube.com/embed/Qh8BbvED2Fc?si=YvZ_Myw-bXcxsRH4"
     ),
 
     // MEMORIAS RAM
@@ -107,7 +116,8 @@ export const productos = [
         169.99,
         "Memoria RAM",
         { capacidad: "32 GB (2x16GB)", velocidad: "6000 MHz", tipo: "DDR5", latencia: "CL36", voltaje: "1.35V" },
-        15
+        15,
+        "https://www.youtube.com/embed/epKYZrish5E?si=Msz24e-bBHlLm5IF"
     ),
     new Producto(
         11,
@@ -117,7 +127,8 @@ export const productos = [
         54.99,
         "Memoria RAM",
         { capacidad: "16 GB (2x8GB)", velocidad: "3200 MHz", tipo: "DDR4", latencia: "CL16", voltaje: "1.35V" },
-        18
+        18,
+        "https://www.youtube.com/embed/7cD33E6FiT8?si=P0cr8Wrq2fivml3s"
     ),
     new Producto(
         12,
@@ -127,7 +138,8 @@ export const productos = [
         319.99,
         "Memoria RAM",
         { capacidad: "64 GB (2x32GB)", velocidad: "6400 MHz", tipo: "DDR5", latencia: "CL32", voltaje: "1.4V" },
-        0
+        0,
+        "https://www.youtube.com/embed/yUeE4NmMj48?si=eLB13bYMKc3AoUGU"
     ),
 
     // DISCOS DUROS / SSD
@@ -139,7 +151,8 @@ export const productos = [
         149.99,
         "Disco Duro",
         { tipo: "SSD NVMe", capacidad: "1 TB", velocidad_lectura: "7450 MB/s", velocidad_escritura: "6900 MB/s", interfaz: "PCIe 4.0" },
-        0
+        0,
+        "https://www.youtube.com/embed/k1D30x_0EO8?si=xF7z9dhNhvDE_Rf4"
     ),
     new Producto(
         14,
@@ -149,7 +162,8 @@ export const productos = [
         69.99,
         "Disco Duro",
         { tipo: "SSD SATA", capacidad: "1 TB", velocidad_lectura: "560 MB/s", velocidad_escritura: "510 MB/s", interfaz: "SATA III" },
-        10
+        10,
+        "https://www.youtube.com/embed/RGVxHV5AkQI?si=1Hx0dH6pQTpcCtnn"
     ),
     new Producto(
         15,
@@ -159,7 +173,8 @@ export const productos = [
         59.99,
         "Disco Duro",
         { tipo: "HDD", capacidad: "2 TB", velocidad: "7200 rpm", cache: "256 MB", interfaz: "SATA III" },
-        0
+        0,
+        "https://www.youtube.com/embed/kgLdQ4FL2oQ?si=xJMwBAzKhhJBzlTK"
     ),
 
     // ⌨TECLADOS
@@ -171,7 +186,8 @@ export const productos = [
         219.99,
         "Teclado",
         { tipo: "Mecánico", conectividad: "Bluetooth / Lightspeed", retroiluminacion: "RGB", switches: "GL Tactile", formato: "TKL" },
-        45
+        45,
+        "https://www.youtube.com/embed/aKPNWJZVPgY?si=IhaSt5rQsBdBZ9qD"
     ),
     new Producto(
         17,
@@ -181,7 +197,8 @@ export const productos = [
         149.99,
         "Teclado",
         { tipo: "Mecánico", conectividad: "USB", retroiluminacion: "RGB", switches: "Cherry MX Red", formato: "Full-size" },
-        0
+        0,
+        "https://www.youtube.com/embed/zYjyXKj6yP8?si=LkcQj0VYF4goVlMk"
     ),
     new Producto(
         18,
@@ -191,7 +208,8 @@ export const productos = [
         69.99,
         "Teclado",
         { tipo: "Membrana", conectividad: "USB", retroiluminacion: "RGB", macros: "Programables", formato: "Full-size" },
-        0
+        0,
+        "https://www.youtube.com/embed/yy-S71PMeDg?si=kuMMycY5ZrntQYuH"
     ),
 
     // RATONES
@@ -203,7 +221,8 @@ export const productos = [
         69.99,
         "Raton",
         { tipo: "Óptico", dpi: "25,600", conectividad: "Cable USB", botones: 11, peso_ajustable: true },
-        15
+        15,
+        "https://www.youtube.com/embed/vv7Xd2unJP4?si=D1KQ6YHO4aAMdlw9"
     ),
     new Producto(
         20,
@@ -213,7 +232,8 @@ export const productos = [
         159.99,
         "Raton",
         { tipo: "Óptico", dpi: "30,000", conectividad: "Inalámbrico", peso: "63 g", bateria: "90h" },
-        33
+        33,
+        "https://www.youtube.com/embed/75c5z5jcMaI?si=_ZupXbCnlSfBtvyS"
     ),
     new Producto(
         21,
@@ -223,7 +243,8 @@ export const productos = [
         69.99,
         "Raton",
         { tipo: "Óptico", dpi: "18,000", conectividad: "Cable USB", botones: 9, retroiluminacion: "RGB" },
-        0
+        0,
+        "https://www.youtube.com/embed/8rUbKL29Ujg?si=vAKp_124787e3k_a"
     ),
 
     // AURICULARES
@@ -235,7 +256,8 @@ export const productos = [
         99.99,
         "Auriculares",
         { tipo: "Circumaural", microfono: "Desmontable", conectividad: "Jack 3.5mm / USB", sonido: "7.1 virtual", peso: "320g" },
-        0
+        0,
+        "https://www.youtube.com/embed/LqZ54ZW__FU?si=ESPqSRPQO19Ct365"
     ),
     new Producto(
         23,
@@ -245,7 +267,8 @@ export const productos = [
         199.99,
         "Auriculares",
         { tipo: "Inalámbrico", microfono: "Extraíble", sonido: "THX Spatial Audio", autonomia: "24h", conectividad: "2.4GHz USB" },
-        25
+        25,
+        "https://www.youtube.com/embed/PZHKnAqqmi8?si=trWy72kHLkDdkmWZ"
     ),
     new Producto(
         24,
@@ -255,6 +278,7 @@ export const productos = [
         79.99,
         "Auriculares",
         { tipo: "Inalámbrico / Bluetooth", peso: "165g", autonomia: "18h", microfono: "Integrado", sonido: "Estéreo" },
-        0
+        0,
+        "https://www.youtube.com/embed/RbaKP9hj8Sg?si=Juog3tlShCr_JoLy"
     )
 ];
