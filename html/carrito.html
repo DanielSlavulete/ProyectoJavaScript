@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito</title>
     <link rel="stylesheet" href="../css/estilos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <script type="module" src="../js/menu.js"></script>
     <script type="module" src="../js/compra.js" defer></script>
 </head>
@@ -15,29 +15,33 @@
     <main-header></main-header>
     <div class="page-wrapper">
         <main class="carrito-main">
-            <h1>Tu carrito</h1>
+            <h1 id="titulo-carrito">Tu carrito</h1>
 
-            <section class="carrito-contenido">
-                <div id="carrito-lista" class="carrito-lista">
+            <section class="carrito-contenido" aria-labelledby="titulo-carrito">
+                <div id="carrito-lista" class="carrito-lista" aria-live="polite">
                     <!-- Aquí van los productos -->
                 </div>
 
-                <aside class="carrito-resumen">
-                    <h2>Resumen</h2>
+                <aside class="carrito-resumen" aria-labelledby="titulo-resumen">
+                    <h2 id="titulo-resumen">Resumen</h2>
                     <p>Total artículos: <span id="carrito-articulos">0</span></p>
                     <p>Total a pagar: <span id="carrito-total">0.00 €</span></p>
-                    <button id="carrito-vaciar" class="btn-primario">Vaciar carrito</button>
+                    <button id="carrito-vaciar" class="btn-primario" aria-label="Vaciar todos los productos del carrito">Vaciar carrito</button>
                 </aside>
             </section>
         </main>
 
 
         <!-- FOOTER — EL MISMO QUE EN LA PÁGINA PRINCIPAL -->
-        <footer class="footer">
+        <footer class="footer" aria-label="Pie de página">
             <div class="info-footer">
                 <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
-                <a href="./contacto.html">Contacto</a> |
-                <a href="./acerca.html">Sobre nosotros</a>
+
+                <nav aria-label="Enlaces del pie de página">
+                    <a href="./contacto.html">Contacto</a>
+                    <span aria-hidden="true">|</span>
+                    <a href="./acerca.html">Sobre nosotros</a>
+                </nav>
             </div>
         </footer>
     </div>

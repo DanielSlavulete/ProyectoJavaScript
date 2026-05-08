@@ -1,29 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="stylesheet" href="../css/registro.css">
     <link rel="stylesheet" href="../css/estilos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body data-solo-invitados="true"> 
-    <div class="divJefe">
-        <div class="contenedorImagen"><img src="" alt=""></div>
-        <h1>CREAR CUENTA</h1>
+    <div class="divJefe" aria-labelledby="titulo-registro">
+        <div class="contenedorImagen">
+            <a href="./index.html" aria-label="Volver a la página principal">
+                <img src="../img/Logo.png" alt="Logo de MGS Components">
+            </a>
+        </div>
+        <h1 id="titulo-registro">Crear cuenta</h1>
         <div class="">
-            <form action="" id="formRegistro" class="divFormulario" novalidate>
+            <form action="" id="formRegistro" class="divFormulario" aria-describedby="mensajeRegistro" novalidate>
+                <label for="nombreCrearCuenta">Nombre completo</label>
                 <input type="text" id="nombreCrearCuenta" placeholder="Nombre completo" required><br>
+                <label for="correoCrearCuenta">Correo electrónico</label>
                 <input type="text" id="correoCrearCuenta" placeholder="Correo electrónico" required><br>
+                <label for="telefonoCrearCuenta">Teléfono</label>
                 <input type="text" id="telefonoCrearCuenta" placeholder="Teléfono (Ej: +34 612345678)" required><br>
+                <label for="contrasenaCrearCuenta">Contraseña</label>
                 <input type="password" id="contrasenaCrearCuenta" placeholder="Contraseña" required><br>
+                <label for="repetirContrasena">Repetir contraseña</label>
                 <input type="password" id="repetirContrasena" placeholder="Repetir contraseña" required><br>
-                <div id="radio">
-                    <input type="radio" id="radioAceptarPolitica">He leído y acepto la política de privacidad<br>
+                <div id="radio" class="campo-politica">
+                    <input type="checkbox" id="radioAceptarPolitica" required>
+                    <label for="radioAceptarPolitica">He leído y acepto la política de privacidad</label>
                 </div>    
                 <button type="submit" id="botonCrearCuenta">CREAR CUENTA</button><br>
-                <p id="mensajeRegistro"></p>
+                <p class="texto-login">
+                ¿Ya tienes cuenta?
+                <a href="./login.html">Inicia sesión</a>
+                </p>
+                <p id="mensajeRegistro" class="mensaje-formulario" aria-live="polite"></p>
             </form>
         </div>
     </div>

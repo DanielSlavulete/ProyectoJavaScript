@@ -24,6 +24,28 @@ document.addEventListener("DOMContentLoaded", () => {
     <section class="detalle-producto">
       <div class="detalle-imagen">
         <img src="../img/${producto.imagen}" alt="${producto.nombre}">
+
+        ${
+        producto.url
+        ? `
+        
+          <section class="detalle-video" aria-labelledby="titulo-video-producto">
+            <h3 id="titulo-video-producto">Vídeo del producto</h3>
+
+            <div class="video-wrapper">
+              <iframe
+                src="${producto.url}"
+                title="Vídeo sobre ${producto.nombre}"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </section>
+        
+        `
+        : ""
+
+      }
+
       </div>
 
       <div class="detalle-info">
@@ -49,7 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
             
         <button class="btn-carrito">🛒 Añadir al carrito</button>
         <button class="btn-volver">⬅ Volver</button>
-      </div>
+      
+        </div>
     </section>
   `;
   // .map recorre el array y separa los datos en clave valor

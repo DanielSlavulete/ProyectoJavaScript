@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
     <link rel="stylesheet" href="../css/estilos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/contacto.css" />
     <script type="module" src="../js/menu.js"></script>
 </head>
 
@@ -15,10 +16,10 @@
     <main-header></main-header>
     <div class="page-wrapper">
         <!-- CONTENIDO -->
-        <main class="contenedor contacto">
-            <h1>Contacto</h1>
+        <main class="contenedor contacto" aria-labelledby="titulo-contacto">
+            <h1 id="titulo-contacto">Contacto</h1>
 
-            <p class="contacto-intro">
+            <p class="contacto-intro" aria-label="Canales de contacto">
                 Si necesitas información sobre compatibilidad de componentes, seguimiento de pedidos,
                 recomendaciones técnicas o asistencia general, el equipo de
                 <strong>MGS Components</strong> está disponible para ayudarte.
@@ -51,11 +52,15 @@
         </main>
 
         <!-- FOOTER -->
-        <footer class="footer">
+        <footer class="footer" aria-label="Pie de página">
             <div class="info-footer">
                 <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
-                <a href="./contacto.html">Contacto</a> |
-                <a href="./acerca.html">Sobre nosotros</a>
+
+                <nav aria-label="Enlaces del pie de página">
+                    <a href="./contacto.html" aria-current="page">Contacto</a>
+                    <span aria-hidden="true">|</span>
+                    <a href="./acerca.html">Sobre nosotros</a>
+                </nav>
             </div>
         </footer>
     </div>
