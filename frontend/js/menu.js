@@ -1,4 +1,5 @@
 import { deleteCookie } from "./cookies.js";
+import { Producto } from "./producto.js";
 
 // Componente Web para el encabezado principal(logo, buscador y zona de usuario).
 class MainHeader extends HTMLElement {
@@ -228,10 +229,11 @@ class MainHeader extends HTMLElement {
         // Carga los productos del módulo de datos
         let productos = [];
         try {
-            const modulo = await import("./datos_iniciales.js"); // Con await carga el JS y espera hasta que esté listo para usarlo
-            productos = modulo.productos;
-        } catch (e) {
-            console.error("Error al cargar productos:", e);
+            const res = await fetch("http://localhost:3000/api/productos");
+            const datos = await res.json();
+            productos = datos.map(p => new Producto(p._id, p.nombre, p.descripcion, p.imagen, p.precio, p.tipo, p.especificaciones, p.descuento, p.urlVideo));
+        } catch (err) {
+            console.error("Error al cargar productos:", err);
             return;
         }
 
@@ -252,7 +254,7 @@ class MainHeader extends HTMLElement {
                 item.classList.add("resultado-item");
                 item.textContent = p.nombre;
                 item.addEventListener("click", () => {
-                    window.location.href = `./producto-detalle.html?id=${p.id}`;
+                    window.location.href = `./producto-detalle.html?id=${p._id}`;
                 });
                 contenedorResultados.appendChild(item);
             });
@@ -284,7 +286,7 @@ class MainHeader extends HTMLElement {
             );
 
             if (filtrados.length > 0) {
-                window.location.href = `./producto-detalle.html?id=${filtrados[0].id}`;
+                window.location.href = `./producto-detalle.html?id=${filtrados[0]._id}`;
             } else {
                 alert("No se encontraron productos que coincidan con tu búsqueda.");
             }

@@ -36,7 +36,7 @@ function pintarProducto(producto, contenedor, precioFinal) {
                 <img src="../img/${producto.imagen}" alt="${producto.nombre}">
 
                 ${
-                    producto.url
+                    producto.urlVideo
                     ? `
                     
                     <section class="detalle-video" aria-labelledby="titulo-video-producto">
@@ -101,7 +101,7 @@ function pintarBotones(producto, contenedor, precioFinal) {
         btnCarrito.addEventListener("click", () => {
             // Guardar el producto en el carrito
             agregarAlCarrito({
-                id: producto._id,
+                _id: producto._id,
                 nombre: producto.nombre,
                 descripcion: producto.descripcion,
                 imagen: producto.imagen,

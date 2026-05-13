@@ -20,7 +20,7 @@ export function guardarCarrito(carrito) {
 export function agregarAlCarrito(producto) {
     const carrito = obtenerCarrito();
 
-    const existente = carrito.find(item => item.id === producto.id);
+    const existente = carrito.find(item => item._id === producto._id);
     if (existente) {
         existente.cantidad += producto.cantidad || 1;
     } else {

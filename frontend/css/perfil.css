@@ -119,3 +119,31 @@
     flex-direction: column;
   }
 }
+
+.input-form {
+  padding: 6px;
+  border: rgb(76, 74, 74);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  border-radius:4px;
+}
+
+#form-editar-perfil {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.input-form {
+  grid-column: span 4;
+}
+
+.boton-form-edit {
+  grid-column: span 6;
+}
+
+@media (max-width: 500px) {
+  .input-form {
+    grid-column: span 12;
+  }
+}

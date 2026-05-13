@@ -1,6 +1,6 @@
 export class Cliente {
   constructor(id, nombre, email, telefono, password) {
-    this.id = id;
+    this._id = id;
     this.nombre = nombre;
     this.email = email;
     this.telefono = telefono;
@@ -46,11 +46,23 @@ export class Cliente {
    * Devuelve la información del cliente en formato HTML.
    * Puede usarse, por ejemplo, en la página de perfil.
    */
+
   mostrarInfo() {
     return `
-      Nombre: ${this.nombre}<br>
-      Email: ${this.email}<br>
-      Teléfono: ${this.telefono}<br>
-    `;
+      <p>
+        <strong>Nombre:</strong>
+        <span id="perfil-nombre">${this.nombre}</span>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <span id="perfil-email">${this.email}</span>
+      </p>
+
+      <p>
+        <strong>Teléfono:</strong>
+        <span id="perfil-telefono">${this.telefono}</span>
+      </p>
+    `
   }
 }

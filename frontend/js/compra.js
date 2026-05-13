@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${item.descripcion}</p>
           <p>Precio: ${item.precio.toFixed(2)} €</p>
           <p>Cantidad: ${item.cantidad}</p>
-          <button class="btn-eliminar" data-id="${item.id}">🗑 Quitar</button>
+          <button class="btn-eliminar" data-id="${item._id}">🗑 Quitar</button>
         </div>
       `;
       // data-id: atributo personalizado, siempre empieza por data- y despues se puede poner id, precio, nombre...,  se accede con dataset.
@@ -57,9 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Escucha clics en los botones "Quitar" mediante delegación
   contenedor.addEventListener("click", (e) => {
     if (e.target.classList.contains("btn-eliminar")) {
-      const id = parseInt(e.target.dataset.id); // Se usa dataset.id para acceder al atributo personalizado del boton de quitar un producto del carrito(data-id)
+      const id = e.target.dataset.id; // Se usa dataset.id para acceder al atributo personalizado del boton de quitar un producto del carrito(data-id)
       let carrito = obtenerCarrito();
-      carrito = carrito.filter(item => item.id !== id); // Crea un nuevo carrito excluyendo el producto que se quiere borrar
+      carrito = carrito.filter(item => item._id !== id); // Crea un nuevo carrito excluyendo el producto que se quiere borrar
       guardarCarrito(carrito);
       lanzarEventoCambio();
       pintarCarrito();

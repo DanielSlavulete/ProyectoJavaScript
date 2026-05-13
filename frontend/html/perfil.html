@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="../css/perfil.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="../js/menu.js"></script>
-  <script type="module" src="../js/perfil.js" defer></script>
+  <script type="module" src="../js/perfil2.js" defer></script>
 </head>
 
 <body>
@@ -28,26 +29,22 @@
           </div>
         </div>
 
-        <div class="perfil-datos" aria-label="Datos del usuario">
-          <p>
-            <strong>Nombre:</strong>
-            <span id="perfil-nombre"></span>
-          </p>
-
-          <p>
-            <strong>Email:</strong>
-            <span id="perfil-email"></span>
-          </p>
-
-          <p>
-            <strong>Teléfono:</strong>
-            <span id="perfil-telefono"></span>
-          </p>
-        </div>
+        <div class="perfil-datos" aria-label="Datos del usuario"></div>
 
         <div class="perfil-acciones">
           <button id="btn-ir-carrito" type="button">Ir al carrito</button>
           <button id="btn-cerrar-sesion" type="button" class="btn-secundario">Cerrar sesión</button>
+          <button id="btn-editar-perfil" type="button">Editar perfil</button>
+          <button id="btn-eliminar-cuenta" type="button" class="btn-secundario">Eliminar cuenta</button>
+
+          <form id="form-editar-perfil" style="display:none;">
+            <input type="text" id="edit-nombre" class="input-form" placeholder="Nombre">
+            <input type="email" id="edit-email" class="input-form" placeholder="Email">
+            <input type="text" id="edit-telefono" class="input-form" placeholder="Teléfono">
+            <button type="button" id="btn-cancelar-edicion" class="btn-secundario boton-form-edit">Cancelar</button>
+            <button type="submit" id="btn-guardar-cambios" class="boton-form-edit">Guardar cambios</button>
+            <p id="mensajeEdit" class="mensaje-formulario" aria-live="polite"></p>
+          </form>
         </div>
       </section>
     </main>
