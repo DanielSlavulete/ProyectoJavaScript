@@ -9,7 +9,7 @@
         this.especificaciones = especificaciones;
         this.descuento = descuento;
         //propiedad para videos
-        this.url = url;
+        this.urlVideo = url;
     }
 
     mostrarResumen() {

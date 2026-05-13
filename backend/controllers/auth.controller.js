@@ -35,7 +35,7 @@ const login = async (req, res) => {
         const ok = await bcrypt.compare(password, cliente.password);
         if (!ok) return res.status(401).json({ error: 'Credenciales incorrectas' });
 
-        res.json({ mensaje: 'Login correcto', clienteId: cliente._id, nombre: cliente.nombre });
+        res.json({ mensaje: 'Login correcto', clienteId: cliente._id, nombre: cliente.nombre, email: cliente.email,  telefono: cliente.telefono  });
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
