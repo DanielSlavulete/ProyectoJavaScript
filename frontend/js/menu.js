@@ -15,6 +15,7 @@ class MainHeader extends HTMLElement {
         this.inicializarBuscador();     // Activa el buscador
         this.actualizarUsuario();       // Muestra el estado del usuario
         this.initCarrito();             // Inicializa el contador del carrito
+        this.inicializarTema();         // Inicializa el tema de la pagina para jugar con oscuro o claro
     }
 
     // Estructura y estilos del header
@@ -167,6 +168,27 @@ class MainHeader extends HTMLElement {
 
             .resultado-item:hover {
                 background: #f0f0f0;
+            }
+
+            #btn-tema {
+                color: white;
+                background: rgba(255, 255, 255, 0.12);
+                padding: 7px 10px;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                font-family: Orbitron, Arial, sans-serif;
+                transition: background 0.2s ease, transform 0.2s ease;
+            }
+
+            #btn-tema:hover {
+                background: rgba(255, 255, 255, 0.25);
+                transform: translateY(-1px);
+            }
+
+            #btn-tema:focus-visible {
+                outline: 3px solid #ffcc00;
+                outline-offset: 4px;
             }
 
             /* Portátiles pequeños / tablets horizontales */
@@ -390,8 +412,9 @@ class MainHeader extends HTMLElement {
         // NO logueado
         if (!usuario) {
             zonaUsuario.innerHTML = `
-                <a href="./login.html">Iniciar sesión</a> |
-                <a href="./registro.html">Registrarse</a> |
+                <a href="./login.html">Iniciar sesión</a> 
+                <a href="./registro.html">Registrarse</a> 
+                <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button> 
                 <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
             `;
             return;
@@ -399,9 +422,10 @@ class MainHeader extends HTMLElement {
 
         // SÍ logueado
         zonaUsuario.innerHTML = `
-            <span>👋 Hola, ${usuario.nombre}</span> |
-            <a href="./perfil.html">Mi perfil</a> |
-            <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a> |
+            <span>👋 Hola, ${usuario.nombre}</span> 
+            <a href="./perfil.html">Mi perfil</a> 
+            <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a> 
+            <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button> 
             <a href="#" id="cerrar-sesion">Cerrar sesión</a>
         `;
 
@@ -412,6 +436,40 @@ class MainHeader extends HTMLElement {
             deleteCookie("ultimoUsuario");
             window.location.reload();
         };
+    }
+
+    inicializarTema() {
+        const btnTema = this.shadowRoot.querySelector("#btn-tema");
+
+        if (!btnTema) return;
+
+        const temaGuardado = localStorage.getItem("tema");
+
+        if (temaGuardado === "oscuro") {
+            document.body.classList.add("modo-oscuro");
+            btnTema.textContent = "☀️";
+            btnTema.setAttribute("aria-label", "Cambiar a modo claro");
+        } else {
+            document.body.classList.remove("modo-oscuro");
+            btnTema.textContent = "🌙";
+            btnTema.setAttribute("aria-label", "Cambiar a modo oscuro");
+        }
+
+        btnTema.addEventListener("click", () => {
+            document.body.classList.toggle("modo-oscuro");
+
+            const modoOscuroActivo = document.body.classList.contains("modo-oscuro");
+
+            if (modoOscuroActivo) {
+                localStorage.setItem("tema", "oscuro");
+                btnTema.textContent = "☀️";
+                btnTema.setAttribute("aria-label", "Cambiar a modo claro");
+            } else {
+                localStorage.setItem("tema", "claro");
+                btnTema.textContent = "🌙";
+                btnTema.setAttribute("aria-label", "Cambiar a modo oscuro");
+            }
+        });
     }
 }
 

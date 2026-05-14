@@ -504,3 +504,233 @@ body, input, button, select, textarea, a {
   height: 100%;
   border: 0;
 }
+
+/* ========================= */
+/* MODO CLARO / BASE */
+/* ========================= */
+
+body {
+  background-color: #ffffff;
+  color: #333333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ========================= */
+/* MODO OSCURO */
+/* ========================= */
+
+body.modo-oscuro {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+/* Títulos en modo oscuro */
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3 {
+  color: #f8fafc;
+}
+
+/* Productos */
+body.modo-oscuro .producto-card {
+  background: #1e293b;
+  color: #f8fafc;
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.18);
+}
+
+body.modo-oscuro .producto-nombre {
+  color: #f8fafc;
+}
+
+body.modo-oscuro .producto-precio {
+  color: #38bdf8;
+}
+
+body.modo-oscuro .producto-precio-original {
+  color: #94a3b8;
+}
+
+body.modo-oscuro .producto-precio-descuento {
+  color: #22c55e;
+}
+
+/* Página detalle */
+body.modo-oscuro .detalle-producto {
+  background: #1e293b;
+  color: #f8fafc;
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.18);
+}
+
+body.modo-oscuro .detalle-info h2 {
+  color: #38bdf8;
+}
+
+body.modo-oscuro .detalle-categoria {
+  color: #cbd5e1;
+}
+
+body.modo-oscuro .detalle-descripcion {
+  color: #e2e8f0;
+}
+
+body.modo-oscuro .detalle-precio {
+  color: #38bdf8;
+}
+
+body.modo-oscuro .precio-original {
+  color: #94a3b8;
+}
+
+body.modo-oscuro .precio-final,
+body.modo-oscuro .descuento {
+  color: #22c55e;
+}
+
+body.modo-oscuro .detalle-especificaciones li {
+  background: #334155;
+  color: #f8fafc;
+}
+
+/* Carrusel */
+body.modo-oscuro .carousel {
+  background: #020617;
+}
+
+/* Carrito */
+body.modo-oscuro .carrito-item {
+  background: #1e293b;
+  color: #f8fafc;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+body.modo-oscuro .carrito-resumen {
+  background-color: #020617;
+  color: #f8fafc;
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.16);
+}
+
+body.modo-oscuro .carrito-vacio {
+  color: #f8fafc;
+}
+
+/* Botones */
+body.modo-oscuro .btn-carrito,
+body.modo-oscuro .btn-volver,
+body.modo-oscuro .btn-primario {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+body.modo-oscuro .btn-carrito:hover,
+body.modo-oscuro .btn-volver:hover,
+body.modo-oscuro .btn-primario:hover {
+  background-color: #38bdf8;
+  color: #020617;
+}
+
+/* Footer */
+body.modo-oscuro footer {
+  background: #020617;
+  color: #f8fafc;
+}
+
+body.modo-oscuro footer p {
+  color: #cbd5e1;
+}
+
+body.modo-oscuro footer a,
+body.modo-oscuro footer a:visited {
+  color: #38bdf8;
+}
+
+body.modo-oscuro footer a:hover {
+  color: #ffffff;
+}
+
+/* Inputs generales */
+body.modo-oscuro input,
+body.modo-oscuro select,
+body.modo-oscuro textarea {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+body.modo-oscuro input::placeholder,
+body.modo-oscuro textarea::placeholder {
+  color: #94a3b8;
+}
+
+/* Mensaje bienvenida */
+body.modo-oscuro .mensaje-bienvenida {
+  background-color: #1d4ed8;
+  color: #ffffff;
+}
+
+/* Vídeo */
+body.modo-oscuro .video-wrapper {
+  background: #000;
+  box-shadow: 0 3px 12px rgba(56, 189, 248, 0.22);
+}
+
+/* ========================= */
+/* MODO OSCURO - PERFIL */
+/* ========================= */
+
+body.modo-oscuro .page-wrapper {
+  background-color: #0f172a;
+}
+
+body.modo-oscuro .perfil-contenedor {
+  background-color: #0f172a;
+}
+
+body.modo-oscuro .perfil-card {
+  background: #1e293b;
+  color: #f8fafc;
+  box-shadow: 0 4px 18px rgba(56, 189, 248, 0.16);
+}
+
+body.modo-oscuro .perfil-header h1,
+body.modo-oscuro #titulo-perfil {
+  color: #38bdf8;
+}
+
+body.modo-oscuro .perfil-subtitulo {
+  color: #cbd5e1;
+}
+
+body.modo-oscuro .perfil-datos p {
+  background: #334155;
+  color: #f8fafc;
+}
+
+body.modo-oscuro .perfil-datos strong {
+  color: #38bdf8;
+}
+
+body.modo-oscuro .perfil-avatar {
+  background: #2563eb;
+  color: #bfdbfe;
+}
+
+/* Formulario de edición en modo oscuro */
+body.modo-oscuro #form-editar-perfil {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+body.modo-oscuro .input-form {
+  background: #0f172a;
+  color: #f8fafc;
+  border: 1px solid #475569;
+}
+
+body.modo-oscuro .input-form::placeholder {
+  color: #94a3b8;
+}
+
+body.modo-oscuro .mensaje-formulario {
+  color: #f8fafc;
+}
