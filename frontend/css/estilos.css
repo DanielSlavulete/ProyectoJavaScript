@@ -158,13 +158,37 @@ h2,
 }
 
 /* Footer */
-.footer {
-    background: #333;
-    color: #ddd;
+  footer {
+    background: #0f172a; /* azul oscuro moderno */
+    color: #f8fafc;
+    padding: 24px 16px;
     text-align: center;
-    padding: 10px 0;
     margin-top: 40px;
-}
+  }
+
+  footer p {
+    margin: 0 0 12px;
+    color: #cbd5e1;
+  }
+
+  footer a,
+  footer a:visited {
+    color: #38bdf8; /* azul claro */
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+
+  footer a:focus-visible {
+    outline: 3px solid #38bdf8;
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
 
 .producto-img {
     width: 100%;

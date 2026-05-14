@@ -31,6 +31,8 @@ class MainHeader extends HTMLElement {
                 justify-content: space-between;
                 gap: 20px;
                 font-family: Orbitron, Arial, sans-serif;
+                box-sizing: border-box;
+                width: 100%;
             }
 
             .logo {
@@ -65,6 +67,7 @@ class MainHeader extends HTMLElement {
             .buscador {
                 position: relative;
                 flex: 1;
+                min-width: 220px;
                 max-width: 450px;
                 display: flex;
                 align-items: center;
@@ -77,6 +80,7 @@ class MainHeader extends HTMLElement {
                 border-radius: 6px;
                 border: none;
                 font-family: Inter, Arial, sans-serif;
+                box-sizing: border-box;
             }
 
             #btn-buscar {
@@ -86,6 +90,7 @@ class MainHeader extends HTMLElement {
                 color: black;
                 cursor: pointer;
                 border-radius: 6px;
+                flex-shrink: 0;
             }
 
             #btn-buscar:hover {
@@ -98,6 +103,7 @@ class MainHeader extends HTMLElement {
                 gap: 10px;
                 white-space: nowrap;
                 font-size: 0.9rem;
+                flex-shrink: 0;
             }
 
             .usuario > span {
@@ -119,6 +125,10 @@ class MainHeader extends HTMLElement {
                 padding: 7px 10px;
                 border-radius: 8px;
                 transition: background 0.2s ease, transform 0.2s ease;
+            }
+
+            .usuario a:visited {
+                color: white;
             }
 
             .usuario a:hover {
@@ -159,11 +169,16 @@ class MainHeader extends HTMLElement {
                 background: #f0f0f0;
             }
 
-            @media (max-width: 900px) {
+            /* Portátiles pequeños / tablets horizontales */
+            @media (max-width: 1250px) {
                 .header {
                     flex-wrap: wrap;
                     justify-content: center;
                     text-align: center;
+                }
+
+                .logo {
+                    justify-content: center;
                 }
 
                 .buscador {
@@ -178,23 +193,66 @@ class MainHeader extends HTMLElement {
                 }
             }
 
-            @media (max-width: 500px) {
+            /* Tablets / móviles grandes */
+            @media (max-width: 700px) {
                 .header {
-                    padding: 12px 16px;
+                    padding: 12px 18px;
+                    gap: 14px;
                 }
 
                 .logo h1 {
-                    font-size: 1.2rem;
+                    font-size: 1.35rem;
+                }
+
+                .logo-img-box {
+                    width: 75px;
+                    height: 50px;
                 }
 
                 .usuario {
+                    gap: 8px;
+                }
+
+                .usuario a,
+                .usuario > span {
+                    font-size: 0.82rem;
+                    padding: 6px 8px;
+                }
+            }
+
+            /* Móviles */
+            @media (max-width: 500px) {
+                .header {
+                    padding: 12px 14px;
+                }
+
+                .logo {
+                    flex-direction: column;
+                    gap: 6px;
+                }
+
+                .logo-img-box {
+                    width: 70px;
+                    height: 45px;
+                }
+
+                .logo h1 {
+                    font-size: 1.15rem;
+                }
+
+                .usuario {
+                    width: 100%;
                     gap: 6px;
                 }
 
                 .usuario a,
-                .usuario span {
-                    font-size: 0.8rem;
+                .usuario > span {
+                    font-size: 0.78rem;
                     padding: 6px 8px;
+                }
+
+                .buscador {
+                    min-width: 100%;
                 }
             }
 
