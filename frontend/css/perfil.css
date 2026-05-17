@@ -128,6 +128,29 @@ body.modo-oscuro .perfil-avatar {
   }
 }
 
+.perfil-acciones-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .perfil-acciones-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #btn-ir-carrito { order: 1; }
+  #btn-editar-perfil { order: 2; }
+  #btn-cerrar-sesion { order: 3; }
+  #btn-eliminar-cuenta { order: 4; }
+}
+
+.btn-accion {
+  grid-column: span 1;
+}
+
 .input-form {
   padding: 6px;
   border: rgb(76, 74, 74);
@@ -150,8 +173,18 @@ body.modo-oscuro .perfil-avatar {
   grid-column: span 6;
 }
 
+.botones-edicion {
+  display: flex;
+  grid-column: span 12;
+  gap: 16px;
+}
+
 @media (max-width: 500px) {
   .input-form {
     grid-column: span 12;
+  }
+
+  .botones-edicion {
+    flex-direction: column-reverse;
   }
 }

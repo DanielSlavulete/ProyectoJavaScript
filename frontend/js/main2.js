@@ -93,8 +93,11 @@ function pintarCarrusel(productos) {
 }
 
 function mostrarBienvenida() {
-    const ultimo = getCookie("ultimoUsuario");
+    const mostrar = sessionStorage.getItem("mostrarBienvenida");
+    if (!mostrar) return;
+    sessionStorage.removeItem("mostrarBienvenida");
 
+    const ultimo = getCookie("ultimoUsuario");
     if (ultimo) {
         const mensajeBienvenida = document.createElement("p");
         mensajeBienvenida.textContent = `👋 Bienvenido de nuevo, ${ultimo}!`;

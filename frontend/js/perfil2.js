@@ -73,7 +73,8 @@ function asignarEventosBotones(usuario, mensaje) {
     })
 
     // Botón eliminar cuenta
-    $('#btn-eliminar-cuenta').on('click', function() {
+    $('#btn-eliminar-cuenta').on('click', { usuario: usuario }, function(e) {
+        const usuario = e.data.usuario;
         if (confirm("¿Seguro que quieres eliminar tu cuenta? Esta acción no se puede deshacer.")) {
             eliminarCuenta(usuario, mensaje);
         }

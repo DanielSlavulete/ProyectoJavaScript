@@ -87,16 +87,18 @@ function guardarSessionStorageYCookies(dataRespuesta) {
         dataRespuesta.nombre,
         dataRespuesta.email,
         dataRespuesta.telefono,
-        null
+        null,
+        dataRespuesta.rol
     );
 
     // Guardar en sessionStorage
     sessionStorage.setItem("usuarioLogueado", JSON.stringify(clienteLogueado));
+    sessionStorage.setItem("mostrarBienvenida", "true");
 
     // Guardar cookie de bienvenida (nombre visible)
     setCookie("ultimoUsuario", clienteLogueado.nombre, 3);
 
-    mostrarOk(`Inicio de sesión correcto. Bienvenido ${clienteLogueado.nombre}`);
+    mostrarOk(`Inicio de sesión correcto. Bienvenido ${clienteLogueado.nombre}.`);
 }
 
 // -------------------- FUNCIONES AUXILIARES --------------------
