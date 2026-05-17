@@ -1,10 +1,11 @@
 export class Cliente {
-  constructor(id, nombre, email, telefono, password) {
+  constructor(id, nombre, email, telefono, password, rol) {
     this._id = id;
     this.nombre = nombre;
     this.email = email;
     this.telefono = telefono;
     this.password = password;
+    this.rol = rol;
   }
 
   // Creamos metodos estaticos para que no se tenga que crear una instacia de cliente antes de validar.

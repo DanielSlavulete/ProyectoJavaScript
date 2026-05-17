@@ -29,7 +29,7 @@ const crearProducto = async (req, res) => {
     try {
         const producto = await Producto(req.body);
         await producto.save();
-        res.status(201).json(producto);
+        res.status(201).json({ mensaje: 'Producto creado correctamente', producto });
     } catch (err) {
         res.status(400).json({ error: err.message });
     }
@@ -42,7 +42,7 @@ const actualizarProducto = async (req, res) => {
             req.params.id, req.body, { new: true}
         );
         if (!producto) return res.status(404).json({ error: 'Producto no encontrado' });
-        res.json(producto);
+        res.json({ mensaje: 'Producto editado correctamente', producto });
     } catch {
         res.status(400).json({ error: err.message });
     }
@@ -52,7 +52,7 @@ const actualizarProducto = async (req, res) => {
 const eliminarProducto = async (req, res) => {
   try {
     await Producto.findByIdAndDelete(req.params.id);
-    res.json({ mensaje: 'Producto eliminado' });
+    res.json({ mensaje: 'Producto eliminado correctamente' });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

@@ -21,7 +21,11 @@ class MainHeader extends HTMLElement {
     render() { // Es importante usar shadowRoot para aislar el comportamiento y que ciertos estilos no afecten a toda la pagina
         this.shadowRoot.innerHTML = ` 
         <style>
-            
+            :host {
+                display: block;
+                width: 100%;
+            }
+                
             .header {
                 background: #0048aa;
                 color: white;
@@ -29,7 +33,7 @@ class MainHeader extends HTMLElement {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 20px;
+                gap: 0px;
                 font-family: Orbitron, Arial, sans-serif;
             }
 
@@ -135,6 +139,7 @@ class MainHeader extends HTMLElement {
             }
 
             .resultados-busqueda {
+                display: none;
                 position: absolute;
                 top: 42px;
                 left: 0;
@@ -238,11 +243,14 @@ class MainHeader extends HTMLElement {
         }
 
         // Limpia los resultados si se borra el texto de busqueda o se escribe algo nuevo
-        const limpiar = () => contenedorResultados.innerHTML = "";
-
+        const limpiar = () => {
+            contenedorResultados.innerHTML = "";
+            contenedorResultados.style.display = 'none';
+        };
         // Muestra la lista de productos encontrados
         const mostrarResultados = (lista) => {
             limpiar();
+            contenedorResultados.style.display = 'block';
             if (lista.length === 0) {
                 contenedorResultados.innerHTML = `<div class="resultado-item">No se encontraron productos</div>`;
                 return;
@@ -342,6 +350,7 @@ class MainHeader extends HTMLElement {
         // SÍ logueado
         zonaUsuario.innerHTML = `
             <span>👋 Hola, ${usuario.nombre}</span> |
+            ${usuario.rol === 'admin' ? '<a href="./admin.html">⚙️ Admin</a> |' : ''}
             <a href="./perfil.html">Mi perfil</a> |
             <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a> |
             <a href="#" id="cerrar-sesion">Cerrar sesión</a>

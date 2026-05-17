@@ -1,0 +1,244 @@
+.admin-contenedor {
+
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.admin-contenedor h1 {
+  font-family: 'Orbitron', Arial, sans-serif;
+  color: #193eb8;
+  margin-bottom: 30px;
+}
+
+/* ── Formulario ── */
+.admin-form-section {
+  background: #f8f8f8;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  margin-bottom: 40px;
+}
+
+.admin-form-section h2 {
+  font-family: 'Orbitron', Arial, sans-serif;
+  color: #193eb8;
+  margin: 0 0 20px 0;
+}
+
+#form-producto {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+#form-producto input {
+  grid-column: span 6;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Inter', Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+#prod-especificaciones {
+  grid-column: span 6;
+  grid-row: span 3;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Inter', Arial, sans-serif;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.form-botones {
+  grid-column: span 12;
+  display: flex;
+  gap: 14px;
+}
+
+.form-botones button {
+  flex: 1;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-guardar-producto,
+.btn-editar-producto {
+  background: #193eb8;
+  color: white;
+}
+
+.btn-guardar-producto:hover,
+.btn-editar-producto:hover {
+  background: #365bf4;
+}
+
+.btn-cancelar-producto,
+.btn-borrar-producto {
+  background: #c0392b;
+  color: white;
+}
+
+.btn-cancelar-producto:hover,
+.btn-borrar-producto:hover {
+  background: #e74c3c;
+}
+
+/* ── Lista de productos ── */
+.admin-lista-section {
+  background: #f8f8f8;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.admin-lista-section h2 {
+  font-family: 'Orbitron', Arial, sans-serif;
+  color: #193eb8;
+  margin: 0 0 20px 0;
+}
+
+.admin-producto-item {
+  background: white;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.admin-producto-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.admin-producto-info {
+  flex: 1;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.admin-producto-info strong {
+  color: #193eb8;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.admin-producto-info span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.admin-producto-botones {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-editar-prod {
+  background: #193eb8;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: bold;
+}
+
+.btn-editar-prod:hover {
+  background: #365bf4;
+}
+
+.btn-eliminar-prod {
+  background: #c0392b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: bold;
+}
+
+.btn-eliminar-prod:hover {
+  background: #e74c3c;
+}
+
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  #form-producto input {
+    grid-column: span 12;
+  }
+
+  .form-botones {
+    flex-direction: column-reverse;
+  }
+
+  .admin-producto-item {
+    flex-wrap: wrap;
+  }
+}
+
+.mensaje-formulario {
+  grid-column: span 12;
+}
+
+/* TABLA */
+
+.tabla-productos-admin {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.tabla-productos-admin th {
+  background: #193eb8;
+  color: white;
+  padding: 10px 12px;
+  text-align: left;
+  font-family: 'Orbitron', Arial, sans-serif;
+  font-size: 0.8rem;
+}
+
+.tabla-productos-admin td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  font-size: 0.85rem;
+}
+
+.tabla-productos-admin tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+.tabla-productos-admin tr:hover {
+  background: #e8eeff;
+}
+
+.tabla-productos-admin img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.acciones {
+  white-space: nowrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.acciones button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}

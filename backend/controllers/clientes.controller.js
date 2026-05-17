@@ -24,6 +24,7 @@ const getCliente = async (req, res) => {
 // PUT modificar
 const actualizarCliente = async (req, res) => {
     try {
+        const { rol, password, ...datosActualizables } = req.body; // extraemos rol y password para excluirlos de la modificación
         const cliente = await Cliente.findByIdAndUpdate(
             req.params.id, req.body, { new: true }
         );

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración</title>
+  <link rel="stylesheet" href="../css/estilos.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <script type="module" src="../js/menu.js"></script>
+  <script type="module" src="../js/admin.js" defer></script>
+</head>
+<body>
+  <main-header></main-header>
+
+  <div class="page-wrapper">
+    <main class="contenedor admin-contenedor">
+      <h1>Panel de administración</h1>
+
+      <!-- Formulario crear/editar producto -->
+      <section class="admin-form-section">
+        <h2 id="form-titulo">Crear producto</h2>
+        <form id="form-producto">
+          <input type="hidden" id="producto-id">
+          <input type="text" id="prod-nombre" placeholder="Nombre" required>
+          <input type="text" id="prod-descripcion" placeholder="Descripción" required>
+          <input type="text" id="prod-imagen" placeholder="Nombre de imagen (ej: rtx4060.jpg)" required>
+          <input type="number" id="prod-precio" placeholder="Precio" required>
+          <input type="text" id="prod-tipo" placeholder="Tipo (GPU, CPU, RAM...)" required>
+          <textarea id="prod-especificaciones" placeholder="Especificaciones (ej:&#10;nucleos: 8&#10;frecuencia: 4.2 GHz&#10;socket: AM5)"></textarea>
+          <input type="number" id="prod-descuento" placeholder="Descuento (%)">
+          <input type="text" id="prod-urlVideo" placeholder="URL del vídeo">
+          <div class="form-botones">
+            <button type="button" class="btn-cancelar-producto">Cancelar</button>
+            <button type="submit" class="btn-guardar-producto">Guardar producto</button>
+          </div>
+          <p id="mensaje-admin" class="mensaje-formulario"></p>
+        </form>
+      </section>
+
+      <!-- Lista de productos -->
+      <section class="admin-lista-section">
+        <h2>Productos</h2>
+        <div id="lista-productos-admin"></div>
+      </section>
+    </main>
+
+    <footer class="footer" aria-label="Pie de página">
+      <div class="info-footer">
+        <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
+        <nav>
+          <a href="./contacto.html">Contacto</a>
+          <span>|</span>
+          <a href="./acerca.html">Sobre nosotros</a>
+        </nav>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

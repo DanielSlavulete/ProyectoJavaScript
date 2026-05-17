@@ -32,17 +32,22 @@
         <div class="perfil-datos" aria-label="Datos del usuario"></div>
 
         <div class="perfil-acciones">
-          <button id="btn-ir-carrito" type="button">Ir al carrito</button>
-          <button id="btn-cerrar-sesion" type="button" class="btn-secundario">Cerrar sesión</button>
-          <button id="btn-editar-perfil" type="button">Editar perfil</button>
-          <button id="btn-eliminar-cuenta" type="button" class="btn-secundario">Eliminar cuenta</button>
-
+          <div class="perfil-acciones-grid">
+            <button id="btn-cerrar-sesion" type="button" class="btn-secundario btn-accion">Cerrar sesión</button>
+            <button id="btn-ir-carrito" type="button" class="btn-accion">Ir al carrito</button>
+            <button id="btn-eliminar-cuenta" type="button" class="btn-secundario btn-accion">Eliminar cuenta</button>
+            <button id="btn-editar-perfil" type="button" class="btn-accion">Editar perfil</button>
+          </div>
+          
           <form id="form-editar-perfil" style="display:none;">
             <input type="text" id="edit-nombre" class="input-form" placeholder="Nombre">
             <input type="email" id="edit-email" class="input-form" placeholder="Email">
             <input type="text" id="edit-telefono" class="input-form" placeholder="Teléfono">
-            <button type="button" id="btn-cancelar-edicion" class="btn-secundario boton-form-edit">Cancelar</button>
-            <button type="submit" id="btn-guardar-cambios" class="boton-form-edit">Guardar cambios</button>
+            <div class="botones-edicion">
+              <button type="button" id="btn-cancelar-edicion" class="btn-secundario boton-form-edit">Cancelar</button>
+              <button type="submit" id="btn-guardar-cambios" class="boton-form-edit">Guardar cambios</button>
+            </div>
+            
             <p id="mensajeEdit" class="mensaje-formulario" aria-live="polite"></p>
           </form>
         </div>
