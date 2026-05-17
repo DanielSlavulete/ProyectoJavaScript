@@ -6,6 +6,15 @@ const API_URL = "http://localhost:3000/api";
 window.addEventListener("DOMContentLoaded", async () => {
 
 
+  // CARGAR TEMA GUARDADO
+  const temaGuardado = localStorage.getItem("tema");
+
+  if (temaGuardado === "oscuro") {
+    document.body.classList.add("modo-oscuro");
+  } else {
+    document.body.classList.remove("modo-oscuro");
+  }
+
   //MENSAJE BIENVENIDA 
 
   const ultimo = getCookie("ultimoUsuario");

@@ -15,6 +15,7 @@ class MainHeader extends HTMLElement {
         this.inicializarBuscador();     // Activa el buscador
         this.actualizarUsuario();       // Muestra el estado del usuario
         this.initCarrito();             // Inicializa el contador del carrito
+        this.inicializarTema();         // Inicializa el tema de la pagina para jugar con oscuro o claro
     }
 
     // Estructura y estilos del header
@@ -35,6 +36,8 @@ class MainHeader extends HTMLElement {
                 justify-content: space-between;
                 gap: 0px;
                 font-family: Orbitron, Arial, sans-serif;
+                box-sizing: border-box;
+                width: 100%;
             }
 
             .logo {
@@ -69,6 +72,7 @@ class MainHeader extends HTMLElement {
             .buscador {
                 position: relative;
                 flex: 1;
+                min-width: 220px;
                 max-width: 450px;
                 display: flex;
                 align-items: center;
@@ -81,6 +85,7 @@ class MainHeader extends HTMLElement {
                 border-radius: 6px;
                 border: none;
                 font-family: Inter, Arial, sans-serif;
+                box-sizing: border-box;
             }
 
             #btn-buscar {
@@ -90,6 +95,7 @@ class MainHeader extends HTMLElement {
                 color: black;
                 cursor: pointer;
                 border-radius: 6px;
+                flex-shrink: 0;
             }
 
             #btn-buscar:hover {
@@ -102,6 +108,7 @@ class MainHeader extends HTMLElement {
                 gap: 10px;
                 white-space: nowrap;
                 font-size: 0.9rem;
+                flex-shrink: 0;
             }
 
             .usuario > span {
@@ -123,6 +130,10 @@ class MainHeader extends HTMLElement {
                 padding: 7px 10px;
                 border-radius: 8px;
                 transition: background 0.2s ease, transform 0.2s ease;
+            }
+
+            .usuario a:visited {
+                color: white;
             }
 
             .usuario a:hover {
@@ -164,11 +175,37 @@ class MainHeader extends HTMLElement {
                 background: #f0f0f0;
             }
 
-            @media (max-width: 900px) {
+            #btn-tema {
+                color: white;
+                background: rgba(255, 255, 255, 0.12);
+                padding: 7px 10px;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                font-family: Orbitron, Arial, sans-serif;
+                transition: background 0.2s ease, transform 0.2s ease;
+            }
+
+            #btn-tema:hover {
+                background: rgba(255, 255, 255, 0.25);
+                transform: translateY(-1px);
+            }
+
+            #btn-tema:focus-visible {
+                outline: 3px solid #ffcc00;
+                outline-offset: 4px;
+            }
+
+            /* Portátiles pequeños / tablets horizontales */
+            @media (max-width: 1250px) {
                 .header {
                     flex-wrap: wrap;
                     justify-content: center;
                     text-align: center;
+                }
+
+                .logo {
+                    justify-content: center;
                 }
 
                 .buscador {
@@ -183,23 +220,66 @@ class MainHeader extends HTMLElement {
                 }
             }
 
-            @media (max-width: 500px) {
+            /* Tablets / móviles grandes */
+            @media (max-width: 700px) {
                 .header {
-                    padding: 12px 16px;
+                    padding: 12px 18px;
+                    gap: 14px;
                 }
 
                 .logo h1 {
-                    font-size: 1.2rem;
+                    font-size: 1.35rem;
+                }
+
+                .logo-img-box {
+                    width: 75px;
+                    height: 50px;
                 }
 
                 .usuario {
+                    gap: 8px;
+                }
+
+                .usuario a,
+                .usuario > span {
+                    font-size: 0.82rem;
+                    padding: 6px 8px;
+                }
+            }
+
+            /* Móviles */
+            @media (max-width: 500px) {
+                .header {
+                    padding: 12px 14px;
+                }
+
+                .logo {
+                    flex-direction: column;
+                    gap: 6px;
+                }
+
+                .logo-img-box {
+                    width: 70px;
+                    height: 45px;
+                }
+
+                .logo h1 {
+                    font-size: 1.15rem;
+                }
+
+                .usuario {
+                    width: 100%;
                     gap: 6px;
                 }
 
                 .usuario a,
-                .usuario span {
-                    font-size: 0.8rem;
+                .usuario > span {
+                    font-size: 0.78rem;
                     padding: 6px 8px;
+                }
+
+                .buscador {
+                    min-width: 100%;
                 }
             }
 
@@ -340,8 +420,9 @@ class MainHeader extends HTMLElement {
         // NO logueado
         if (!usuario) {
             zonaUsuario.innerHTML = `
-                <a href="./login.html">Iniciar sesión</a> |
-                <a href="./registro.html">Registrarse</a> |
+                <a href="./login.html">Iniciar sesión</a> 
+                <a href="./registro.html">Registrarse</a> 
+                <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button> 
                 <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
             `;
             return;
@@ -349,10 +430,11 @@ class MainHeader extends HTMLElement {
 
         // SÍ logueado
         zonaUsuario.innerHTML = `
-            <span>👋 Hola, ${usuario.nombre}</span> |
+            <span>👋 Hola, ${usuario.nombre}</span> 
             ${usuario.rol === 'admin' ? '<a href="./admin.html">⚙️ Admin</a> |' : ''}
-            <a href="./perfil.html">Mi perfil</a> |
-            <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a> |
+            <a href="./perfil.html">Mi perfil</a> 
+            <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a> 
+            <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button> 
             <a href="#" id="cerrar-sesion">Cerrar sesión</a>
         `;
 
@@ -363,6 +445,40 @@ class MainHeader extends HTMLElement {
             deleteCookie("ultimoUsuario");
             window.location.reload();
         };
+    }
+
+    inicializarTema() {
+        const btnTema = this.shadowRoot.querySelector("#btn-tema");
+
+        if (!btnTema) return;
+
+        const temaGuardado = localStorage.getItem("tema");
+
+        if (temaGuardado === "oscuro") {
+            document.body.classList.add("modo-oscuro");
+            btnTema.textContent = "☀️";
+            btnTema.setAttribute("aria-label", "Cambiar a modo claro");
+        } else {
+            document.body.classList.remove("modo-oscuro");
+            btnTema.textContent = "🌙";
+            btnTema.setAttribute("aria-label", "Cambiar a modo oscuro");
+        }
+
+        btnTema.addEventListener("click", () => {
+            document.body.classList.toggle("modo-oscuro");
+
+            const modoOscuroActivo = document.body.classList.contains("modo-oscuro");
+
+            if (modoOscuroActivo) {
+                localStorage.setItem("tema", "oscuro");
+                btnTema.textContent = "☀️";
+                btnTema.setAttribute("aria-label", "Cambiar a modo claro");
+            } else {
+                localStorage.setItem("tema", "claro");
+                btnTema.textContent = "🌙";
+                btnTema.setAttribute("aria-label", "Cambiar a modo oscuro");
+            }
+        });
     }
 }
 
