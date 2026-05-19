@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/contacto.css" />
     <script type="module" src="../js/menu.js"></script>
+    <script type="module" src="../js/idioma.js"></script>
 </head>
 
 <body>
@@ -17,9 +18,9 @@
     <div class="page-wrapper">
         <!-- CONTENIDO -->
         <main class="contenedor contacto" aria-labelledby="titulo-contacto">
-            <h1 id="titulo-contacto">Contacto</h1>
+            <h1 id="titulo-contacto" data-i18n="contact.title">Contacto</h1>
 
-            <p class="contacto-intro" aria-label="Canales de contacto">
+            <p class="contacto-intro" aria-label="Canales de contacto" data-i18n="contact.text">
                 Si necesitas información sobre compatibilidad de componentes, seguimiento de pedidos,
                 recomendaciones técnicas o asistencia general, el equipo de
                 <strong>MGS Components</strong> está disponible para ayudarte.
@@ -29,22 +30,22 @@
             <!-- Información de contacto -->
             <section class="contacto-info">
                 <div class="contacto-box">
-                    <h3>📧 Email</h3>
+                    <h3 data-i18n="contact.email-title">📧 Email</h3>
                     <p>soporte@mgscomponents.com</p>
                 </div>
 
                 <div class="contacto-box">
-                    <h3>📞 Teléfono</h3>
+                    <h3 data-i18n="contact.phone-title">📞 Teléfono</h3>
                     <p>+34 600 123 456</p>
                 </div>
 
                 <div class="contacto-box">
-                    <h3>🏢 Dirección</h3>
-                    <p>Servicios Online – España</p>
+                    <h3 data-i18n="contact.address-title">🏢 Dirección</h3>
+                    <p data-i18n="contact.address">Servicios Online – España</p>
                 </div>
             </section>
 
-            <p class="contacto-extra">
+            <p class="contacto-extra" data-i18n="contact.text2">
                 Nuestro objetivo es ofrecer una atención rápida y clara, garantizando que recibas la información
                 necesaria para sacar el máximo rendimiento a tus configuraciones y compras.
                 No dudes en consultarnos cualquier duda.
@@ -54,12 +55,11 @@
         <!-- FOOTER -->
         <footer class="footer" aria-label="Pie de página">
             <div class="info-footer">
-                <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
-
+                <p data-i18n="footer.copyright">© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
                 <nav aria-label="Enlaces del pie de página">
-                    <a href="./contacto.html" aria-current="page">Contacto</a>
+                    <a href="./contacto.html" data-i18n="footer.contact">Contacto</a>
                     <span aria-hidden="true">|</span>
-                    <a href="./acerca.html">Sobre nosotros</a>
+                    <a href="./acerca.html" data-i18n="footer.about">Sobre nosotros</a>
                 </nav>
             </div>
         </footer>

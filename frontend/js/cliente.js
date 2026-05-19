@@ -51,17 +51,17 @@ export class Cliente {
   mostrarInfo() {
     return `
       <p>
-        <strong>Nombre:</strong>
+        <strong data-i18n="profile.name-label">Nombre:</strong>
         <span id="perfil-nombre">${this.nombre}</span>
       </p>
 
       <p>
-        <strong>Email:</strong>
+        <strong data-i18n="profile.email-label">Email:</strong>
         <span id="perfil-email">${this.email}</span>
       </p>
 
       <p>
-        <strong>Teléfono:</strong>
+        <strong data-i18n="profile.phone-label">Teléfono:</strong>
         <span id="perfil-telefono">${this.telefono}</span>
       </p>
     `

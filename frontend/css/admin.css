@@ -31,8 +31,14 @@
   gap: 14px;
 }
 
-#form-producto input {
+#form-producto .campo-form {
   grid-column: span 6;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.campo-form input {
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -40,9 +46,13 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-#prod-especificaciones {
+.prod-especificaciones {
   grid-column: span 6;
   grid-row: span 3;
+}
+
+#prod-especificaciones {
+  height: 100%;
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -102,87 +112,22 @@
   margin: 0 0 20px 0;
 }
 
-.admin-producto-item {
-  background: white;
-  border-radius: 10px;
-  padding: 14px 16px;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.admin-producto-item img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-.admin-producto-info {
-  flex: 1;
-  font-family: 'Inter', Arial, sans-serif;
-}
-
-.admin-producto-info strong {
-  color: #193eb8;
-  display: block;
-  margin-bottom: 4px;
-}
-
-.admin-producto-info span {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.admin-producto-botones {
-  display: flex;
-  gap: 10px;
-}
-
-.btn-editar-prod {
-  background: #193eb8;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Inter', Arial, sans-serif;
-  font-weight: bold;
-}
-
-.btn-editar-prod:hover {
-  background: #365bf4;
-}
-
-.btn-eliminar-prod {
-  background: #c0392b;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Inter', Arial, sans-serif;
-  font-weight: bold;
-}
-
-.btn-eliminar-prod:hover {
-  background: #e74c3c;
-}
-
 /* ── Responsive ── */
 @media (max-width: 700px) {
-  #form-producto input {
+  #form-producto .campo-form {
     grid-column: span 12;
+  }
+
+  .prod-especificaciones {
+    grid-row: span 1;
+  }
+
+  #prod-especificaciones {
+    min-height: 80px;
   }
 
   .form-botones {
     flex-direction: column-reverse;
-  }
-
-  .admin-producto-item {
-    flex-wrap: wrap;
   }
 }
 

@@ -62,13 +62,13 @@ input.ng-invalid.ng-touched {
 
 /* Accesibilidad: foco visible con teclado */
 input:focus-visible,
-button:focus-visible,
+#botonIniciarSesion:focus-visible,
 a:focus-visible {
   outline: 3px solid #ffcc00;
   outline-offset: 4px;
 }
 
-button {
+#botonIniciarSesion {
   width: 100%;
   padding: 0.75rem;
   background-color: #193eb8;
@@ -80,11 +80,11 @@ button {
   margin-top: 1rem;
 }
 
-button:hover {
+#botonIniciarSesion:hover {
   background-color: #365bf4;
 }
 
-button:disabled {
+#botonIniciarSesion:disabled {
   background-color: #999;
   cursor: not-allowed;
 }
@@ -154,4 +154,59 @@ a {
   outline: 3px solid #ffcc00;
   outline-offset: 6px;
   border-radius: 8px;
+}
+
+/* BOTONES IDIOMA-TEMA */
+.btn-contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.selector-idioma {
+  background: #193eb8;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Orbitron, Arial, sans-serif;
+  font-size: 0.9rem;
+}
+
+.selector-idioma option {
+  background: #0048aa;
+  color: white;
+}
+
+.selector-idioma:hover {
+  background: #365bf4;
+}
+
+.selector-idioma:focus-visible {
+    outline: 3px solid #ffcc00;
+    outline-offset: 4px;
+}
+
+#btn-tema {
+    height: 34px;
+    width: 34px;
+    color: white;
+    background: #193eb8;
+    padding: 7px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-family: Orbitron, Arial, sans-serif;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#btn-tema:hover {
+    background: #365bf4;
+}
+
+#btn-tema:focus-visible {
+    outline: 3px solid #ffcc00;
+    outline-offset: 4px;
 }

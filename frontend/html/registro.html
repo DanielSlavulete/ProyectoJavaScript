@@ -15,30 +15,37 @@
                 <img src="../img/Logo.png" alt="Logo de MGS Components">
             </a>
         </div>
-        <h1 id="titulo-registro">Crear cuenta</h1>
+        <h1 id="titulo-registro" data-i18n="register.title">Crear cuenta</h1>
         <div class="">
             <form action="" id="formRegistro" class="divFormulario" aria-describedby="mensajeRegistro" novalidate>
-                <label for="nombreCrearCuenta">Nombre completo</label>
-                <input type="text" id="nombreCrearCuenta" placeholder="Nombre completo" required><br>
-                <label for="correoCrearCuenta">Correo electrónico</label>
-                <input type="text" id="correoCrearCuenta" placeholder="Correo electrónico" required><br>
-                <label for="telefonoCrearCuenta">Teléfono</label>
-                <input type="text" id="telefonoCrearCuenta" placeholder="Teléfono (Ej: +34 612345678)" required><br>
-                <label for="contrasenaCrearCuenta">Contraseña</label>
-                <input type="password" id="contrasenaCrearCuenta" placeholder="Contraseña" required><br>
-                <label for="repetirContrasena">Repetir contraseña</label>
-                <input type="password" id="repetirContrasena" placeholder="Repetir contraseña" required><br>
+                <label for="nombreCrearCuenta" data-i18n="register.name">Nombre completo</label>
+                <input type="text" id="nombreCrearCuenta" data-i18n-placeholder="register.name" placeholder="Nombre completo" autocomplete="name" required><br>
+                <label for="correoCrearCuenta" data-i18n="register.email">Correo electrónico</label>
+                <input type="text" id="correoCrearCuenta" data-i18n-placeholder="register.email" placeholder="Correo electrónico" autocomplete="email" required><br>
+                <label for="telefonoCrearCuenta" data-i18n="register.phone">Teléfono</label>
+                <input type="text" id="telefonoCrearCuenta" data-i18n-placeholder="register.phone" placeholder="Teléfono (Ej: +34 612345678)" autocomplete="tel" required><br>
+                <label for="contrasenaCrearCuenta" data-i18n="register.password">Contraseña</label>
+                <input type="password" id="contrasenaCrearCuenta" data-i18n-placeholder="register.password" placeholder="Contraseña" autocomplete="new-password" required><br>
+                <label for="repetirContrasena" data-i18n="register.repeat-password">Repetir contraseña</label>
+                <input type="password" id="repetirContrasena" data-i18n-placeholder="register.repeat-password" placeholder="Repetir contraseña" autocomplete="new-password" required><br>
                 <div id="radio" class="campo-politica">
                     <input type="checkbox" id="radioAceptarPolitica" required>
-                    <label for="radioAceptarPolitica">He leído y acepto la política de privacidad</label>
+                    <label for="radioAceptarPolitica" data-i18n="register.policy">He leído y acepto la política de privacidad</label>
                 </div>    
-                <button type="submit" id="botonCrearCuenta">CREAR CUENTA</button><br>
+                <button type="submit" id="botonCrearCuenta" data-i18n="register.button">CREAR CUENTA</button><br>
                 <p class="texto-login">
-                ¿Ya tienes cuenta?
-                <a href="./login.html">Inicia sesión</a>
+                    <span data-i18n="register.have-account">¿Ya tienes cuenta?</span>
+                    <a href="./login.html" data-i18n="register.login-link">Inicia sesión</a>
                 </p>
                 <p id="mensajeRegistro" class="mensaje-formulario" aria-live="polite"></p>
             </form>
+            <div class="btn-contenedor">
+                <select id="selector-idioma" class="selector-idioma">
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="en">🇬🇧 EN</option>
+                </select>
+                <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button>
+            </div>
         </div>
     </div>
     <script type="module" src="../js/registro2.js" defer></script>

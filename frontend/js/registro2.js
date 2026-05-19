@@ -1,11 +1,17 @@
 import { Cliente } from "./cliente.js";
+import { inicializarTema } from "./tema.js";
+import { aplicarTraducciones } from "./idioma.js";
 
 const API_URL = "http://localhost:3000/api";
 const mensaje = document.getElementById("mensajeRegistro");
 
 onload = () => {
     const formRegistro = document.getElementById("formRegistro");
+    const botonTema = document.querySelector("#btn-tema");
+
     if (!formRegistro) return;
+    inicializarTema(botonTema);
+    cambiarIdioma();
     formRegistro?.addEventListener("submit", async (e) => {
         e.preventDefault();
         limpiarMensaje();
@@ -94,6 +100,18 @@ async function registrarCliente(datos) {
         console.error('Error al registrar usuario:' , err);
         mostrarError("Error de conexión. Inténtalo más tarde.");
     }
+}
+
+function cambiarIdioma() {
+    const selectorIdioma = document.getElementById("selector-idioma");
+    const idiomaGuardado = localStorage.getItem("idioma") || "es";
+    selectorIdioma.value = idiomaGuardado;
+
+    selectorIdioma.addEventListener("change", () => {
+        localStorage.setItem("idioma", selectorIdioma.value);
+        document.documentElement.lang = selectorIdioma.value;
+        aplicarTraducciones();
+    });
 }
 
 // -------------------- FUNCIONES AUXILIARES --------------------

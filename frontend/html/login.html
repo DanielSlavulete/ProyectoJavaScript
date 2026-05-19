@@ -15,21 +15,28 @@
                 <img src="../img/Logo.png" alt="Logo de MGS Components">
             </a>
         </div>
-        <h1 id="titulo-login">INICIAR SESION</h1>
+        <h1 id="titulo-login" data-i18n="login.title">INICIAR SESION</h1>
         <div class="">
             <form action="" id="formLogin" class="divFormulario" aria-describedby="mensajeLogin">
-                <label for="correoIniciarSesion">Correo electrónico</label>
-                <input type="text" id="correoIniciarSesion" placeholder="Correo Electrónico" required> <br>
-                <label for="contrasenaIniciarSesion">Contraseña</label>
-                <input type="password" id="contrasenaIniciarSesion" placeholder="Contraseña" required><br>
-                <a href="./recuperarContrasena.html">¿Has olvidado tu contraseña?</a><br>
-                <button  type="submit" id="botonIniciarSesion">INICIAR SESION</button><br>
+                <label for="correoIniciarSesion" data-i18n="login.email">Correo electrónico</label>
+                <input type="text" id="correoIniciarSesion" data-i18n-placeholder="login.email" placeholder="Correo Electrónico" autocomplete="email" required> <br>
+                <label for="contrasenaIniciarSesion" data-i18n="login.password">Contraseña</label>
+                <input type="password" id="contrasenaIniciarSesion" data-i18n-placeholder="login.password" placeholder="Contraseña" autocomplete="current-password" required><br>
+                <a href="./recuperarContrasena.html" data-i18n="login.forgot">¿Has olvidado tu contraseña?</a><br>
+                <button  type="submit" id="botonIniciarSesion" data-i18n="login.button">INICIAR SESION</button><br>
                 <p class="texto-login">
-                ¿No tienes cuenta?
-                <a href="./registro.html" id="botonRegistrarse">Registrate</a>
+                    <span data-i18n="login.no-account">¿No tienes cuenta?</span>
+                    <a href="./registro.html" id="botonRegistrarse" data-i18n="login.register-link">Registrate</a>
                 </p>
                 <p id="mensajeLogin" class="mensaje-formulario" aria-live="polite"></p>
             </form>
+            <div class="btn-contenedor">
+                <select id="selector-idioma" class="selector-idioma">
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="en">🇬🇧 EN</option>
+                </select>
+                <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button>
+            </div>
         </div> 
     </div>
     <script type="module" src="../js/login2.js" defer></script>

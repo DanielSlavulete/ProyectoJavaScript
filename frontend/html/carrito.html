@@ -9,13 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <script type="module" src="../js/menu.js"></script>
     <script type="module" src="../js/compra.js" defer></script>
+    <script type="module" src="../js/idioma.js"></script>
 </head>
 
 <body data-privada="true">
     <main-header></main-header>
     <div class="page-wrapper">
         <main class="carrito-main">
-            <h1 id="titulo-carrito">Tu carrito</h1>
+            <h1 id="titulo-carrito" data-i18n="cart.title">Tu carrito</h1>
 
             <section class="carrito-contenido" aria-labelledby="titulo-carrito">
                 <div id="carrito-lista" class="carrito-lista" aria-live="polite">
@@ -23,10 +24,16 @@
                 </div>
 
                 <aside class="carrito-resumen" aria-labelledby="titulo-resumen">
-                    <h2 id="titulo-resumen">Resumen</h2>
-                    <p>Total artículos: <span id="carrito-articulos">0</span></p>
-                    <p>Total a pagar: <span id="carrito-total">0.00 €</span></p>
-                    <button id="carrito-vaciar" class="btn-primario" aria-label="Vaciar todos los productos del carrito">Vaciar carrito</button>
+                    <h2 id="titulo-resumen" data-i18n="cart.summary">Resumen</h2>
+                    <p>
+                        <span data-i18n="cart.total-items">Total artículos: </span>
+                        <span id="carrito-articulos">0</span>
+                    </p>
+                    <p>
+                        <span data-i18n="cart.total-price">Total a pagar: </span>
+                        <span id="carrito-total">0.00 €</span>
+                    </p>
+                    <button id="carrito-vaciar" class="btn-primario" aria-label="Vaciar todos los productos del carrito" data-i18n="cart.empty-btn">Vaciar carrito</button>
                 </aside>
             </section>
         </main>
@@ -35,12 +42,11 @@
         <!-- FOOTER — EL MISMO QUE EN LA PÁGINA PRINCIPAL -->
         <footer class="footer" aria-label="Pie de página">
             <div class="info-footer">
-                <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
-
+                <p data-i18n="footer.copyright">© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
                 <nav aria-label="Enlaces del pie de página">
-                    <a href="./contacto.html">Contacto</a>
+                    <a href="./contacto.html" data-i18n="footer.contact">Contacto</a>
                     <span aria-hidden="true">|</span>
-                    <a href="./acerca.html">Sobre nosotros</a>
+                    <a href="./acerca.html" data-i18n="footer.about">Sobre nosotros</a>
                 </nav>
             </div>
         </footer>
