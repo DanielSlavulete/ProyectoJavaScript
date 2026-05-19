@@ -212,3 +212,87 @@ a:focus-visible {
     outline: 3px solid #ffcc00;
     outline-offset: 4px;
 }
+
+/* ───────────────────────────── */
+/* MODO OSCURO REGISTRO */
+/* ───────────────────────────── */
+
+body.modo-oscuro {
+  background: #121212;
+}
+
+/* Caja principal */
+body.modo-oscuro .divJefe {
+  background: #1f1f1f;
+  color: #f1f1f1;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+/* Título */
+body.modo-oscuro h1 {
+  color: #7ea2ff;
+}
+
+/* Labels */
+body.modo-oscuro label {
+  color: #e5e5e5;
+}
+
+/* Inputs */
+body.modo-oscuro input {
+  background: #2a2a2a;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.modo-oscuro input::placeholder {
+  color: #9a9a9a;
+}
+
+/* Checkbox política */
+body.modo-oscuro .campo-politica {
+  color: #e5e5e5;
+}
+
+/* Links */
+body.modo-oscuro a {
+  color: #7ea2ff;
+}
+
+/* Botón crear cuenta */
+body.modo-oscuro #botonCrearCuenta {
+  background: #315cff;
+  color: white;
+}
+
+body.modo-oscuro #botonCrearCuenta:hover {
+  background: #4d79ff;
+}
+
+body.modo-oscuro #botonCrearCuenta:disabled {
+  background: #555;
+}
+
+/* selector idioma + tema */
+body.modo-oscuro .selector-idioma,
+body.modo-oscuro #btn-tema {
+  background: #315cff;
+  color: white;
+}
+
+body.modo-oscuro .selector-idioma:hover,
+body.modo-oscuro #btn-tema:hover {
+  background: #4d79ff;
+}
+
+/* mensajes */
+body.modo-oscuro #mensajeLogin,
+body.modo-oscuro #mensajeRegistro,
+body.modo-oscuro .mensaje-formulario {
+  color: #f1f1f1;
+}
+
+/* imagen logo (opcional más suave) */
+body.modo-oscuro .contenedorImagen img {
+  filter: brightness(0.9);
+}

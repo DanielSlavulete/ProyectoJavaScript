@@ -210,3 +210,89 @@ a {
     outline: 3px solid #ffcc00;
     outline-offset: 4px;
 }
+
+/* ───────────────────────────── */
+/* MODO OSCURO LOGIN */
+/* ───────────────────────────── */
+
+body.modo-oscuro .divJefe {
+  background: #1f1f1f;
+  color: #f1f1f1;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+body.modo-oscuro h1 {
+  color: #7ea2ff;
+}
+
+body.modo-oscuro label {
+  color: #f1f1f1;
+}
+
+body.modo-oscuro input {
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+
+body.modo-oscuro input::placeholder {
+  color: #9a9a9a;
+}
+
+body.modo-oscuro a {
+  color: #7ea2ff;
+}
+
+body.modo-oscuro #botonIniciarSesion,
+body.modo-oscuro .selector-idioma,
+body.modo-oscuro #btn-tema {
+  background: #315cff;
+}
+
+body.modo-oscuro #botonIniciarSesion:hover,
+body.modo-oscuro .selector-idioma:hover,
+body.modo-oscuro #btn-tema:hover {
+  background: #4d79ff;
+}/* ───────────────────────────── */
+/* MODO OSCURO LOGIN */
+/* ───────────────────────────── */
+
+body.modo-oscuro .divJefe {
+  background: #1f1f1f;
+  color: #f1f1f1;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+body.modo-oscuro h1 {
+  color: #7ea2ff;
+}
+
+body.modo-oscuro label {
+  color: #f1f1f1;
+}
+
+body.modo-oscuro input {
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+
+body.modo-oscuro input::placeholder {
+  color: #9a9a9a;
+}
+
+body.modo-oscuro a {
+  color: #7ea2ff;
+}
+
+body.modo-oscuro #botonIniciarSesion,
+body.modo-oscuro .selector-idioma,
+body.modo-oscuro #btn-tema {
+  background: #315cff;
+}
+
+body.modo-oscuro #botonIniciarSesion:hover,
+body.modo-oscuro .selector-idioma:hover,
+body.modo-oscuro #btn-tema:hover {
+  background: #4d79ff;
+}

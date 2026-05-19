@@ -47,11 +47,26 @@ async function cargarProductos(contenedor) {
 }
 
 function pintarProductos(productos, productosContenedor) {
+
+    // WRAPPER RESPONSIVE
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("admin-tabla-wrapper");
+
+    // TABLA
     const tabla = document.createElement("table");
-    const tr = document.createElement("tr");
     tabla.classList.add("tabla-productos-admin");
-    productosContenedor.appendChild(tabla);
+
+    // METEMOS TABLA DENTRO DEL WRAPPER
+    wrapper.appendChild(tabla);
+
+    // METEMOS WRAPPER EN EL CONTENEDOR
+    productosContenedor.appendChild(wrapper);
+
+    // CABECERA
+    const tr = document.createElement("tr");
+
     tabla.appendChild(tr);
+
     tr.innerHTML = `
         <th>ID</th>
         <th data-i18n="admin.name">Nombre</th>
@@ -64,25 +79,53 @@ function pintarProductos(productos, productosContenedor) {
         <th data-i18n="admin.video">Url Video</th>
         <th data-i18n="admin.actions">Acciones</th>
     `;
+
     productos.forEach(p => {
+
         const tr = document.createElement("tr");
+
         tr.innerHTML = `
             <td>${p._id}</td>
             <td>${p.nombre}</td>
-            <td data-i18n="desc.${p.imagen.replace('.jpg', '')}">${p.descripcion}</td>
-            <td><img src="../img/${p.imagen}" alt="${p.nombre}" class="producto-img"></td>
+            <td data-i18n="desc.${p.imagen.replace('.jpg', '')}">
+                ${p.descripcion}
+            </td>
+            <td>
+                <img src="../img/${p.imagen}" 
+                     alt="${p.nombre}" 
+                     class="producto-img">
+            </td>
             <td>${p.precio} €</td>
-            <td data-i18n="product.name-${p.tipo}">${p.tipo}</td>
+            <td data-i18n="product.name-${p.tipo}">
+                ${p.tipo}
+            </td>
             <td>${especificacionesATexto(p.especificaciones)}</td>
             <td>${p.descuento} %</td>
             <td>${p.urlVideo}</td>
+
             <td class="acciones">
-                <button type="button" class="btn-borrar-producto" data-id="${p._id}" data-i18n="admin.delete-btn">Borrar</button>
-                <button type="submit" class="btn-editar-producto" data-id="${p._id}" data-i18n="admin.edit-btn">Editar</button>
+                <button
+                    type="button"
+                    class="btn-borrar-producto"
+                    data-id="${p._id}"
+                    data-i18n="admin.delete-btn"
+                >
+                    Borrar
+                </button>
+
+                <button
+                    type="submit"
+                    class="btn-editar-producto"
+                    data-id="${p._id}"
+                    data-i18n="admin.edit-btn"
+                >
+                    Editar
+                </button>
             </td>
         `;
+
         tabla.appendChild(tr);
-    })
+    });
 }
 
 function añadirEventos(inputs, mensajeContenedor) {

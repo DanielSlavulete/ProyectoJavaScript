@@ -1,22 +1,26 @@
 .admin-contenedor {
-
   margin: 40px auto;
   padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .admin-contenedor h1 {
   font-family: 'Orbitron', Arial, sans-serif;
   color: #193eb8;
   margin-bottom: 30px;
+  word-break: break-word;
 }
 
 /* ── Formulario ── */
+
 .admin-form-section {
   background: #f8f8f8;
   border-radius: 14px;
   padding: 30px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   margin-bottom: 40px;
+  overflow: hidden;
 }
 
 .admin-form-section h2 {
@@ -27,18 +31,28 @@
 
 #form-producto {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 14px;
+  width: 100%;
 }
 
 #form-producto .campo-form {
   grid-column: span 6;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  min-width: 0;
 }
 
-.campo-form input {
+.campo-form label {
+  font-weight: 600;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.campo-form input,
+#prod-especificaciones {
+  width: 100%;
+  box-sizing: border-box;
   padding: 10px 12px;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -52,28 +66,31 @@
 }
 
 #prod-especificaciones {
-  height: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-family: 'Inter', Arial, sans-serif;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  resize: vertical;
+  min-height: 120px;
 }
 
 .form-botones {
   grid-column: span 12;
   display: flex;
   gap: 14px;
+  flex-wrap: wrap;
 }
 
 .form-botones button {
   flex: 1;
+  min-width: 180px;
   padding: 12px 18px;
   border: none;
   border-radius: 8px;
   font-family: 'Inter', Arial, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.form-botones button:hover {
+  transform: translateY(-1px);
 }
 
 .btn-guardar-producto,
@@ -98,12 +115,19 @@
   background: #e74c3c;
 }
 
-/* ── Lista de productos ── */
+.mensaje-formulario {
+  grid-column: span 12;
+  word-break: break-word;
+}
+
+/* ── Lista productos ── */
+
 .admin-lista-section {
   background: #f8f8f8;
   border-radius: 14px;
   padding: 30px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  overflow-x: auto;
 }
 
 .admin-lista-section h2 {
@@ -112,33 +136,11 @@
   margin: 0 0 20px 0;
 }
 
-/* ── Responsive ── */
-@media (max-width: 700px) {
-  #form-producto .campo-form {
-    grid-column: span 12;
-  }
-
-  .prod-especificaciones {
-    grid-row: span 1;
-  }
-
-  #prod-especificaciones {
-    min-height: 80px;
-  }
-
-  .form-botones {
-    flex-direction: column-reverse;
-  }
-}
-
-.mensaje-formulario {
-  grid-column: span 12;
-}
-
 /* TABLA */
 
 .tabla-productos-admin {
   width: 100%;
+  min-width: 1100px;
   border-collapse: collapse;
   font-family: 'Inter', Arial, sans-serif;
 }
@@ -150,6 +152,7 @@
   text-align: left;
   font-family: 'Orbitron', Arial, sans-serif;
   font-size: 0.8rem;
+  white-space: nowrap;
 }
 
 .tabla-productos-admin td {
@@ -157,6 +160,7 @@
   border-bottom: 1px solid #eee;
   vertical-align: middle;
   font-size: 0.85rem;
+  word-break: break-word;
 }
 
 .tabla-productos-admin tr:nth-child(even) {
@@ -174,9 +178,10 @@
 }
 
 .acciones {
-  white-space: nowrap;
+  display: flex;
   gap: 8px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .acciones button {
@@ -186,4 +191,241 @@
   font-family: 'Inter', Arial, sans-serif;
   font-weight: bold;
   cursor: pointer;
+  white-space: nowrap;
+}
+
+/* ───────────────────────────── */
+/* BREAKPOINTS */
+/* ───────────────────────────── */
+
+/* Portátiles pequeños */
+
+@media (max-width: 1250px) {
+
+  .tabla-productos-admin {
+    min-width: 950px;
+  }
+
+  #form-producto .campo-form {
+    grid-column: span 12;
+  }
+
+  .prod-especificaciones {
+    grid-column: span 12;
+    grid-row: span 1;
+  }
+}
+
+/* Tablets */
+
+@media (max-width: 700px) {
+
+  .admin-contenedor {
+    padding: 14px;
+  }
+
+  .admin-form-section,
+  .admin-lista-section {
+    padding: 20px;
+  }
+
+  .admin-contenedor h1 {
+    font-size: 1.5rem;
+  }
+
+  .admin-form-section h2,
+  .admin-lista-section h2 {
+    font-size: 1.2rem;
+  }
+
+  .form-botones {
+    flex-direction: column-reverse;
+  }
+
+  .form-botones button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .tabla-productos-admin {
+    min-width: 800px;
+  }
+}
+
+/* Móviles */
+
+@media (max-width: 500px) {
+
+  .admin-contenedor {
+    padding: 10px;
+  }
+
+  .admin-form-section,
+  .admin-lista-section {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .admin-contenedor h1 {
+    font-size: 1.25rem;
+  }
+
+  .campo-form input,
+  #prod-especificaciones {
+    font-size: 0.9rem;
+  }
+
+  .tabla-productos-admin {
+    min-width: 700px;
+  }
+
+  .tabla-productos-admin th,
+  .tabla-productos-admin td {
+    padding: 8px;
+    font-size: 0.75rem;
+  }
+
+  .acciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .acciones button {
+    width: 100%;
+  }
+}
+
+/* ───────────────────────────── */
+/* MODO OSCURO */
+/* ───────────────────────────── */
+
+body.modo-oscuro .admin-contenedor h1,
+body.modo-oscuro .admin-form-section h2,
+body.modo-oscuro .admin-lista-section h2 {
+  color: #7ea2ff;
+}
+
+/* CONTENEDORES */
+
+body.modo-oscuro .admin-form-section,
+body.modo-oscuro .admin-lista-section {
+  background: #1b1b1b;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  border: 1px solid #2b2b2b;
+}
+
+/* LABELS */
+
+body.modo-oscuro .campo-form label {
+  color: #e5e5e5;
+}
+
+/* INPUTS Y TEXTAREA */
+
+body.modo-oscuro .campo-form input,
+body.modo-oscuro #prod-especificaciones {
+  background: #252525;
+  color: #f1f1f1;
+  border: 1px solid #3b3b3b;
+  box-shadow: none;
+}
+
+body.modo-oscuro .campo-form input::placeholder,
+body.modo-oscuro #prod-especificaciones::placeholder {
+  color: #9a9a9a;
+}
+
+body.modo-oscuro .campo-form input:focus,
+body.modo-oscuro #prod-especificaciones:focus {
+  outline: none;
+  border-color: #4d79ff;
+  box-shadow: 0 0 0 3px rgba(77, 121, 255, 0.25);
+}
+
+/* TABLA */
+
+body.modo-oscuro .tabla-productos-admin {
+  color: #f1f1f1;
+}
+
+body.modo-oscuro .tabla-productos-admin th {
+  background: #193eb8;
+  color: white;
+}
+
+body.modo-oscuro .tabla-productos-admin td {
+  border-bottom: 1px solid #333;
+}
+
+/* FILAS */
+
+body.modo-oscuro .tabla-productos-admin tr {
+  background: #1f1f1f;
+}
+
+body.modo-oscuro .tabla-productos-admin tr:nth-child(even) {
+  background: #262626;
+}
+
+body.modo-oscuro .tabla-productos-admin tr:hover {
+  background: #2f3f75;
+}
+
+/* BOTONES */
+
+body.modo-oscuro .btn-guardar-producto,
+body.modo-oscuro .btn-editar-producto {
+  background: #315cff;
+  color: white;
+}
+
+body.modo-oscuro .btn-guardar-producto:hover,
+body.modo-oscuro .btn-editar-producto:hover {
+  background: #4d79ff;
+}
+
+body.modo-oscuro .btn-cancelar-producto,
+body.modo-oscuro .btn-borrar-producto {
+  background: #b33939;
+  color: white;
+}
+
+body.modo-oscuro .btn-cancelar-producto:hover,
+body.modo-oscuro .btn-borrar-producto:hover {
+  background: #d94c4c;
+}
+
+/* MENSAJES */
+
+body.modo-oscuro .mensaje-formulario {
+  color: #f1f1f1;
+}
+
+/* SCROLL HORIZONTAL TABLA */
+
+body.modo-oscuro .admin-lista-section::-webkit-scrollbar {
+  height: 10px;
+}
+
+body.modo-oscuro .admin-lista-section::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+body.modo-oscuro .admin-lista-section::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 20px;
+}
+
+body.modo-oscuro .admin-lista-section::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+.admin-tabla-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+}
+
+#titulo-login{
+  color: black;
 }
