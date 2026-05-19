@@ -1,4 +1,5 @@
 import { Producto } from "./producto.js";
+import { aplicarTraducciones } from "./idioma.js";
 
 const API_URL = "http://localhost:3000/api";
 
@@ -27,6 +28,7 @@ onload = async () => {
     const productos = await cargarProductos(productosContenedor);
     pintarProductos(productos, productosContenedor);
     añadirEventos(inputs, mensajeContenedor);
+    aplicarTraducciones();
 };
 
 async function cargarProductos(contenedor) {
@@ -52,31 +54,31 @@ function pintarProductos(productos, productosContenedor) {
     tabla.appendChild(tr);
     tr.innerHTML = `
         <th>ID</th>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th>Imagen</th>
-        <th>Precio</th>
-        <th>Tipo</th>
-        <th>Especificaciones</th>
-        <th>Descuento</th>
-        <th>Url Video</th>
-        <th>Acciones</th>
+        <th data-i18n="admin.name">Nombre</th>
+        <th data-i18n="admin.description">Descripción</th>
+        <th data-i18n="admin.image">Imagen</th>
+        <th data-i18n="admin.price">Precio</th>
+        <th data-i18n="admin.type">Tipo</th>
+        <th data-i18n="admin.specs">Especificaciones</th>
+        <th data-i18n="admin.discount-table">Descuento</th>
+        <th data-i18n="admin.video">Url Video</th>
+        <th data-i18n="admin.actions">Acciones</th>
     `;
     productos.forEach(p => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
             <td>${p._id}</td>
             <td>${p.nombre}</td>
-            <td>${p.descripcion}</td>
+            <td data-i18n="desc.${p.imagen.replace('.jpg', '')}">${p.descripcion}</td>
             <td><img src="../img/${p.imagen}" alt="${p.nombre}" class="producto-img"></td>
             <td>${p.precio} €</td>
-            <td>${p.tipo}</td>
+            <td data-i18n="product.name-${p.tipo}">${p.tipo}</td>
             <td>${especificacionesATexto(p.especificaciones)}</td>
             <td>${p.descuento} %</td>
             <td>${p.urlVideo}</td>
             <td class="acciones">
-                <button type="button" class="btn-borrar-producto" data-id="${p._id}">Borrar</button>
-                <button type="submit" class="btn-editar-producto" data-id="${p._id}">Editar</button>
+                <button type="button" class="btn-borrar-producto" data-id="${p._id}" data-i18n="admin.delete-btn">Borrar</button>
+                <button type="submit" class="btn-editar-producto" data-id="${p._id}" data-i18n="admin.edit-btn">Editar</button>
             </td>
         `;
         tabla.appendChild(tr);
@@ -271,7 +273,7 @@ function mostrarOk(mensaje, texto) {
 
 function especificacionesATexto(especificaciones) {
     return Object.entries(especificaciones)
-        .map(([clave, valor]) => `${clave}: ${valor}`)
+        .map(([clave, valor]) => `<p><span data-i18n="spec.${clave}">${clave}</span>: ${valor}</p>`)
         .join('\n');
 }
 

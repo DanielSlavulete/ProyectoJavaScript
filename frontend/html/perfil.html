@@ -13,6 +13,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="../js/menu.js"></script>
   <script type="module" src="../js/perfil2.js" defer></script>
+  <script type="module" src="../js/idioma.js"></script>
 </head>
 
 <body>
@@ -24,8 +25,8 @@
         <div class="perfil-header">
           <div class="perfil-avatar" aria-hidden="true">👤</div>
           <div>
-            <h1 id="titulo-perfil">Mi perfil</h1>
-            <p class="perfil-subtitulo">Consulta tus datos de usuario y accede rápidamente a tu carrito.</p>
+            <h1 id="titulo-perfil" data-i18n="profile.title">Mi perfil</h1>
+            <p class="perfil-subtitulo" data-i18n="profile.subtitle">Consulta tus datos de usuario y accede rápidamente a tu carrito.</p>
           </div>
         </div>
 
@@ -33,10 +34,10 @@
 
         <div class="perfil-acciones">
           <div class="perfil-acciones-grid">
-            <button id="btn-cerrar-sesion" type="button" class="btn-secundario btn-accion">Cerrar sesión</button>
-            <button id="btn-ir-carrito" type="button" class="btn-accion">Ir al carrito</button>
-            <button id="btn-eliminar-cuenta" type="button" class="btn-secundario btn-accion">Eliminar cuenta</button>
-            <button id="btn-editar-perfil" type="button" class="btn-accion">Editar perfil</button>
+            <button id="btn-cerrar-sesion" type="button" class="btn-secundario btn-accion" data-i18n="profile.logout-btn">Cerrar sesión</button>
+            <button id="btn-ir-carrito" type="button" class="btn-accion" data-i18n="profile.cart-btn">Ir al carrito</button>
+            <button id="btn-eliminar-cuenta" type="button" class="btn-secundario btn-accion" data-i18n="profile.delete-btn">Eliminar cuenta</button>
+            <button id="btn-editar-perfil" type="button" class="btn-accion" data-i18n="profile.edit-btn">Editar perfil</button>
           </div>
           
           <form id="form-editar-perfil" style="display:none;">
@@ -44,8 +45,8 @@
             <input type="email" id="edit-email" class="input-form" placeholder="Email">
             <input type="text" id="edit-telefono" class="input-form" placeholder="Teléfono">
             <div class="botones-edicion">
-              <button type="button" id="btn-cancelar-edicion" class="btn-secundario boton-form-edit">Cancelar</button>
-              <button type="submit" id="btn-guardar-cambios" class="boton-form-edit">Guardar cambios</button>
+              <button type="button" id="btn-cancelar-edicion" class="btn-secundario boton-form-edit" data-i18n="profile.cancel-btn">Cancelar</button>
+              <button type="submit" id="btn-guardar-cambios" class="boton-form-edit" data-i18n="profile.save-btn">Guardar cambios</button>
             </div>
             
             <p id="mensajeEdit" class="mensaje-formulario" aria-live="polite"></p>
@@ -56,12 +57,11 @@
 
     <footer class="footer" aria-label="Pie de página">
       <div class="info-footer">
-        <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
-
+        <p data-i18n="footer.copyright">© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
         <nav aria-label="Enlaces del pie de página">
-          <a href="./contacto.html">Contacto</a>
+          <a href="./contacto.html" data-i18n="footer.contact">Contacto</a>
           <span aria-hidden="true">|</span>
-          <a href="./acerca.html">Sobre nosotros</a>
+          <a href="./acerca.html" data-i18n="footer.about">Sobre nosotros</a>
         </nav>
       </div>
     </footer>

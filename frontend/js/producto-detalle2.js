@@ -1,5 +1,6 @@
 import { agregarAlCarrito } from "./storage.js";
 import { Producto } from "./producto.js";
+import { traducir } from "./idioma.js";
 
 const API_URL = "http://localhost:3000/api";
 
@@ -40,7 +41,7 @@ function pintarProducto(producto, contenedor, precioFinal) {
                     ? `
                     
                     <section class="detalle-video" aria-labelledby="titulo-video-producto">
-                        <h3 id="titulo-video-producto">Vídeo del producto</h3>
+                        <h3 id="titulo-video-producto" data-i18n="product.video">${traducir('product.video')}</h3>
 
                         <div class="video-wrapper">
                             <iframe
@@ -59,8 +60,11 @@ function pintarProducto(producto, contenedor, precioFinal) {
             </div>
 
         <div class="detalle-info">
-            <h2>${producto.nombre}</h2>
-            <p class="detalle-descripcion">${producto.descripcion}</p>
+            <h2>
+                <span data-i18n="product.name-${producto.tipo}">${traducir('product.name-' + producto.tipo)}</span>
+                ${producto.nombre}
+            </h2>
+            <p class="detalle-descripcion" data-i18n="desc.${producto.imagen.replace('.jpg', '')}">${traducir('desc.' + producto.imagen.replace('.jpg', ''))}</p>
 
             ${
             producto.descuento > 0
@@ -72,15 +76,15 @@ function pintarProducto(producto, contenedor, precioFinal) {
                 : `<p class="detalle-precio">${producto.precio.toFixed(2)} €</p>`
             }
 
-            <h3>Especificaciones</h3>
+            <h3 data-i18n="product.specs">${traducir('product.specs')}</h3>
             <ul class="detalle-especificaciones">
                 ${Object.entries(producto.especificaciones) // Transforma el objeto producto.especificaciones en un array de arrys
-                    .map(([clave, valor]) => `<li><strong>${clave}:</strong> ${valor}</li>`)
+                    .map(([clave, valor]) => `<li><strong data-i18n="spec.${clave}">${traducir('spec.' + clave)}</strong>: ${valor}</li>`)
                     .join("")}
             </ul>
                 
-            <button class="btn-carrito">🛒 Añadir al carrito</button>
-            <button class="btn-volver">⬅ Volver</button>
+            <button class="btn-carrito" data-i18n="product.add-cart">${traducir('product.add-cart')}</button>
+            <button class="btn-volver" data-i18n="product.back">${traducir('product.back')}</button>
         
             </div>
         </section>
@@ -106,6 +110,7 @@ function pintarBotones(producto, contenedor, precioFinal) {
                 descripcion: producto.descripcion,
                 imagen: producto.imagen,
                 precio: precioFinal,
+                tipo: producto.tipo,
                 cantidad: 1,
             });
             alert("Producto añadido al carrito ✅");

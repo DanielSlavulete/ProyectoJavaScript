@@ -261,7 +261,8 @@ body, input, button, select, textarea, a {
 }
 
 .detalle-imagen img {
-  width: 380px;
+  width: 100%;
+  max-width: 380px;
   border-radius: 10px;
   object-fit: contain;
 }

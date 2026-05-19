@@ -10,15 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <script type="module" src="../js/menu.js"></script>
+    <script type="module" src="../js/idioma.js"></script>
 </head>
 
 <body>
     <main-header></main-header>
 
     <main class="contenedor acerca">
-        <h1>Sobre nosotros</h1>
+        <h1 data-i18n="about.title">Sobre nosotros</h1>
 
-        <section class="acerca-info" aria-labelledby="titulo-info">
+        <section class="acerca-info texto-es" aria-labelledby="titulo-info">
             <h2 id="titulo-info" class="sr-only">Información sobre MGS Components</h2>
 
             <p>
@@ -52,13 +53,45 @@
             </p>
         </section>
 
+        <section class="acerca-info texto-en" aria-labelledby="titulo-info">
+            <h2 id="titulo-info" class="sr-only">Information about MGS Components</h2>
+
+            <p>
+                <strong>MGS Components</strong> is an online store specialized in the distribution of
+                <strong>high-performance hardware</strong>, focused on offering selected components
+                for enthusiasts, professionals and users looking for reliability, efficiency and the best
+                value for money. Our catalogue is optimized to cover the needs of
+                advanced builds, workstations, gaming setups and educational projects.
+            </p>
+
+            <p>
+                The project is developed by <strong>Sergio</strong>, <strong>Daniel</strong> and
+                <strong>Francisco</strong>, three students passionate about technology, performance and
+                computer engineering. Each one brings a different approach: user experience-oriented design,
+                service integration, code optimization and structured project organization.
+                Thanks to this combination we have built a stable, intuitive platform focused on the customer experience.
+            </p>
+
+            <p>
+                Our store implements efficient search processes, a fully dynamic inventory management
+                and a shopping cart system adapted to the real needs of a modern user.
+                The goal is to create a smooth shopping experience where every interaction feels carefully crafted.
+            </p>
+
+            <p>
+                We continue working on new features, such as intelligent recommendations, quick component comparisons
+                and a guided build mode for less experienced users.
+                All while maintaining the clean, futuristic aesthetic that characterizes <strong>MGS Components</strong>.
+            </p>
+        </section>
+
         <section class="acerca-equipo" aria-labelledby="titulo-equipo">
-            <h2 id="titulo-equipo">El equipo</h2>
+            <h2 id="titulo-equipo" data-i18n="about.team">El equipo</h2>
 
             <div class="equipo-grid">
                 <article class="miembro">
                     <h3>Daniel</h3>
-                    <p>
+                    <p data-i18n="about.dani">
                         Especialista en diseño, usabilidad y estructura visual. Encargado de la experiencia del usuario
                         y la arquitectura de la interfaz.
                     </p>
@@ -66,7 +99,7 @@
 
                 <article class="miembro">
                     <h3>Francisco</h3>
-                    <p>
+                    <p data-i18n="about.fran">
                         Responsable de integración de datos, lógica funcional y optimización del rendimiento. Centrado
                         en mantener la estabilidad del sistema.
                     </p>
@@ -74,7 +107,7 @@
 
                 <article class="miembro">
                     <h3>Sergio</h3>
-                    <p>
+                    <p data-i18n="about.sergio">
                         Desarrollador principal del núcleo del proyecto, gestión de componentes y comunicación entre
                         módulos. Coordinador técnico del equipo.
                     </p>
@@ -84,15 +117,15 @@
     </main>
 
     <footer class="footer" aria-label="Pie de página">
-        <div class="info-footer">
-            <p>© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
+      <div class="info-footer">
+        <p data-i18n="footer.copyright">© 2025 Tienda de Componentes. Todos los derechos reservados.</p>
 
-            <nav aria-label="Enlaces del pie de página">
-                <a href="./contacto.html">Contacto</a>
-                <span aria-hidden="true">|</span>
-                <a href="./acerca.html" aria-current="page">Sobre nosotros</a>
-            </nav>
-        </div>
+        <nav aria-label="Enlaces del pie de página">
+          <a href="./contacto.html" data-i18n="footer.contact">Contacto</a>
+          <span aria-hidden="true">|</span>
+          <a href="./acerca.html" data-i18n="footer.about">Sobre nosotros</a>
+        </nav>
+      </div>
     </footer>
 </body>
 

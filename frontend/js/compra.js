@@ -1,4 +1,5 @@
 import { obtenerCarrito, guardarCarrito } from "./storage.js";
+import { traducir } from "./idioma.js";
 
 // Lanza un evento personalizado para actualizar el contador del carrito
 function lanzarEventoCambio() {
@@ -38,11 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
       card.innerHTML = `
         <img src="../img/${item.imagen}" alt="${item.nombre}" class="producto-img">
         <div class="carrito-info">
-          <h3>${item.nombre}</h3>
-          <p>${item.descripcion}</p>
-          <p>Precio: ${item.precio.toFixed(2)} €</p>
-          <p>Cantidad: ${item.cantidad}</p>
-          <button class="btn-eliminar" data-id="${item._id}">🗑 Quitar</button>
+          <h3>
+            <span data-i18n="product.name-${item.tipo}">${traducir('product.name-' + item.tipo)}</span>
+            ${item.nombre}
+          </h3>
+          <p data-i18n="desc.${item.imagen.replace('.jpg', '')}">${traducir('desc.' + item.imagen.replace('.jpg', ''))}</p>
+          <p>
+            <span data-i18n="cart.price">${traducir('cart.price')}</span>:
+            ${item.precio.toFixed(2)} €
+          </p>
+          <p>
+            <span data-i18n="cart.amount">${traducir('cart.amount')}</span>: 
+            ${item.cantidad}
+          </p>
+          <button class="btn-eliminar" data-id="${item._id}" data-i18n="cart.remove">${traducir('cart.remove')}</button>
         </div>
       `;
       // data-id: atributo personalizado, siempre empieza por data- y despues se puede poner id, precio, nombre...,  se accede con dataset.

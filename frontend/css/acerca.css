@@ -112,3 +112,11 @@ main.contenedor.acerca {
   width: 100%;
   box-sizing: border-box;
 }
+
+/* TRADUCCIÓN */
+/* Por defecto muestra español */
+.texto-en { display: none; }
+
+/* Cuando el idioma es inglés */
+:lang(en) .texto-es { display: none; }
+:lang(en) .texto-en { display: block; }

@@ -1,5 +1,7 @@
 import { Cliente } from "./cliente.js";
 import { setCookie } from "./cookies.js";
+import { inicializarTema } from "./tema.js";
+import { aplicarTraducciones } from "./idioma.js";
 
 const API_URL = "http://localhost:3000/api";
 const mensaje = document.getElementById("mensajeLogin");
@@ -7,8 +9,11 @@ const mensaje = document.getElementById("mensajeLogin");
 onload = () => {
     const formLogin = document.getElementById("formLogin");
     const botonRegistrarse = document.getElementById("botonRegistrarse");
+    const botonTema = document.querySelector("#btn-tema");
 
     if (!formLogin) return;
+    inicializarTema(botonTema);
+    cambiarIdioma();
     formLogin.addEventListener("submit", async (e) => {
         e.preventDefault();
         limpiarMensaje();
@@ -20,7 +25,6 @@ onload = () => {
     botonRegistrarse.addEventListener("click", () => {
         window.location.href = "./registro.html";
     });
-
 }
 
 function obtenerDatosFormulario() {
@@ -99,6 +103,18 @@ function guardarSessionStorageYCookies(dataRespuesta) {
     setCookie("ultimoUsuario", clienteLogueado.nombre, 3);
 
     mostrarOk(`Inicio de sesión correcto. Bienvenido ${clienteLogueado.nombre}.`);
+}
+
+function cambiarIdioma() {
+    const selectorIdioma = document.getElementById("selector-idioma");
+    const idiomaGuardado = localStorage.getItem("idioma") || "es";
+    selectorIdioma.value = idiomaGuardado;
+
+    selectorIdioma.addEventListener("change", () => {
+        localStorage.setItem("idioma", selectorIdioma.value);
+        document.documentElement.lang = selectorIdioma.value;
+        aplicarTraducciones();
+    });
 }
 
 // -------------------- FUNCIONES AUXILIARES --------------------

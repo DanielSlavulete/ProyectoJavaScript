@@ -1,5 +1,6 @@
 import { deleteCookie } from "./cookies.js";
 import { Producto } from "./producto.js";
+import { inicializarTema } from "./tema.js";
 
 // Componente Web para el encabezado principal(logo, buscador y zona de usuario).
 class MainHeader extends HTMLElement {
@@ -15,7 +16,8 @@ class MainHeader extends HTMLElement {
         this.inicializarBuscador();     // Activa el buscador
         this.actualizarUsuario();       // Muestra el estado del usuario
         this.initCarrito();             // Inicializa el contador del carrito
-        this.inicializarTema();         // Inicializa el tema de la pagina para jugar con oscuro o claro
+        this.inicializarTema();        // Inicializa el tema de la pagina para jugar con oscuro o claro
+        this.inicializarIdioma();       // Inicializa el idioma 
     }
 
     // Estructura y estilos del header
@@ -149,6 +151,26 @@ class MainHeader extends HTMLElement {
                 outline-offset: 4px;
             }
 
+            .selector-idioma {
+                background: rgba(255, 255, 255, 0.12);
+                color: white;
+                border: none;
+                padding: 7px 10px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-family: Orbitron, Arial, sans-serif;
+                font-size: 0.9rem;
+            }
+
+            .selector-idioma option {
+                background: #0048aa;
+                color: white;
+            }
+
+            .selector-idioma:hover {
+                background: rgba(255, 255, 255, 0.25);
+            }
+
             .resultados-busqueda {
                 display: none;
                 position: absolute;
@@ -196,12 +218,23 @@ class MainHeader extends HTMLElement {
                 outline-offset: 4px;
             }
 
+            .usuario a,
+            .usuario > span,
+            .selector-idioma,
+            #btn-tema {
+                height: 36px;
+                display: inline-flex;
+                align-items: center;
+                box-sizing: border-box;
+            }
+
             /* Portátiles pequeños / tablets horizontales */
             @media (max-width: 1250px) {
                 .header {
                     flex-wrap: wrap;
                     justify-content: center;
                     text-align: center;
+                    gap: 14px;
                 }
 
                 .logo {
@@ -294,7 +327,7 @@ class MainHeader extends HTMLElement {
             </a>
 
             <div class="buscador">
-                <input type="text" id="input-busqueda" placeholder="Buscar productos...">
+                <input type="text" id="input-busqueda" data-i18n-placeholder="nav.search" placeholder="Buscar productos...">
                 <button id="btn-buscar">🔍</button>
                 <div id="resultados-busqueda" class="resultados-busqueda"></div>
             </div>
@@ -420,22 +453,36 @@ class MainHeader extends HTMLElement {
         // NO logueado
         if (!usuario) {
             zonaUsuario.innerHTML = `
-                <a href="./login.html">Iniciar sesión</a> 
-                <a href="./registro.html">Registrarse</a> 
-                <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button> 
-                <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a>
+                <a href="./login.html" data-i18n="nav.login">Iniciar sesión</a> 
+                <a href="./registro.html" data-i18n="nav.register">Registrarse</a> 
+                <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button>
+                <select id="selector-idioma" class="selector-idioma">
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="en">🇬🇧 EN</option>
+                </select>
+                <a href="./carrito.html">
+                    🛒 <span data-i18n="nav.cart">Carrito</span> (<span id="carrito-contador">0</span>)
+                </a>
             `;
             return;
         }
 
         // SÍ logueado
         zonaUsuario.innerHTML = `
-            <span>👋 Hola, ${usuario.nombre}</span> 
+            <span>
+                👋 <span  data-i18n="nav.greeting">Hola</span>, ${usuario.nombre}
+            </span> 
             ${usuario.rol === 'admin' ? '<a href="./admin.html">⚙️ Admin</a> |' : ''}
-            <a href="./perfil.html">Mi perfil</a> 
-            <a href="./carrito.html">🛒 Carrito (<span id="carrito-contador">0</span>)</a> 
-            <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button> 
-            <a href="#" id="cerrar-sesion">Cerrar sesión</a>
+            <a href="./perfil.html" data-i18n="nav.profile">Mi perfil</a> 
+            <a href="./carrito.html">
+                🛒 <span data-i18n="nav.cart">Carrito</span> (<span id="carrito-contador">0</span>)
+            </a> 
+            <button id="btn-tema" type="button" aria-label="Cambiar a modo oscuro">🌙</button>
+            <select id="selector-idioma" class="selector-idioma">
+                <option value="es">🇪🇸 ES</option>
+                <option value="en">🇬🇧 EN</option>
+            </select>
+            <a href="#" id="cerrar-sesion" data-i18n="nav.logout">Cerrar sesión</a>
         `;
 
         // Acción de cerrar sesión
@@ -448,36 +495,56 @@ class MainHeader extends HTMLElement {
     }
 
     inicializarTema() {
-        const btnTema = this.shadowRoot.querySelector("#btn-tema");
+        inicializarTema(this.shadowRoot.querySelector("#btn-tema"))
+    }
 
-        if (!btnTema) return;
+    inicializarIdioma() {
+        const selector = this.shadowRoot.querySelector("#selector-idioma");
+        if (!selector) return;
 
-        const temaGuardado = localStorage.getItem("tema");
+        // Marcar la opción actual
+        const idiomaGuardado = localStorage.getItem("idioma") || "es";
+        selector.value = idiomaGuardado;
+        this.traducirMenu();
 
-        if (temaGuardado === "oscuro") {
-            document.body.classList.add("modo-oscuro");
-            btnTema.textContent = "☀️";
-            btnTema.setAttribute("aria-label", "Cambiar a modo claro");
-        } else {
-            document.body.classList.remove("modo-oscuro");
-            btnTema.textContent = "🌙";
-            btnTema.setAttribute("aria-label", "Cambiar a modo oscuro");
-        }
+        // Cambiar idioma al seleccionar
+        selector.addEventListener("change", () => {
+            localStorage.setItem("idioma", selector.value);
+            document.documentElement.lang = selector.value;
+            this.traducirMenu();
+            window.dispatchEvent(new CustomEvent("idioma-cambiado", { detail: selector.value }));
+        });
+    }
 
-        btnTema.addEventListener("click", () => {
-            document.body.classList.toggle("modo-oscuro");
-
-            const modoOscuroActivo = document.body.classList.contains("modo-oscuro");
-
-            if (modoOscuroActivo) {
-                localStorage.setItem("tema", "oscuro");
-                btnTema.textContent = "☀️";
-                btnTema.setAttribute("aria-label", "Cambiar a modo claro");
-            } else {
-                localStorage.setItem("tema", "claro");
-                btnTema.textContent = "🌙";
-                btnTema.setAttribute("aria-label", "Cambiar a modo oscuro");
+    traducirMenu() {
+        const idioma = localStorage.getItem("idioma") || "es";
+        const texto = {
+            es: {
+                "nav.login": "Iniciar sesión",
+                "nav.register": "Registrarse",
+                "nav.profile": "Mi perfil",
+                "nav.cart": "Carrito",
+                "nav.logout": "Cerrar sesión",
+                "nav.greeting": "Hola",
+                "nav.search": "Buscar productos...",
+            },
+            en: {
+                "nav.login": "Log in",
+                "nav.register": "Register",
+                "nav.profile": "My profile",
+                "nav.cart": "Cart",
+                "nav.logout": "Log out",
+                "nav.greeting": "Hello",
+                "nav.search": "Search products...",
             }
+        };
+
+        const input = this.shadowRoot.querySelector("#input-busqueda");
+        if (input) input.placeholder = texto[idioma]?.["nav.search"] || "Buscar productos...";
+
+        this.shadowRoot.querySelectorAll("[data-i18n]").forEach(el => {
+            const clave = el.dataset.i18n;
+            el.textContent = texto[idioma]?.[clave] || clave;
         });
     }
 }
