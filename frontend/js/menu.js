@@ -271,6 +271,8 @@ class MainHeader extends HTMLElement {
 
                 .usuario {
                     gap: 8px;
+                    flex-shrink: 1;
+                    flex-wrap: wrap;
                 }
 
                 .usuario a,

@@ -47,6 +47,12 @@ async function cargarProductos(contenedor) {
 }
 
 function pintarProductos(productos, productosContenedor) {
+    // IDIOMA
+    const idioma = localStorage.getItem("idioma") || "es";
+    const labels = {
+        es: ["ID", "Nombre", "Descripción", "Imagen", "Precio", "Tipo", "Especificaciones", "Descuento", "URL Video", "Acciones"],
+        en: ["ID", "Name", "Description", "Image", "Price", "Type", "Specifications", "Discount", "Video URL", "Actions"]
+    };
 
     // WRAPPER RESPONSIVE
     const wrapper = document.createElement("div");
@@ -56,6 +62,12 @@ function pintarProductos(productos, productosContenedor) {
     const tabla = document.createElement("table");
     tabla.classList.add("tabla-productos-admin");
 
+    // CABECERA Y CUERPO
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+    tabla.appendChild(thead);
+    tabla.appendChild(tbody);
+
     // METEMOS TABLA DENTRO DEL WRAPPER
     wrapper.appendChild(tabla);
 
@@ -63,11 +75,10 @@ function pintarProductos(productos, productosContenedor) {
     productosContenedor.appendChild(wrapper);
 
     // CABECERA
-    const tr = document.createElement("tr");
+    const trHead = document.createElement("tr");
+    thead.appendChild(trHead);
 
-    tabla.appendChild(tr);
-
-    tr.innerHTML = `
+    trHead.innerHTML = `
         <th>ID</th>
         <th data-i18n="admin.name">Nombre</th>
         <th data-i18n="admin.description">Descripción</th>
@@ -85,46 +96,48 @@ function pintarProductos(productos, productosContenedor) {
         const tr = document.createElement("tr");
 
         tr.innerHTML = `
-            <td>${p._id}</td>
-            <td>${p.nombre}</td>
-            <td data-i18n="desc.${p.imagen.replace('.jpg', '')}">
+            <td data-label="${labels[idioma][0]}">${p._id}</td>
+            <td data-label="${labels[idioma][1]}">${p.nombre}</td>
+            <td data-label="${labels[idioma][2]}" data-i18n="desc.${p.imagen.replace('.jpg', '')}">
                 ${p.descripcion}
             </td>
-            <td>
+            <td data-label="${labels[idioma][3]}">
                 <img src="../img/${p.imagen}" 
                      alt="${p.nombre}" 
                      class="producto-img">
             </td>
-            <td>${p.precio} €</td>
-            <td data-i18n="product.name-${p.tipo}">
+            <td data-label="${labels[idioma][4]}">${p.precio} €</td>
+            <td data-label="${labels[idioma][5]}" data-i18n="product.name-${p.tipo}">
                 ${p.tipo}
             </td>
-            <td>${especificacionesATexto(p.especificaciones)}</td>
-            <td>${p.descuento} %</td>
-            <td>${p.urlVideo}</td>
+            <td data-label="${labels[idioma][6]}">${especificacionesATexto(p.especificaciones)}</td>
+            <td data-label="${labels[idioma][7]}">${p.descuento} %</td>
+            <td data-label="${labels[idioma][8]}">${p.urlVideo}</td>
 
-            <td class="acciones">
-                <button
-                    type="button"
-                    class="btn-borrar-producto"
-                    data-id="${p._id}"
-                    data-i18n="admin.delete-btn"
-                >
-                    Borrar
-                </button>
+            <td data-label="${labels[idioma][9]}" class="acciones">
+                <div class="acciones-botones">
+                    <button
+                        type="button"
+                        class="btn-borrar-producto"
+                        data-id="${p._id}"
+                        data-i18n="admin.delete-btn"
+                    >
+                        Borrar
+                    </button>
 
-                <button
-                    type="submit"
-                    class="btn-editar-producto"
-                    data-id="${p._id}"
-                    data-i18n="admin.edit-btn"
-                >
-                    Editar
-                </button>
+                    <button
+                        type="submit"
+                        class="btn-editar-producto"
+                        data-id="${p._id}"
+                        data-i18n="admin.edit-btn"
+                    >
+                        Editar
+                    </button>
+                </div>
             </td>
         `;
 
-        tabla.appendChild(tr);
+        tbody.appendChild(tr);
     });
 }
 
@@ -165,6 +178,22 @@ function añadirEventos(inputs, mensajeContenedor) {
         }
         form.reset();
     })
+
+    window.addEventListener("idioma-cambiado", () => {
+        aplicarTraducciones();
+        
+        const idioma = localStorage.getItem("idioma") || "es";
+        const labels = {
+            es: ["ID", "Nombre", "Descripción", "Imagen", "Precio", "Tipo", "Especificaciones", "Descuento", "URL Video", "Acciones"],
+            en: ["ID", "Name", "Description", "Image", "Price", "Type", "Specifications", "Discount", "Video URL", "Actions"]
+        };
+        
+        document.querySelectorAll('.tabla-productos-admin tbody tr').forEach(tr => {
+            tr.querySelectorAll('td').forEach((td, index) => {
+                td.setAttribute('data-label', labels[idioma][index]);
+            });
+        });
+    });
 }
 
 async function crearProducto(inputs, mensajeContenedor) {
@@ -226,7 +255,7 @@ async function editarProducto(id, inputs, mensajeContenedor) {
         inputs.imagen.value = producto.imagen;
         inputs.precio.value = producto.precio;
         inputs.tipo.value = producto.tipo;
-        inputs.especificaciones.value = especificacionesATexto(producto.especificaciones);
+        inputs.especificaciones.value = especificacionesATextoPlano(producto.especificaciones);
         inputs.descuento.value = producto.descuento;
         inputs.urlVideo.value = producto.urlVideo;
         document.querySelector('#form-producto').scrollIntoView({ 
@@ -317,6 +346,12 @@ function mostrarOk(mensaje, texto) {
 function especificacionesATexto(especificaciones) {
     return Object.entries(especificaciones)
         .map(([clave, valor]) => `<p><span data-i18n="spec.${clave}">${clave}</span>: ${valor}</p>`)
+        .join('\n');
+}
+
+function especificacionesATextoPlano(especificaciones) {
+    return Object.entries(especificaciones)
+        .map(([clave, valor]) => `${clave}: ${valor}`)
         .join('\n');
 }
 
