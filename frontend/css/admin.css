@@ -178,10 +178,7 @@
 }
 
 .acciones {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 .acciones button {
@@ -219,43 +216,76 @@
 /* Tablets */
 
 @media (max-width: 700px) {
-
-  .admin-contenedor {
-    padding: 14px;
-  }
-
-  .admin-form-section,
-  .admin-lista-section {
-    padding: 20px;
-  }
-
-  .admin-contenedor h1 {
-    font-size: 1.5rem;
-  }
-
-  .admin-form-section h2,
-  .admin-lista-section h2 {
-    font-size: 1.2rem;
-  }
-
-  .form-botones {
-    flex-direction: column-reverse;
-  }
-
-  .form-botones button {
-    width: 100%;
+  .tabla-productos-admin {
     min-width: unset;
   }
 
-  .tabla-productos-admin {
-    min-width: 800px;
+  .admin-tabla-wrapper {
+    overflow-x: unset;
+  }
+
+  .admin-lista-section {
+    overflow-x: unset;
+  }
+
+  .tabla-productos-admin thead {
+    display: none;
+  }
+
+  .tabla-productos-admin tbody tr {
+    display: block;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .tabla-productos-admin td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    min-height: 40px;
+    word-break: break-all;
+  }
+
+  .tabla-productos-admin td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #193eb8;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .tabla-productos-admin td[data-label="Especificaciones"],
+  .tabla-productos-admin td[data-label="Specifications"] {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tabla-productos-admin td[data-label="Especificaciones"]::before,
+  .tabla-productos-admin td[data-label="Specifications"]::before {
+    margin-bottom: 6px;
+  }
+
+  .tabla-productos-admin td.acciones {
+    gap: 8px;
+  }
+
+  .tabla-productos-admin td.acciones::before {
+    margin-bottom: 4px;
+  }
+
+  .acciones-botones {
+    display: flex;
+    gap: 8px;
   }
 }
 
 /* Móviles */
 
 @media (max-width: 500px) {
-
   .admin-contenedor {
     padding: 10px;
   }
@@ -273,25 +303,6 @@
   .campo-form input,
   #prod-especificaciones {
     font-size: 0.9rem;
-  }
-
-  .tabla-productos-admin {
-    min-width: 700px;
-  }
-
-  .tabla-productos-admin th,
-  .tabla-productos-admin td {
-    padding: 8px;
-    font-size: 0.75rem;
-  }
-
-  .acciones {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .acciones button {
-    width: 100%;
   }
 }
 
