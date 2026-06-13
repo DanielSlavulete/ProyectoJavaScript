@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="120" alt="JavaScript Logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="110" alt="JavaScript Logo">
   &nbsp;&nbsp;&nbsp;
-  <img src="https://nodejs.org/static/images/logo.svg" width="120" alt="Node.js Logo">
+  <img src="https://nodejs.org/static/images/logo.svg" width="160" alt="Node.js Logo">
 </p>
 
 # Tienda de Componentes
