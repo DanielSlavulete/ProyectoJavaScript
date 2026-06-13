@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="100" alt="JavaScript Logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" width="120" alt="JavaScript Logo">
   &nbsp;&nbsp;&nbsp;
-  <img src="https://nodejs.org/static/images/logo.svg" width="100" alt="Node.js Logo">
+  <img src="https://nodejs.org/static/images/logo.svg" width="120" alt="Node.js Logo">
 </p>
 
-# TechStore
+# Tienda de Componentes
 
 Aplicación web Full Stack desarrollada con **JavaScript Vanilla** en el frontend y **Node.js** en el backend. El proyecto simula una tienda online de componentes electrónicos al estilo de plataformas como PCComponentes, permitiendo la visualización de productos, gestión de carrito y un sistema de usuarios con roles.
 
