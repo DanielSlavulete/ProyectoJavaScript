@@ -12,7 +12,7 @@ Este proyecto fue desarrollado con fines académicos para practicar la creación
 
 ---
 
-## Features
+## Características
 
 ### Cliente (User)
 
@@ -33,7 +33,7 @@ Este proyecto fue desarrollado con fines académicos para practicar la creación
 
 ---
 
-## Architecture
+## Arquitectura
 
 ### Frontend
 
@@ -52,7 +52,7 @@ Este proyecto fue desarrollado con fines académicos para practicar la creación
 
 ---
 
-## Features Overview
+## Resumen de funcionalidades
 
 - Sistema de autenticación de usuarios.
 - Control de acceso basado en roles (Cliente / Administrador).
@@ -63,7 +63,7 @@ Este proyecto fue desarrollado con fines académicos para practicar la creación
 
 ---
 
-## Academic Project
+## Proyecto académico
 
 Este proyecto fue desarrollado como parte de un trabajo académico del ciclo formativo de **Desarrollo de Aplicaciones Web (DAW)**.
 
@@ -81,6 +81,6 @@ Durante el desarrollo se trabajaron conceptos como:
 
 ---
 
-## Disclaimer
+## Aviso
 
 Este proyecto es únicamente educativo. No procesa pagos reales ni está conectado a ninguna pasarela de pago.
